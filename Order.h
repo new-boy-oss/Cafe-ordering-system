@@ -12,6 +12,7 @@ public:
 	Order();
 	~Order();
 private:
+	string Order_No;//∂©µ•±‡∫≈
 	double delivery_time;//≈‰ÀÕ ±º‰
 };
 

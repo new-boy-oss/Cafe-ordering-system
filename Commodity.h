@@ -7,6 +7,7 @@ using namespace std;
 class Commodity:public Raw_material
 {
 public:
+	bool ColdOrHot();//冷热
 	void pay();//支付 (支付宝 微信) 图片收款码
 	void show_product();//显示商品
 	Commodity();
