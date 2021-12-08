@@ -23,5 +23,8 @@
     <ClInclude Include="base.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="333.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
