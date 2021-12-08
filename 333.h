@@ -1,2 +1,3 @@
 #pragma once
-15151112
+#include<iostream>
+using namespace std;
