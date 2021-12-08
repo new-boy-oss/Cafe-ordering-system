@@ -1,27 +1,19 @@
 //商品类（基类）
 #pragma once
+#include"Raw_material.h"
 #include<iostream>
 #include<string>
 using namespace std;
-class Commodity
+class Commodity:public Raw_material
 {
 public:
+	void pay();//支付 (支付宝 微信) 图片收款码
 	void show_product();//显示商品
-	int add_product();//添加商品
-	void change();//修改商品数量和价格
 	Commodity();
 	~Commodity();
 private:
 	string No;//编号
-	string name;
+	string name;//咖啡的名字，比如：拿铁，美式等
 	double prise;
 	int number;//数量
 };
-
-Commodity::Commodity()
-{
-}
-
-Commodity::~Commodity()
-{
-}
