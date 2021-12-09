@@ -15,6 +15,6 @@ public:
 private:
 	string No;//编号
 	string name;//咖啡的名字，比如：拿铁，美式等
-	double prise;
+	double prise;//价格
 	int number;//数量
 };

@@ -13,7 +13,7 @@ public:
 private:
 	string vip_account;//账号
 	string vip_key;//密码
-	string vip_name;
-	string vip_Phone_number;
+	string vip_name;//会员姓名
+	string vip_Phone_number;//电话号
 	string vip_number;//编号
 };
