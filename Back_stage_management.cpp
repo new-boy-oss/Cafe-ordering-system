@@ -27,6 +27,10 @@ Back_stage_management::~Back_stage_management()
 
 void Back_stage_management::show()//展示所有原材料
 {
+	for (vector<Commodity>::iterator it = vCommodity.begin(); it != vCommodity.end(); it++)
+	{
+		cout << "产品编号： " <<it->No<<"产品名称： "<<it->name<<"产品价格： "<<it->prise<<endl;
+	}
 		cout << "数量如下： " << endl;
 		cout << "咖啡豆 ： " << raw_coffee << endl;
 		cout << "糖 ： " << suger << endl;
