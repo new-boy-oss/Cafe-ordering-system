@@ -139,12 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Back_stage_management.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Back_stage_management.h" />
     <ClInclude Include="Commodity.h" />
     <ClInclude Include="Interface.h" />
+    <ClInclude Include="Make.h" />
     <ClInclude Include="Order.h" />
     <ClInclude Include="Raw_material.h" />
     <ClInclude Include="VIP.h" />

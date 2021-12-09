@@ -18,6 +18,9 @@
     <ClCompile Include="test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Back_stage_management.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Commodity.h">
@@ -36,6 +39,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Raw_material.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Make.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
