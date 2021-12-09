@@ -9,7 +9,7 @@ public:
 	vector<Commodity> vCommodity;
 	void manage_login(string m_manage_account, string m_manage_key);//管理员登录
 	void show();//展示所有
-	int add_product();//添加商品
+	void add_product();//添加商品
 	void change();//修改商品数量和价格
 	void SetDiscount();//设置折扣
 	Back_stage_management();

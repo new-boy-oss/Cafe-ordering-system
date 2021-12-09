@@ -39,11 +39,14 @@ void Back_stage_management::show()//展示所有原材料
 		cout << "冰：" << ice << endl;
 }
 
-int Back_stage_management::add_product()//添加产品
+void Back_stage_management::add_product()//添加产品
 {
-	double m_prise;
+	string m_name;
+	double m_prise = 0;
 	cout << "请输入要添加的产品" << endl;
+	cin >> m_name;
 	cout << "请输入它的价格" << endl;
+	cin >> m_prise;
 	if (m_prise<=0)
 	{
 		cout << "添加失败" << endl;
