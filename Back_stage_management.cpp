@@ -25,7 +25,8 @@ Back_stage_management::~Back_stage_management()
 
 }
 
-void Back_stage_management::show()//展示所有原材料
+//展示所有原材料
+void Back_stage_management::show()
 {
 	for (vector<Commodity>::iterator it = vCommodity.begin(); it != vCommodity.end(); it++)
 	{
@@ -39,29 +40,107 @@ void Back_stage_management::show()//展示所有原材料
 		cout << "冰：" << ice << endl;
 }
 
-void Back_stage_management::add_product()//添加产品
+//添加产品
+void Back_stage_management::add_product()
 {
-	string m_name;
-	double m_prise = 0;
-	cout << "请输入要添加的产品" << endl;
+	cout << "增加产品" << endl;
+	string m_name,m_No;
+	double m_prise;
+	cout << "请输入产品编号" << endl;
+	cin >> m_No;
+	cout << "请输入要添加的产品名称" << endl;
 	cin >> m_name;
 	cout << "请输入它的价格" << endl;
 	cin >> m_prise;
-	if (m_prise<=0)
+	
+	Commodity c;
+	c.No = m_No;
+	c.name = m_name;
+	c.prise = m_prise;
+
+	vCommodity.push_back(c);
+	cout << "---------------" << endl;
+
+	//写入产品
+	ofstream ofs;
+	ofs.open("menu.txt", ios::trunc);//ios::trunc 如果文件存在，把文件长度设为0
+	
+	for (vector<Commodity>::iterator it = vCommodity.begin(); it != vCommodity.end(); it++)
 	{
-		cout << "添加失败" << endl;
+		ofs << it->No << " " << it->name << " " << it->prise;
 	}
-	else
-	{
-		cout << "添加成功" << endl;
-		prise = m_prise;
-	}
+	ofs.close();
+
+	cout << "添加成功" << endl;
 }
 
-void Back_stage_management::change()//修改商品数量和价格
+//修改商品数量和价格
+void Back_stage_management::change()
 {
+	cout << "修改商品" << endl;
+	string m_name, m_No;
+	double m_prise;
+	cout << "请输入产品编号" << endl;
+	cin >> m_No;
+	cout << "请输入要修改的产品名称" << endl;
+	cin >> m_name;
+	cout << "请输入它的价格" << endl;
+	cin >> m_prise;
+
+	for (vector<Commodity>::iterator it = vCommodity.begin(); it != vCommodity.end(); it++)
+	{
+		if (it->No == m_No)
+		{
+			it->name = m_name;
+			it->prise = m_prise; 
+		}
+	}
+
+	//写入文件
+	ofstream ofs;
+	ofs.open("menu.txt", ios::trunc);
+	for (vector<Commodity>::iterator it = vCommodity.begin(); it != vCommodity.end(); it++)
+	{
+		ofs << it->No << " " << it->name << " " << it->prise << endl;
+	}
+	ofs.close();
+
+	cout << "修改成功" << endl;
+
 }
 
+//删除商品
+void Back_stage_management::delete_product()
+{
+	string delete_No;
+
+	cout << "删除商品" << endl;
+	cout << "请输入要删除的商品编号" << endl;
+	cin >> delete_No;
+	for (vector<Commodity>::iterator it = vCommodity.begin(); it != vCommodity.end(); it++)
+	{
+		if (it->No == delete_No)
+		{
+			vCommodity.erase(it);//删除向量中迭代器指向元素
+			break;
+		}
+	}
+	cout << "剩余的商品数量是" << vCommodity.size()<<endl;
+
+	//写入
+	ofstream ofs;
+	ofs.open("menu.txt", ios::trunc);
+
+	for (vector<Commodity>::iterator it = vCommodity.begin(); it != vCommodity.end(); it++)
+	{
+		ofs << it->No << " " << it->name << " " << it->prise << endl;
+	}
+	ofs.close();
+
+	cout << "删除成功" << endl;
+}
+
+//登录
 void Back_stage_management::manage_login(string m_manage_account,string m_manage_key)//管理员登录
 {
 	while (1)
