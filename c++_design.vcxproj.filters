@@ -38,9 +38,6 @@
     <ClInclude Include="Back_stage_management.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Raw_material.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Make.h">
       <Filter>头文件</Filter>
     </ClInclude>

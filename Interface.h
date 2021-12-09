@@ -6,6 +6,7 @@ using namespace std;
 class Interface
 {
 public:
+	void show_product();//œ‘ æ…Ã∆∑
 	Interface();
 	~Interface();
 private:

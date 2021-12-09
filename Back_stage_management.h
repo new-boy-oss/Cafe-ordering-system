@@ -1,13 +1,17 @@
 //后台管理
 #include"Commodity.h"
-#include"Raw_material.h"
+#include<fstream>
+#include<vector>
 #pragma once
 class Back_stage_management:public Commodity
 {
 public:
-	void manage_login();//管理员登录
+	vector<Commodity> vCommodity;
+	void manage_login(string m_manage_account, string m_manage_key);//管理员登录
+	void show();//展示所有
 	int add_product();//添加商品
 	void change();//修改商品数量和价格
+	void SetDiscount();//设置折扣
 	Back_stage_management();
 	~Back_stage_management();
 private:

@@ -148,7 +148,6 @@
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Make.h" />
     <ClInclude Include="Order.h" />
-    <ClInclude Include="Raw_material.h" />
     <ClInclude Include="VIP.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
