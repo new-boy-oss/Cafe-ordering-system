@@ -141,14 +141,16 @@ void Back_stage_management::delete_product()
 }
 
 //登录
-void Back_stage_management::manage_login(string m_manage_account,string m_manage_key)//管理员登录
+void Back_stage_management::manage_login()//管理员登录
 {
+	string m_manage_account;
+	string m_manage_key;
 	while (1)
 	{
 		cout << "请输入管理员账号" << endl;
-		cin >> manage_account;
+		cin >> m_manage_account;
 		cout << "请输入您的密码" << endl;
-		cin >> manage_account;
+		cin >> m_manage_key;
 		if (m_manage_account == manage_account && m_manage_key == manage_key)
 		{
 			cout << "登录成功" << endl;;
