@@ -33,8 +33,8 @@ Back_stage_management::~Back_stage_management()
 
 }
 
-//登录
-void Back_stage_management::manage_login()//管理员登录
+//管理员登录
+void Back_stage_management::manage_login()
 {
 	string m_manage_account;
 	string m_manage_key;
