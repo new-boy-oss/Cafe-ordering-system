@@ -142,6 +142,7 @@
     <ClCompile Include="Back_stage_management.cpp" />
     <ClCompile Include="Commdity.cpp" />
     <ClCompile Include="test.cpp" />
+    <ClCompile Include="VIP.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Back_stage_management.h" />

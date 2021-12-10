@@ -5,14 +5,22 @@
 #include<fstream>
 Back_stage_management::Back_stage_management()
 {
-	Commodity fdis;
+	
 	ifstream ifs;
 	manage_account = "000000";
 	manage_key = "111111";
 
-	Commodity f;
-	//打开文件----菜单文件---编号、名称、价格、
+	
+	//打开文件----菜单文件
 	ifs.open("menu.txt", ios::in);
+	if (!ifs.is_open())
+	{
+		cout << "文件夹打开失败" << endl;
+		return;
+	}
+
+	//打开文件----会员文件
+	ifs.open("vip.txt", ios::in);
 	if (!ifs.is_open())
 	{
 		cout << "文件夹打开失败" << endl;
@@ -23,6 +31,29 @@ Back_stage_management::Back_stage_management()
 Back_stage_management::~Back_stage_management()
 {
 
+}
+
+//登录
+void Back_stage_management::manage_login()//管理员登录
+{
+	string m_manage_account;
+	string m_manage_key;
+	while (1)
+	{
+		cout << "请输入管理员账号" << endl;
+		cin >> m_manage_account;
+		cout << "请输入您的密码" << endl;
+		cin >> m_manage_key;
+		if (m_manage_account == manage_account && m_manage_key == manage_key)
+		{
+			cout << "登录成功" << endl;;
+			break;
+		}
+		else
+		{
+			cout << "登陆失败，请重新登录" << endl;
+		}
+	}
 }
 
 //展示所有原材料
@@ -140,25 +171,15 @@ void Back_stage_management::delete_product()
 	cout << "删除成功" << endl;
 }
 
-//登录
-void Back_stage_management::manage_login()//管理员登录
+//会员信息维护
+void Back_stage_management::vip_information_maintenance()
 {
-	string m_manage_account;
-	string m_manage_key;
-	while (1)
+	ifstream ifs("vip.txt");
+
+	string str;
+	while (getline(ifs, str))
 	{
-		cout << "请输入管理员账号" << endl;
-		cin >> m_manage_account;
-		cout << "请输入您的密码" << endl;
-		cin >> m_manage_key;
-		if (m_manage_account == manage_account && m_manage_key == manage_key)
-		{
-			cout << "登录成功" << endl;;
-			break;
-		}
-		else
-		{
-			cout << "登陆失败，请重新登录" << endl;
-		}
+		cout << str << endl;
 	}
 }
+

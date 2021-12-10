@@ -12,6 +12,7 @@ public:
 	void add_product();//添加商品
 	void delete_product();//删除商品
 	void change();//修改商品数量和价格
+	void vip_information_maintenance();//会员信息维护
 	Back_stage_management();
 	~Back_stage_management();
 private:
