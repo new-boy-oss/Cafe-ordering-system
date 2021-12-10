@@ -3,6 +3,8 @@
 #include"Commodity.h"
 #include<fstream>
 using namespace std;
+
+//构造函数，打开文件
 VIP::VIP()
 {
 	
@@ -20,6 +22,8 @@ VIP::VIP()
 		return;
 	}
 }
+
+//析构函数
 VIP::~VIP()
 {
 	
@@ -79,40 +83,66 @@ int VIP::get_rows_number()
 void VIP::vip_login()
 {	
 	string m_vip_account,m_vip_key;
-	
 	string str;
-
+	int i = 0;
+	int login_number = 0;//账号记录标志 等于一存在账号
+	int login_key = 0;//密码记录标志 等于一密码正确
 	string* vip_login = new string[1000];
+	ifstream ifs("vip.txt"); 
 	
+	//将文件写入临时的数组
+	for(int i = 0; i < get_rows_number(); i++)
+	{
+		getline(ifs, str);//获取文件行数
+		vip_login[i] = str;//将行的文件存入数组
+		//cout << str << endl;
+		//cout << vip_login[i] << endl;
+	}
+
+flag:
+		//判断账户是否存在
 		cout << "请输入您要登录的账户" << endl;
 		cin >> m_vip_account;
-		cout << "请输入您的密码" << endl;
-		cin >> m_vip_key;
-		ifstream ifs("vip.txt");
-		int i = 0;
-		while (getline(ifs, str))
-		{
-			vip_login[i] = str;
-		}
 		for (int j = 0; j < get_rows_number(); j++)
 		{
 			if (vip_login[j] == m_vip_account)
 			{
-
-				for (int k = 0; k < get_rows_number(); k++)
-				{
-					if (vip_login[k] == m_vip_key)
-					{
-						cout << "登录成功" << endl;
-						delete[]vip_login;
-						break;
-					}
-					else
-					{
-						cout << "登陆失败" << endl;
-						break;
-					}
-				}
+				login_number = 1;
+				break;
 			}
+		}
+
+		//long_munber默认等于0；如果等于一，则账户存在
+		if (login_number == 0)
+		{
+			cout << "账户不存在。请重新登录" << endl;
+			goto flag;
+		}
+		if (login_number == 1)
+		{
+			cout << "账号存在" << endl;
+		}
+	
+		//判断密码是否正确
+		cout << "请输入您的密码" << endl;
+		cin >> m_vip_key;
+		for (int k = 0; k < get_rows_number(); k++)
+		{
+			if (vip_login[k] == m_vip_key)
+			{
+				login_key = 1;
+				break;
+			}
+		}
+		//long_key默认等于0；如果等于一，则密码正确
+		if (login_key == 0)
+		{
+			cout << "密码错误，请重新登录" << endl;
+			goto flag;
+		}
+		if (login_key == 1)
+		{
+			cout << "登陆成功" << endl;
+			delete[]vip_login;
 		}
 }
