@@ -8,9 +8,9 @@ int main()
 	Back_stage_management a;
 	
 	//a.manage_login();
-	a.add_product();
-	a.change();
-	//a.delete_product();
+	//a.add_product();
+	//a.change();
+	a.delete_product();
 	//a.show();
 
 	//VIP v;

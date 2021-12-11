@@ -238,7 +238,9 @@ flag2:
 }
 
 //删除商品
-void Back_stage_management::delete_product()
+/*
+ 
+ void Back_stage_management::delete_product()
 {
 	string delete_No;
 
@@ -267,6 +269,9 @@ void Back_stage_management::delete_product()
 
 	cout << "删除成功" << endl;
 }
+
+*/
+
 
 //会员信息维护
 void Back_stage_management::vip_information_maintenance()
