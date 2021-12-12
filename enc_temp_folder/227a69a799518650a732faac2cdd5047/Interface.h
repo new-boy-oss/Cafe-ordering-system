@@ -6,7 +6,7 @@
 #include<stdio.h>
 #include<conio.h>
 #include<string>
-#include <windows.h>//Sleep()头文件
+#include <windows.h>//sleep()头文件
 #include <stdlib.h>
 using namespace std;
 
@@ -24,7 +24,7 @@ public:
 	void coffee_show();//coffee商品界面
 	void milktea_show();//奶茶商品界面
 	void fruittea_show();//果茶商品界面
-	//void fruitjuice_show();//果汁商品界面
+	void fruitjuice_show();//果汁商品界面
 	void cake_show();//蛋糕商品界面
 	void choice();//选择跳转页面
 	void VIP_register();//vip注册界面

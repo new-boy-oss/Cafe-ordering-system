@@ -29,22 +29,17 @@ void Interface::inferface()
 	settextcolor(RGB(0, 0, 15));
 	outtextxy(660, 110, "用户点餐");
 	outtextxy(660, 270, "管理员登录");
-
-
-	//用户点餐or管理员登陆
 	while (1)
 	{
-		m = getmessage();//获取鼠标操作
-
 		//用户点餐
+		m = getmessage();//获取鼠标操作
 		if (m.x >= 650 && m.x <= 850 && m.y >= 80 && m.y <= 180) //检测鼠标的位置 是否满足条件
 		{
 
 			if (m.message == WM_LBUTTONDOWN)
 			{
 				cleardevice();
-				//跳转到商品展示界面
-				show_product();
+				show_product();//跳转到商品展示界面
 			}
 		}
 		//管理员登陆
@@ -57,7 +52,9 @@ void Interface::inferface()
 				closegraph();
 				//管理员登陆界面开启，图形化界面关闭
 				Back_stage_management a;
-				a.manage_login();	
+				a.manage_login();
+
+				
 			}
 		}
 	}
@@ -106,7 +103,6 @@ void Interface::choice()
 	while (1)
 	{
 		m = getmessage();//获取鼠标操作
-		//会员（选择登录还是注册）
 		if (m.x >= 20 && m.x <= 200 && m.y >= 150 && m.y <= 220) //检测鼠标的位置 是否满足条件
 		{
 
@@ -116,7 +112,6 @@ void Interface::choice()
 				VIP_show();//响应功能
 			}
 		}
-		//咖啡
 		else if (m.x >= 20 && m.x <= 200 && m.y >= 220 && m.y <= 290)//检测鼠标的位置 是否满足条件
 		{
 
@@ -126,7 +121,6 @@ void Interface::choice()
 				coffee_show();//响应功能
 			}
 		}
-		//奶茶
 		else if (m.x >= 20 && m.x <= 200 && m.y >= 290 && m.y <= 360)//检测鼠标的位置 是否满足条件
 		{
 
@@ -136,7 +130,6 @@ void Interface::choice()
 				milktea_show();//响应功能
 			}
 		}
-		//果茶
 		else if (m.x >= 20 && m.x <= 200 && m.y >= 360 && m.y <= 430)//检测鼠标的位置 是否满足条件
 		{
 
@@ -146,9 +139,6 @@ void Interface::choice()
 				fruittea_show();//响应功能
 			}
 		}
-
-		//果汁
-		/*
 		else if (m.x >= 20 && m.x <= 200 && m.y >= 360 && m.y <= 430)//检测鼠标的位置 是否满足条件
 		{
 
@@ -157,9 +147,7 @@ void Interface::choice()
 				clearrectangle(201, 151, 979, 579);
 				fruitjuice_show();//响应功能
 			}
-		}*/
-
-		//蛋糕
+		}
 		else if (m.x >= 20 && m.x <= 200 && m.y >= 430 && m.y <= 500)//检测鼠标的位置 是否满足条件
 		{
 
@@ -169,7 +157,6 @@ void Interface::choice()
 				cake_show();//响应功能
 			}
 		}
-		//返回主界面
 		else if (m.x >= 20 && m.x <= 200 && m.y >= 500 && m.y <= 580)//检测鼠标的位置 是否满足条件
 		{
 
@@ -550,7 +537,6 @@ void Interface::VIP_show()
 	system("pause");
 }
 
-//咖啡
 void Interface::coffee_show()
 {
 	ExMessage m;//鼠标
@@ -724,7 +710,6 @@ void Interface::coffee_show()
 	system("pause");
 }
 
-//奶茶
 void Interface::milktea_show()
 {
 	ExMessage m;//鼠标
@@ -856,7 +841,6 @@ void Interface::milktea_show()
 	system("pause");
 }
 
-//果茶
 void Interface::fruittea_show()
 {
 	ExMessage m;//鼠标
@@ -987,9 +971,6 @@ void Interface::fruittea_show()
 	}
 	system("pause");
 }
-
-//果汁
-/*
 
 void Interface::fruitjuice_show()
 {
@@ -1122,9 +1103,6 @@ void Interface::fruitjuice_show()
 	system("pause");
 }
 
-*/
-
-//蛋糕
 void Interface::cake_show()
 {
 	ExMessage m;//鼠标
