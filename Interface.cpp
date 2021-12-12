@@ -5,7 +5,7 @@ using namespace std;
 
 Interface::Interface()
 {
-
+  //
 }
 
 Interface::~Interface()
