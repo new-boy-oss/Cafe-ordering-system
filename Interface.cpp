@@ -510,6 +510,9 @@ void Interface::VIP_show()
 				milktea_show();//响应功能
 			}
 		}
+
+		//果汁
+		/*
 		else if (m.x >= 20 && m.x <= 200 && m.y >= 360 && m.y <= 430)//检测鼠标的位置 是否满足条件
 		{
 
@@ -519,6 +522,7 @@ void Interface::VIP_show()
 				fruittea_show();//响应功能
 			}
 		}
+		
 		else if (m.x >= 20 && m.x <= 200 && m.y >= 360 && m.y <= 430)//检测鼠标的位置 是否满足条件
 		{
 
@@ -528,6 +532,7 @@ void Interface::VIP_show()
 				fruitjuice_show();//响应功能
 			}
 		}
+		*/
 		else if (m.x >= 20 && m.x <= 200 && m.y >= 430 && m.y <= 500)//检测鼠标的位置 是否满足条件
 		{
 
@@ -693,7 +698,9 @@ void Interface::coffee_show()
 				fruittea_show();//响应功能
 			}
 		}
-		else if (m.x >= 20 && m.x <= 200 && m.y >= 360 && m.y <= 430)//检测鼠标的位置 是否满足条件
+		//果茶
+		/*
+			else if (m.x >= 20 && m.x <= 200 && m.y >= 360 && m.y <= 430)//检测鼠标的位置 是否满足条件
 		{
 
 			if (m.message == WM_LBUTTONDOWN)
@@ -702,6 +709,8 @@ void Interface::coffee_show()
 				fruitjuice_show();//响应功能
 			}
 		}
+		*/
+		
 		else if (m.x >= 20 && m.x <= 200 && m.y >= 430 && m.y <= 500)//检测鼠标的位置 是否满足条件
 		{
 
@@ -825,7 +834,8 @@ void Interface::milktea_show()
 				fruittea_show();//响应功能
 			}
 		}
-		else if (m.x >= 20 && m.x <= 200 && m.y >= 360 && m.y <= 430)//检测鼠标的位置 是否满足条件
+		/*
+			else if (m.x >= 20 && m.x <= 200 && m.y >= 360 && m.y <= 430)//检测鼠标的位置 是否满足条件
 		{
 
 			if (m.message == WM_LBUTTONDOWN)
@@ -834,6 +844,8 @@ void Interface::milktea_show()
 				fruitjuice_show();//响应功能
 			}
 		}
+		*/
+		
 		else if (m.x >= 20 && m.x <= 200 && m.y >= 430 && m.y <= 500)//检测鼠标的位置 是否满足条件
 		{
 
@@ -957,6 +969,7 @@ void Interface::fruittea_show()
 				fruittea_show();//响应功能
 			}
 		}
+		/*
 		else if (m.x >= 20 && m.x <= 200 && m.y >= 360 && m.y <= 430)//检测鼠标的位置 是否满足条件
 		{
 
@@ -966,6 +979,9 @@ void Interface::fruittea_show()
 				fruitjuice_show();//响应功能
 			}
 		}
+
+		*/
+		
 		else if (m.x >= 20 && m.x <= 200 && m.y >= 430 && m.y <= 500)//检测鼠标的位置 是否满足条件
 		{
 
@@ -1226,7 +1242,8 @@ void Interface::cake_show()
 				fruittea_show();//响应功能
 			}
 		}
-		else if (m.x >= 20 && m.x <= 200 && m.y >= 360 && m.y <= 430)//检测鼠标的位置 是否满足条件
+		/*
+			else if (m.x >= 20 && m.x <= 200 && m.y >= 360 && m.y <= 430)//检测鼠标的位置 是否满足条件
 		{
 
 			if (m.message == WM_LBUTTONDOWN)
@@ -1235,6 +1252,8 @@ void Interface::cake_show()
 				fruitjuice_show();//响应功能
 			}
 		}
+		*/
+		
 		else if (m.x >= 20 && m.x <= 200 && m.y >= 430 && m.y <= 500)//检测鼠标的位置 是否满足条件
 		{
 
