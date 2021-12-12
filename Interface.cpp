@@ -1,6 +1,6 @@
 #pragma once
 #include"Interface.h"
-
+#include"Back_stage_management.h"
 using namespace std;
 
 Interface::Interface()
@@ -47,13 +47,12 @@ void Interface::inferface()
 			{
 				closegraph();
 				initgraph(800, 600, SHOWCONSOLE);//跳转到管理员控制界面
-				//
-				//
-				//
-				//
-				//
-				//
 				closegraph();
+				//管理员登陆界面开启，图形化界面关闭
+				Back_stage_management a;
+				a.manage_login();
+
+				
 			}
 		}
 	}

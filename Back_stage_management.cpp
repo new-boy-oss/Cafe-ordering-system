@@ -120,19 +120,6 @@ void Back_stage_management::add_product()
 	
 }
 
-//获取行数
-int Back_stage_management::get_row_number_menu()
-{
-	int rows_number_menu = 0;//行数
-	string str;
-	ifstream ifs("menu.txt");
-	while (getline(ifs, str))
-	{
-		rows_number_menu++;
-	}
-	return rows_number_menu;
-}
-
 //修改商品名称，数量和价格
 void Back_stage_management::change()
 {
@@ -272,7 +259,6 @@ flag2:
 
 */
 
-
 //会员信息维护
 void Back_stage_management::vip_information_maintenance()
 {
@@ -285,3 +271,15 @@ void Back_stage_management::vip_information_maintenance()
 	}
 }
 
+//获取行数
+int Back_stage_management::get_row_number_menu()
+{
+	int rows_number_menu = 0;//行数
+	string str;
+	ifstream ifs("menu.txt");
+	while (getline(ifs, str))
+	{
+		rows_number_menu++;
+	}
+	return rows_number_menu;
+}
