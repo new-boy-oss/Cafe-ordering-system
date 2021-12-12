@@ -6,6 +6,8 @@
 #include <vector> 
 #include<map>
 using namespace std;
+
+//π‹¿Ì‘±
 class OrderManage
 {
 public:

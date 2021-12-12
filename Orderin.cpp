@@ -18,7 +18,9 @@ int Orderin::calculation()
 	totalprice = prise * number;
 	return totalprice;
 }
-void Orderin::print()//打印堂食订单到屏幕
+
+//打印堂食订单到屏幕
+void Orderin::print()
 {
 	
 	string line;//按行读取
@@ -37,7 +39,9 @@ void Orderin::print()//打印堂食订单到屏幕
 	}
 	
 }
-void Orderin::printtxt()//打印堂食每日订单并存入到一个当天的外卖文件里面
+
+//打印堂食每日订单并存入到一个当天的外卖文件里面
+void Orderin::printtxt()
 {   
 	int year, month, day;
 	time_t timer;
@@ -88,7 +92,9 @@ void Orderin::printtxt()//打印堂食每日订单并存入到一个当天的外卖文件里面
 	}
 	ofs.close();
 }
-void Orderin::AddOutInfo()//添加订单
+
+//添加订单
+void Orderin::AddOutInfo()
 {
 	string n;
 	ofstream outfiles;

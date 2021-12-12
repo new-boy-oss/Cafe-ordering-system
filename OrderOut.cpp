@@ -12,12 +12,14 @@
 #include <sstream>
 using std::setw;
 #pragma warning(disable:4996)
+//计算（配送费3块）
 int OrderOut::calculation()
 {
 	totalprice = prise * number + ExtraTips;
 	return totalprice;
 }
-void OrderOut::printtet()//打印外卖订单到txt存入到一个当天的外卖文件里面
+//打印外卖订单到txt存入到一个当天的外卖文件里面
+void OrderOut::printtet()
 {
 	int year, month, day;
 	time_t timer;
@@ -70,7 +72,8 @@ void OrderOut::printtet()//打印外卖订单到txt存入到一个当天的外卖文件里面
 	ofs.close();
 	cout << str<<"文件创建！" << endl;
 }
-void OrderOut::print()// 打印外卖订单到屏幕
+// 打印外卖订单到屏幕
+void OrderOut::print()
 {
 	string line;//按行读取
 		//输出订单信息
@@ -86,7 +89,8 @@ void OrderOut::print()// 打印外卖订单到屏幕
 
 	}
 }
-void OrderOut::AddOutInfo()//添加订单
+//添加订单
+void OrderOut::AddOutInfo()
 {
 	string n;
 	ofstream outfiles;

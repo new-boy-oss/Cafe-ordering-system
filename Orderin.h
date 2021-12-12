@@ -3,6 +3,7 @@
 #include "Order.h"
 #include <vector> 
 using namespace std;
+//Ã√ ≥∂©µ•
 class Orderin :virtual public Order
 {
 public:

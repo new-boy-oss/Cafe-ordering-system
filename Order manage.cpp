@@ -10,7 +10,8 @@
 #include <windows.h>
 #pragma warning(disable:4996)
 using namespace std;
-void OrderManage::displayOrder()//显示当天的所有订单
+//显示当天的所有订单
+void OrderManage::displayOrder()
 {
 	FILE* fp = fopen("test.txt", "r+");
 	ofstream outfiles;
@@ -24,6 +25,7 @@ void OrderManage::displayOrder()//显示当天的所有订单
 
 
 }
+//查询
 void  OrderManage::SeekOrder()
 { 
 
@@ -103,6 +105,7 @@ void  OrderManage::SeekOrder()
 	   }
 	}
 }
+//更新
 void OrderManage::UpdateOrder()
 {
 	Orderin oi;
@@ -368,7 +371,8 @@ void OrderManage::UpdateOrder()
 		}
 	}*/
 }
-void  OrderManage::DeleteAllOrder()//删除订单
+//删除全部订单
+void  OrderManage::DeleteAllOrder()
 {
 	cout << endl;
 	cout << "     正在删除所有的文本信息......"<<endl;
@@ -386,6 +390,7 @@ void  OrderManage::DeleteAllOrder()//删除订单
 	}
 	cout << "          已完成              " << endl;
 }
+//删除一个订单
 void OrderManage::DeleteoneOrder()
 {
 	cout << "欢迎删除订单" << endl;
