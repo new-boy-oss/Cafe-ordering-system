@@ -21,9 +21,9 @@ int main()
 	//a.vip_information_maintenance();
 	
 	
-		//Interface c1;
-		//c1.inferface();
-		//return 0;
+		Interface c1;
+		c1.inferface();
+		return 0;
 	
 
 	

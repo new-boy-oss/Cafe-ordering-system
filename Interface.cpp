@@ -1,7 +1,6 @@
 #pragma once
 #include"Interface.h"
-#include <graphics.h>
-#include <conio.h>
+
 using namespace std;
 
 Interface::Interface()
@@ -19,17 +18,17 @@ void Interface::inferface()
 	ExMessage m;//鼠标
 	IMAGE img;
 	initgraph(1000, 600);
-	loadimage(&img, _T("C:\\咖啡店\\界面.jpg"), 1000, 600);//背景
+	loadimage(&img, _T("界面.jpg"), 1000, 600);//背景
 	putimage(0, 0, &img);
 	setlinecolor(BLACK);
 	setfillcolor(WHITE);
 	fillroundrect(650, 80, 850, 180, 30, 30);
 	fillroundrect(650, 240, 850, 340, 30, 30);
-	settextstyle(35, 0, _T("楷体"));
+	settextstyle(35, 0, "楷体");
 	setbkmode(TRANSPARENT);// 去掉文字背景
 	settextcolor(RGB(0, 0, 15));
-	outtextxy(660, 110, _T("欢迎光临"));
-	outtextxy(660, 270, _T("管理员登录"));
+	outtextxy(660, 110, "用户点餐");
+	outtextxy(660, 270, "管理员登录");
 	while (1)
 	{
 		m = getmessage();//获取鼠标操作
@@ -74,9 +73,9 @@ void Interface::inferface2()
 	line(20, 580, 980, 580);
 	line(980, 580, 980, 15);
 	line(20, 150, 980, 150);
-	loadimage(&img, _T("C:\\咖啡店\\欢迎光临.jpg"), 290, 120);
+	loadimage(&img, _T("欢迎光临.jpg"), 290, 120);
 	putimage(200, 25, &img);
-	loadimage(&img, _T("C:\\咖啡店\\coffee.jpg"), 290, 120);
+	loadimage(&img, _T("coffee.jpg"), 290, 120);
 	putimage(500, 25, &img);
 	line(200, 150, 200, 580);
 	line(20, 220, 200, 220);
@@ -87,12 +86,12 @@ void Interface::inferface2()
 	settextstyle(45, 0, _T("楷体"));
 	setbkmode(TRANSPARENT);// 去掉文字背景
 	settextcolor(RGB(0, 0, 15));
-	outtextxy(60, 170, _T("会员"));
-	outtextxy(60, 240, _T("咖啡"));
-	outtextxy(60, 310, _T("奶茶"));
-	outtextxy(60, 380, _T("果茶"));
-	outtextxy(60, 450, _T("蛋糕"));
-	outtextxy(60, 520, _T("返回"));
+	outtextxy(60, 170, "会员");
+	outtextxy(60, 240, "咖啡");
+	outtextxy(60, 310, "奶茶");
+	outtextxy(60, 380, "果茶");
+	outtextxy(60, 450, "蛋糕");
+	outtextxy(60, 520, "返回");
 
 }
 
@@ -193,13 +192,13 @@ void Interface::specifications(int temp = 0)
 	line(330, 470, 830, 470);
 	line(600, 240, 600, 470);
 	line(600, 270, 830, 270);
-	settextstyle(35, 0, _T("楷体"));
+	settextstyle(35, 0, "楷体");
 	setbkmode(TRANSPARENT);// 去掉文字背景
 	settextcolor(RGB(0, 0, 15));
 	outtextxy(490, 205, "选择规格");
-	settextstyle(35, 0, _T("楷体"));
+	settextstyle(30, 0, "楷体");
 	outtextxy(650, 240, "已选规格");
-	settextstyle(35, 0, _T("楷体"));
+	settextstyle(20, 0, "楷体");
 	outtextxy(340, 260, "份量");
 	outtextxy(340, 310, "温度");
 	outtextxy(340, 360, "糖度");
@@ -213,7 +212,7 @@ void Interface::specifications(int temp = 0)
 	outtextxy(425, 383, "无糖");
 	outtextxy(345, 433, "外卖");
 	outtextxy(425, 433, "自提");
-	settextstyle(35, 0, _T("楷体"));
+	settextstyle(40, 0, "楷体");
 	outtextxy(360, 493, "返回");
 	outtextxy(655, 493, "确认支付");
 	while (1)
@@ -537,7 +536,6 @@ void Interface::VIP_show()
 	system("pause");
 }
 
-
 void Interface::coffee_show()
 {
 	ExMessage m;//鼠标
@@ -547,9 +545,9 @@ void Interface::coffee_show()
 	line(200, 350, 980, 350);
 	line(200, 450, 980, 450);
 	line(300, 150, 300, 450);
-	loadimage(&img2, _T("C:\\咖啡店\\美式咖啡.jpg"), 99, 99);
-	loadimage(&img3, _T("C:\\咖啡店\\拿铁咖啡.jpg"), 99, 99);
-	loadimage(&img4, _T("C:\\咖啡店\\抹茶拿铁.jpg"), 99, 99);
+	loadimage(&img2, _T("美式咖啡.jpg"), 99, 99);
+	loadimage(&img3, _T("拿铁咖啡.jpg"), 99, 99);
+	loadimage(&img4, _T("抹茶拿铁.jpg"), 99, 99);
 	putimage(201, 151, &img2);
 	putimage(201, 251, &img3);
 	putimage(201, 351, &img4);
@@ -580,7 +578,7 @@ void Interface::coffee_show()
 	//outtextxy(330, 230, number[1]);
 	//outtextxy(330, 330, number[2]);
 	//outtextxy(330, 430, number[3]);
-	settextstyle(25, 0, _T("楷体"));
+	settextstyle(25, 0, "楷体");
 	setbkmode(TRANSPARENT);// 去掉文字背景
 	settextcolor(RGB(0, 0, 15));
 	outtextxy(330, 170, "No1");
@@ -720,9 +718,9 @@ void Interface::milktea_show()
 	line(200, 350, 980, 350);
 	line(200, 450, 980, 450);
 	line(300, 150, 300, 450);
-	loadimage(&img2, _T("C:\\咖啡店\\生椰桂花酿.jpg"), 99, 99);
-	loadimage(&img3, _T("C:\\咖啡店\\芋泥波波奶茶.jpg"), 99, 99);
-	loadimage(&img4, _T("C:\\咖啡店\\珍珠奶茶.jpg"), 99, 99);
+	loadimage(&img2, _T("生椰桂花酿.jpg"), 99, 99);
+	loadimage(&img3, _T("芋泥波波奶茶.jpg"), 99, 99);
+	loadimage(&img4, _T("珍珠奶茶.jpg"), 99, 99);
 	putimage(201, 151, &img2);
 	putimage(201, 251, &img3);
 	putimage(201, 351, &img4);
@@ -851,9 +849,9 @@ void Interface::fruittea_show()
 	line(200, 350, 980, 350);
 	line(200, 450, 980, 450);
 	line(300, 150, 300, 450);
-	loadimage(&img2, _T("C:\\咖啡店\\快乐水果桶.jpg"), 99, 99);
-	loadimage(&img3, _T("C:\\咖啡店\\草莓清茶.jpg"), 99, 99);
-	loadimage(&img4, _T("C:\\咖啡店\\鲜百香果茶.jpg"), 99, 99);
+	loadimage(&img2, _T("快乐水果桶.jpg"), 99, 99);
+	loadimage(&img3, _T("草莓清茶.jpg"), 99, 99);
+	loadimage(&img4, _T("鲜百香果茶.jpg"), 99, 99);
 	putimage(201, 151, &img2);
 	putimage(201, 251, &img3);
 	putimage(201, 351, &img4);
@@ -982,9 +980,9 @@ void Interface::fruitjuice_show()
 	line(200, 350, 980, 350);
 	line(200, 450, 980, 450);
 	line(300, 150, 300, 450);
-	loadimage(&img2, _T("C:\\咖啡店\\神仙玉葡提.jpg"), 99, 99);
-	loadimage(&img3, _T("C:\\咖啡店\\桃气果果.jpg"), 99, 99);
-	loadimage(&img4, _T("C:\\咖啡店\\奇异果百乐冰.jpg"), 99, 99);
+	loadimage(&img2, _T("神仙玉葡提.jpg"), 99, 99);
+	loadimage(&img3, _T("桃气果果.jpg"), 99, 99);
+	loadimage(&img4, _T("奇异果百乐冰.jpg"), 99, 99);
 	putimage(201, 151, &img2);
 	putimage(201, 251, &img3);
 	putimage(201, 351, &img4);
@@ -1113,9 +1111,9 @@ void Interface::cake_show()
 	line(200, 350, 980, 350);
 	line(200, 450, 980, 450);
 	line(300, 150, 300, 450);
-	loadimage(&img2, _T("C:\\咖啡店\\榴莲千层蛋糕.jpg"), 99, 99);
-	loadimage(&img3, _T("C:\\咖啡店\\草莓蛋糕.jpg"), 99, 99);
-	loadimage(&img4, _T("C:\\咖啡店\\提拉米苏.jpg"), 99, 99);
+	loadimage(&img2, _T("榴莲千层蛋糕.jpg"), 99, 99);
+	loadimage(&img3, _T("草莓蛋糕.jpg"), 99, 99);
+	loadimage(&img4, _T("提拉米苏.jpg"), 99, 99);
 	putimage(201, 151, &img2);
 	putimage(201, 251, &img3);
 	putimage(201, 351, &img4);
@@ -1315,7 +1313,7 @@ void Interface::WeChat_pay()
 	outtextxy(430, 250, "支付成功请点击确认");
 	outtextxy(365, 493, "返回");
 	outtextxy(705, 493, "确认");
-	loadimage(&img, _T("C:\\咖啡店\\微信支付.jpg"), 170, 170);//背景
+	loadimage(&img, _T("微信支付.jpg"), 170, 170);//背景
 	putimage(480, 300, &img);
 	while (1)
 	{
@@ -1360,7 +1358,7 @@ void Interface::Alipay_pay()
 	outtextxy(430, 250, "支付成功请点击确认");
 	outtextxy(365, 493, "返回");
 	outtextxy(705, 493, "确认");
-	loadimage(&img, _T("C:\\咖啡店\\支付宝支付.jpg"), 170, 170);//背景
+	loadimage(&img, _T("支付宝支付.jpg"), 170, 170);//背景
 	putimage(480, 300, &img);
 	while (1)
 	{
@@ -1430,3 +1428,8 @@ void Interface::order_show()
 		}
 	}
 }
+
+
+
+
+
