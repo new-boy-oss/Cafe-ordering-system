@@ -40,7 +40,6 @@ void Orderin::print()//打印堂食订单到屏幕
 void Orderin::printtxt()//打印堂食每日订单并存入到一个当天的外卖文件里面
 {   
 	int year, month, day;
-	cout << year << month << day << "日外卖订单如下" << endl;
 	time_t timer;
 	time(&timer);
 	tm* t_tm = localtime(&timer);
