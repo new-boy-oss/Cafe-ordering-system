@@ -33,9 +33,6 @@
     <ClCompile Include="Date.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Order manage.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Orderin.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -60,9 +57,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Date.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Order manage.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Order.h">

@@ -147,7 +147,6 @@
     <ClCompile Include="Commdity.cpp" />
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="Interface.cpp" />
-    <ClCompile Include="Order manage.cpp" />
     <ClCompile Include="Orderin.cpp" />
     <ClCompile Include="OrderOut.cpp" />
     <ClCompile Include="test.cpp" />
@@ -159,7 +158,6 @@
     <ClInclude Include="Date.h" />
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Make.h" />
-    <ClInclude Include="Order manage.h" />
     <ClInclude Include="Order.h" />
     <ClInclude Include="Orderin.h" />
     <ClInclude Include="orderOut.h" />

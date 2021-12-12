@@ -4,7 +4,7 @@
 #include <vector> 
 using namespace std;
 //外卖
-class OrderOut :virtual public Order//外卖
+class OrderOut :virtual public Order
 {
 public:
 	vector<OrderOut> vOrderOutInfo;
@@ -13,7 +13,7 @@ public:
 	OrderOut(string a, string b, double c, int d, string e, string f, string g) :Order(a, b, c, d, e, f, g)
 	{
 		totalprice = c;
-		ExtraTips = 3;
+		ExtraTips = 3;//配送费3块
 		calculation();
 	}
 	void add()
@@ -27,7 +27,7 @@ public:
 	}
 	void AddOutInfo();//添加订单
 	virtual void print();//打印订单在屏幕上
-	void printtet();//打印订单在txt
+	void printtxt();//打印订单在txt
 	virtual int calculation();//都已经在构造函数中用过，外卖费用3元
 	~OrderOut() {};
 	string m_Ordertime;

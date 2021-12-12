@@ -19,7 +19,7 @@ int OrderOut::calculation()
 	return totalprice;
 }
 //打印外卖订单到txt存入到一个当天的外卖文件里面
-void OrderOut::printtet()
+void OrderOut::printtxt()
 {
 	int year, month, day;
 	time_t timer;
@@ -41,13 +41,16 @@ void OrderOut::printtet()
 	std::string str3;
 	ss1 << year;
 	ss1 >> str1;
+
 	ss2 << month;
 	ss2>> str2;
+
 	ss3 << day;
 	ss3 >> str3;
+
 	string str = str1 + str2;
-		str = str + str3;
-	str=str +"外卖订单"+"txt";
+		   str = str + str3;
+	       str=str +"外卖订单"+"txt";
 	nameid =str ;
 	if (!ofs.is_open())
 	{
@@ -109,10 +112,10 @@ void OrderOut::AddOutInfo()
 		cout << "文件夹打开失败" << endl;
 		return;
 	}
-	outfiles << "菜品编号为:" << No << "\t" << "菜品名称为:" << "\t" << name << "\t" << "菜品价格为:" << "\t" << prise << "\t" << "菜品份数为:" << "\t" << number << "\t" << "总费用为:" << "\t" << totalprice << "\t" << "大杯或小杯:" << size << " " << "是否加冰:" << ice << " " << "是否加料" << adda << " " << std::endl;
-	//cout << "添加成功" << endl;
+	outfiles << "菜品编号为:" << No << "\t" << "菜品名称为:" << "\t" << name << "\t" 
+		<< "菜品价格为:" << "\t" << prise << "\t" << "菜品份数为:" << "\t" << number 
+		<< "\t" << "总费用为:" << "\t" << totalprice << "\t" << "大杯或小杯:" << size 
+		<< " " << "是否加冰:" << ice << " " << "是否加料" << adda << " " << std::endl;
 	vOrderOutInfo.push_back(oo);
-/*
-	system("pause");
-	system("cls");*/
+
 }

@@ -18,13 +18,13 @@ public:
 	void show_product();//显示商品
 	Interface();
 	~Interface();
+	void admin_login_OR_guest_choice();//用户点餐或管理员登录
 	void inferface();//主界面
-	void inferface2();//商品栏界面
+	void inferface_product();//商品栏界面
 	void VIP_show();//vip选择登陆or注册界面
 	void coffee_show();//coffee商品界面
 	void milktea_show();//奶茶商品界面
 	void fruittea_show();//果茶商品界面
-	//void fruitjuice_show();//果汁商品界面
 	void cake_show();//蛋糕商品界面
 	void choice();//选择跳转页面
 	void VIP_register();//vip注册界面

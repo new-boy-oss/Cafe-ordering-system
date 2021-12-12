@@ -5,14 +5,60 @@ using namespace std;
 
 Interface::Interface()
 {
-  //
+	char* No[12] = {};//编号
+	char* name[12] = {};//咖啡的名字，比如：拿铁，美式等
+	int prise[12] = {};//价格
+	int number[12] = {};//数量
+	char NO[20] = {};
+	string Name[12] = {};
+	string Prise[12] = {};
+	char weight[20] = {};
+	char temperature[20] = {};
+	char suger[20] = {};
+	char delivery[20] = {};
 }
 
 Interface::~Interface()
 {
 }
 
-//主界面
+//用户点餐或管理员登陆
+void Interface::admin_login_OR_guest_choice()
+{
+	while (1)
+	{
+		ExMessage m;//鼠标
+		m = getmessage();//获取鼠标操作
+
+		//用户点餐
+		if (m.x >= 650 && m.x <= 850 && m.y >= 80 && m.y <= 180) //检测鼠标的位置 是否满足条件
+		{
+
+			if (m.message == WM_LBUTTONDOWN)
+			{
+				cleardevice();
+				//跳转到商品展示界面
+				show_product();
+			}
+		}
+
+		//管理员登陆
+		else if (m.x >= 650 && m.x <= 850 && m.y >= 240 && m.y <= 340) //检测鼠标的位置 是否满足条件
+		{
+			if (m.message == WM_LBUTTONDOWN)
+			{
+				closegraph();
+				initgraph(800, 600, SHOWCONSOLE);//跳转到管理员控制界面
+				closegraph();
+				//管理员登陆界面开启，图形化界面关闭
+				Back_stage_management a;
+				a.manage_login();
+			}
+		}
+	}
+}
+
+//主界面（用户点餐或管理员登陆）
 void Interface::inferface()
 {
 	ExMessage m;//鼠标
@@ -30,42 +76,14 @@ void Interface::inferface()
 	outtextxy(660, 110, "用户点餐");
 	outtextxy(660, 270, "管理员登录");
 
-
 	//用户点餐or管理员登陆
-	while (1)
-	{
-		m = getmessage();//获取鼠标操作
+	admin_login_OR_guest_choice();
 
-		//用户点餐
-		if (m.x >= 650 && m.x <= 850 && m.y >= 80 && m.y <= 180) //检测鼠标的位置 是否满足条件
-		{
-
-			if (m.message == WM_LBUTTONDOWN)
-			{
-				cleardevice();
-				//跳转到商品展示界面
-				show_product();
-			}
-		}
-		//管理员登陆
-		else if (m.x >= 650 && m.x <= 850 && m.y >= 240 && m.y <= 340) //检测鼠标的位置 是否满足条件
-		{
-			if (m.message == WM_LBUTTONDOWN)
-			{
-				closegraph();
-				initgraph(800, 600, SHOWCONSOLE);//跳转到管理员控制界面
-				closegraph();
-				//管理员登陆界面开启，图形化界面关闭
-				Back_stage_management a;
-				a.manage_login();	
-			}
-		}
-	}
 	system("pause");
 }
 
 //商品栏界面
-void Interface::inferface2()
+void Interface::inferface_product()
 {
 	IMAGE img;
 	initgraph(1000, 600);
@@ -109,7 +127,6 @@ void Interface::choice()
 		//会员（选择登录还是注册）
 		if (m.x >= 20 && m.x <= 200 && m.y >= 150 && m.y <= 220) //检测鼠标的位置 是否满足条件
 		{
-
 			if (m.message == WM_LBUTTONDOWN)
 			{
 				clearrectangle(201, 151, 979, 579);
@@ -146,7 +163,6 @@ void Interface::choice()
 				fruittea_show();//响应功能
 			}
 		}
-
 		//蛋糕
 		else if (m.x >= 20 && m.x <= 200 && m.y >= 430 && m.y <= 500)//检测鼠标的位置 是否满足条件
 		{
@@ -160,7 +176,6 @@ void Interface::choice()
 		//返回主界面
 		else if (m.x >= 20 && m.x <= 200 && m.y >= 500 && m.y <= 580)//检测鼠标的位置 是否满足条件
 		{
-
 			if (m.message == WM_LBUTTONDOWN)
 			{
 				clearrectangle(201, 151, 979, 579);
@@ -177,7 +192,7 @@ void Interface::specifications(int temp = 0)
 	ExMessage m;//鼠标
 	setlinecolor(BLACK);
 	setfillcolor(WHITE);
-	fillroundrect(330, 200, 830, 540, 30, 30);
+	fillroundrect(330, 200, 830, 540, 30, 30);// 画填充圆角矩形(有边框)
 	fillroundrect(340, 280, 390, 305, 10, 10);
 	fillroundrect(420, 280, 470, 305, 10, 10);
 	fillroundrect(340, 330, 390, 355, 10, 10);
@@ -217,8 +232,11 @@ void Interface::specifications(int temp = 0)
 	settextstyle(40, 0, "楷体");
 	outtextxy(360, 493, "返回");
 	outtextxy(655, 493, "确认支付");
+
+	//展示页面 
 	while (1)
 	{
+		//coffee
 		m = getmessage();//获取鼠标操作
 		if (m.x >= 350 && m.x <= 450 && m.y >= 490 && m.y <= 535) //检测鼠标的位置 是否满足条件
 		{
@@ -229,6 +247,8 @@ void Interface::specifications(int temp = 0)
 				coffee_show();
 			}
 		}
+
+		//pay方式
 		else if (m.x >= 650 && m.x <= 850 && m.y >= 490 && m.y <= 540) //检测鼠标的位置 是否满足条件
 		{
 			if (m.message == WM_LBUTTONDOWN)
@@ -238,6 +258,8 @@ void Interface::specifications(int temp = 0)
 				break;
 			}
 		}
+
+		//大杯
 		else if (m.x >= 340 && m.x <= 390 && m.y >= 280 && m.y <= 305) //检测鼠标的位置 是否满足条件
 		{
 			if (m.message == WM_LBUTTONDOWN)
@@ -250,6 +272,8 @@ void Interface::specifications(int temp = 0)
 				outtextxy(680, 285, weight);
 			}
 		}
+
+		//小杯
 		else if (m.x >= 420 && m.x <= 470 && m.y >= 280 && m.y <= 305) //检测鼠标的位置 是否满足条件
 		{
 			if (m.message == WM_LBUTTONDOWN)
@@ -262,6 +286,8 @@ void Interface::specifications(int temp = 0)
 				outtextxy(680, 285, weight);
 			}
 		}
+
+		//常温
 		else if (m.x >= 340 && m.x <= 390 && m.y >= 330 && m.y <= 355) //检测鼠标的位置 是否满足条件
 		{
 			if (m.message == WM_LBUTTONDOWN)
@@ -274,6 +300,8 @@ void Interface::specifications(int temp = 0)
 				outtextxy(680, 315, temperature);
 			}
 		}
+
+		//加冰
 		else if (m.x >= 420 && m.x <= 470 && m.y >= 330 && m.y <= 355) //检测鼠标的位置 是否满足条件
 		{
 			if (m.message == WM_LBUTTONDOWN)
@@ -286,6 +314,8 @@ void Interface::specifications(int temp = 0)
 				outtextxy(680, 315, temperature);
 			}
 		}
+
+		//热
 		else if (m.x >= 500 && m.x <= 550 && m.y >= 330 && m.y <= 355) //检测鼠标的位置 是否满足条件
 		{
 			if (m.message == WM_LBUTTONDOWN)
@@ -299,6 +329,8 @@ void Interface::specifications(int temp = 0)
 
 			}
 		}
+
+		//加糖
 		else if (m.x >= 340 && m.x <= 390 && m.y >= 380 && m.y <= 405) //检测鼠标的位置 是否满足条件
 		{
 			if (m.message == WM_LBUTTONDOWN)
@@ -312,6 +344,8 @@ void Interface::specifications(int temp = 0)
 			}
 
 		}
+
+		//无糖
 		else if (m.x >= 420 && m.x <= 470 && m.y >= 380 && m.y <= 405) //检测鼠标的位置 是否满足条件
 		{
 			if (m.message == WM_LBUTTONDOWN)
@@ -324,6 +358,8 @@ void Interface::specifications(int temp = 0)
 				outtextxy(680, 345, suger);
 			}
 		}
+
+		//外卖
 		else if (m.x >= 340 && m.x <= 390 && m.y >= 430 && m.y <= 455) //检测鼠标的位置 是否满足条件
 		{
 			if (m.message == WM_LBUTTONDOWN)
@@ -336,6 +372,8 @@ void Interface::specifications(int temp = 0)
 				outtextxy(740, 375, delivery);
 			}
 		}
+
+		//堂食
 		else if (m.x >= 420 && m.x <= 470 && m.y >= 430 && m.y <= 455) //检测鼠标的位置 是否满足条件
 		{
 			if (m.message == WM_LBUTTONDOWN)
@@ -344,10 +382,12 @@ void Interface::specifications(int temp = 0)
 				settextstyle(25, 0, "楷体");
 				setbkmode(TRANSPARENT);// 去掉文字背景
 				settextcolor(RGB(0, 0, 15));
-				char delivery[20] = "自提";
+				char delivery[20] = "堂食";
 				outtextxy(740, 375, delivery);
 			}
 		}
+
+
 		settextstyle(30, 0, "楷体");
 		setbkmode(TRANSPARENT);// 去掉文字背景
 		settextcolor(RGB(0, 0, 15));
@@ -379,6 +419,7 @@ void Interface::VIP_register()
 	outtextxy(410, 345, "账号");
 	outtextxy(410, 405, "密码");
 	outtextxy(820, 520, "返回");
+
 	while (1)
 	{
 		m = getmessage();//获取鼠标操作
@@ -432,7 +473,7 @@ void Interface::VIP_login()
 //商品展示
 void Interface::show_product()
 {
-	inferface2();
+	inferface_product();
 	choice();
 	system("pause");
 }
@@ -1322,8 +1363,3 @@ void Interface::order_show()
 		}
 	}
 }
-
-
-
-
-
