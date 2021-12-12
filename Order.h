@@ -1,18 +1,20 @@
-//订单
-#include "Commodity.h"
 #pragma once
+#include<iostream>
 using namespace std;
-class Order:public  Commodity
+class Order
 {
 public:
-	void show_order();//显示订单
-	void delete_order();//删除订单
-	void refer();//查询订单
-	void delivery_method();//自提or配送
-	Order();
-	~Order();
-private:
-	string Order_No;//订单编号
-	double delivery_time;//配送时间
+	Order(int=0) {};
+	Order(string a, string b, double c, int d,string e,string f,string g) :No(a), name(b), prise(c), number(d),size(e), ice(f), adda(g) { totalprice = 0; }
+	virtual void print() = 0;
+	virtual int calculation() = 0;
+	~Order() {};
+	string No;//编号
+	string name;//咖啡的名字，比如：拿铁，美式等
+	double prise;//价格
+	double number;//数量
+	double totalprice;//一共多少钱
+	string size;//大杯小杯
+	string ice;//冰
+	string adda;//加料
 };
-

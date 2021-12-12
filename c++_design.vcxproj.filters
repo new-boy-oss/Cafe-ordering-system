@@ -30,15 +30,24 @@
     <ClCompile Include="Interface.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Date.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Order manage.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Orderin.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OrderOut.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Commodity.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="VIP.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Order.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Interface.h">
@@ -48,6 +57,21 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Make.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Date.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Order manage.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Order.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Orderin.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="orderOut.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
