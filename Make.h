@@ -5,7 +5,6 @@ class Make
 public:
 	void make_coffee();//制作咖啡
 	void pay();//支付 (支付宝 微信) 图片收款码
-	bool ColdOrHot();//冷热
 	Make();
 	~Make();
 private:
