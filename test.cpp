@@ -13,13 +13,13 @@ using std::setw;//תint
 using namespace std;
 int main()
 {
-	Back_stage_management a;
+	//Back_stage_management a;
 	
 	//a.manage_login();
 	//a.add_product();
 	//a.change();
 	//a.show();
-	a.displayOrder();
+	//a.displayOrder();
 	//VIP v;
 	//v.vip_register();
 	//v.vip_register();
@@ -28,8 +28,8 @@ int main()
 	//a.vip_information_maintenance();
 
 	
-		//Interface c1;
-		//c1.inferface();
+		Interface c1;
+		c1.inferface();
 		//return 0;
 	
 

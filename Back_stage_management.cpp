@@ -300,6 +300,11 @@ void Back_stage_management::login_choice()
 	cout << "---------2.添加产品----------------" << endl;
 	cout << "---------3.修改产品名称数量及价格--" << endl;
 	cout << "---------4.会员信息维护------------" << endl;
+	cout << "---------5.显示当天的所有订单------" << endl;
+	cout << "---------6.查询订单----------------" << endl;
+	cout << "---------7.更新订单----------------" << endl;
+	cout << "---------8.删除全部订单------------" << endl;
+	cout << "---------9.删除一个订单------------" << endl;
 	cout << "---------0.退出程序----------------" << endl;
 	cout << "-----------------------------------" << endl;
 	int choice;
@@ -332,7 +337,31 @@ flag3:
 			vip_information_maintenance();
 			goto flag3;
 			break;
-
+			//显示当天的所有订单
+		case 5:
+			displayOrder();
+			goto flag3;
+			break;
+			//查询订单
+		case 6:
+			SeekOrder();
+			goto flag3;
+			break;
+			//更新订单
+		case 7:
+			UpdateOrder();
+			goto flag3;
+			break;
+			//删除全部订单
+		case 8:
+			DeleteAllOrder();
+			goto flag3;
+			break;
+			//删除一个订单
+		case 9:
+			DeleteoneOrder();
+			goto flag3;
+			break;
 			//退出程序
 		case 0:
 			exit(0);
@@ -341,9 +370,7 @@ flag3:
 			cout << "输入错误，请重新输入" << endl;
 			goto flag3;
 			break;
-		}
-	
-	
+		}	
 }
 
 //显示当天的所有订单
@@ -362,7 +389,7 @@ void Back_stage_management::displayOrder()
 	}
 }
 
-//查询
+//查询订单
 void  Back_stage_management::SeekOrder()
 {
 
@@ -443,7 +470,7 @@ void  Back_stage_management::SeekOrder()
 	}
 }
 
-//更新
+//更新订单
 void Back_stage_management::UpdateOrder()
 {
 	Orderin oi;
