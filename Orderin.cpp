@@ -1,4 +1,6 @@
 #pragma once
+#define DATE_H
+
 #include<iostream>
 #include "Order.h"
 #include "Orderin.h"
@@ -6,12 +8,12 @@
 #include <fstream>
 #include <string>
 #include "Date.h"
-#define DATE_H
 #include <iomanip>
 #include <sstream>
-using std::setw;
 #pragma warning(disable:4996)
-int Orderin::calculation()//计算总钱数
+using std::setw;
+//计算总钱数
+int Orderin::calculation()
 {
 	totalprice = prise * number;
 	return totalprice;
