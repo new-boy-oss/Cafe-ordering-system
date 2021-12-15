@@ -157,7 +157,6 @@
     <ClInclude Include="Commodity.h" />
     <ClInclude Include="Date.h" />
     <ClInclude Include="Interface.h" />
-    <ClInclude Include="Make.h" />
     <ClInclude Include="Order.h" />
     <ClInclude Include="Orderin.h" />
     <ClInclude Include="orderOut.h" />
@@ -167,6 +166,7 @@
     <None Include="ClassDiagram.cd" />
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

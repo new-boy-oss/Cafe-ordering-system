@@ -343,7 +343,7 @@ void Interface::choice()
 }
 
 //选择规格界面
-void Interface::specifications()
+void Interface::specifications(int a)
 {
 	ExMessage m;//鼠标
 	setlinecolor(BLACK);
@@ -406,7 +406,7 @@ void Interface::specifications()
 			if (m.message == WM_LBUTTONDOWN)
 			{
 				clearrectangle(201, 151, 979, 579);
-				pay_show(getPrise());
+				pay_show(a);
 				break;
 			}
 		}
@@ -569,7 +569,7 @@ void Interface::VIP_register()
 		{
 			if (m.message == WM_LBUTTONDOWN)
 			{
-				cleardevice();
+				
 				VIP a;
 				a.vip_register();
 				show_product();
@@ -617,7 +617,6 @@ void Interface::VIP_login()
 		{
 			if (m.message == WM_LBUTTONDOWN)
 			{
-				cleardevice();
 				VIP a;
 				a.vip_login();
 				show_product();
@@ -793,8 +792,8 @@ void Interface::coffee_show()
 			if (m.message == WM_LBUTTONDOWN)
 			{
 				clearrectangle(201, 151, 979, 579);
-				specifications();//跳转到选择规格界面
 				temp = 1;
+				specifications(getPrise());//跳转到选择规格界面
 				break;
 			}
 		}
@@ -804,8 +803,8 @@ void Interface::coffee_show()
 			if (m.message == WM_LBUTTONDOWN)
 			{
 				clearrectangle(201, 151, 979, 579);
-				specifications();//跳转到选择规格界面
 				temp = 2;
+				specifications(getPrise());//跳转到选择规格界面
 				break;
 			}
 		}
@@ -815,8 +814,8 @@ void Interface::coffee_show()
 			if (m.message == WM_LBUTTONDOWN)
 			{
 				clearrectangle(201, 151, 979, 579);
-				specifications();//跳转到选择规格界面
 				temp = 3;
+				specifications(getPrise());//跳转到选择规格界面
 				break;
 			}
 		}
@@ -944,8 +943,8 @@ void Interface::milktea_show()
 			if (m.message == WM_LBUTTONDOWN)
 			{
 				clearrectangle(201, 151, 979, 579);
-				specifications();//跳转到选择规格界面
 				temp = 4;
+				specifications(getPrise());//跳转到选择规格界面
 				break;
 			}
 		}
@@ -955,8 +954,8 @@ void Interface::milktea_show()
 			if (m.message == WM_LBUTTONDOWN)
 			{
 				clearrectangle(201, 151, 979, 579);
-				specifications();//跳转到选择规格界面
 				temp = 5;
+				specifications(getPrise());//跳转到选择规格界面
 				break;
 			}
 		}
@@ -966,8 +965,8 @@ void Interface::milktea_show()
 			if (m.message == WM_LBUTTONDOWN)
 			{
 				clearrectangle(201, 151, 979, 579);
-				specifications();//跳转到选择规格界面
 				temp = 6;
+				specifications(getPrise());//跳转到选择规格界面
 				break;
 			}
 		}
@@ -1094,8 +1093,8 @@ void Interface::fruittea_show()
 			if (m.message == WM_LBUTTONDOWN)
 			{
 				clearrectangle(201, 151, 979, 579);
-				specifications();//跳转到选择规格界面
 				temp = 7;
+				specifications(getPrise());//跳转到选择规格界面
 				break;
 			}
 		}
@@ -1105,8 +1104,8 @@ void Interface::fruittea_show()
 			if (m.message == WM_LBUTTONDOWN)
 			{
 				clearrectangle(201, 151, 979, 579);
-				specifications();//跳转到选择规格界面
 				temp = 8;
+				specifications(getPrise());//跳转到选择规格界面		
 				break;
 			}
 		}
@@ -1116,8 +1115,8 @@ void Interface::fruittea_show()
 			if (m.message == WM_LBUTTONDOWN)
 			{
 				clearrectangle(201, 151, 979, 579);
-				specifications();//跳转到选择规格界面
 				temp = 9;
+				specifications(getPrise());//跳转到选择规格界面			
 				break;
 			}
 		}
@@ -1188,7 +1187,7 @@ void Interface::fruittea_show()
 }
 
 //蛋糕
-void Interface::cake_show()
+void Interface::cake_show() 
 {
 	ExMessage m;//鼠标
 	IMAGE img2, img3, img4;
@@ -1391,7 +1390,7 @@ void Interface::pay_show(int a)
 			if (m.message == WM_LBUTTONDOWN)
 			{
 				clearrectangle(201, 151, 979, 579);
-				specifications();
+				specifications(getPrise());
 				break;
 			}
 		}

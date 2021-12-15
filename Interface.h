@@ -31,7 +31,7 @@ public:
 	void choice();//选择跳转页面
 	void VIP_register();//vip注册界面
 	void VIP_login();//vip登录界面
-	void specifications();//选择规格
+	void specifications(int a);//选择规格
 	void WeChat_pay();//微信支付
 	void Alipay_pay();//支付宝支付
 	void order_show();//订单界面
