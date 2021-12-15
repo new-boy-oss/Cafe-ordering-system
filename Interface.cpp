@@ -619,7 +619,7 @@ void Interface::VIP_login()
 			{
 				VIP a;
 				a.vip_login();
-				show_product();
+				show_product2();
 				break;
 			}
 		}
@@ -632,6 +632,21 @@ void Interface::show_product()
 	inferface2();
 	choice();
 	system("pause");
+}
+
+void Interface::show_product2()
+{	
+	inferface2();
+	settextstyle(15, 0, "楷体");
+	setbkmode(TRANSPARENT);// 去掉文字背景
+	settextcolor(RGB(0, 0, 15));
+	outtextxy(800, 80, "欢迎尊贵的会员");
+	outtextxy(800, 120, "您将享受全场八折的优惠！");
+	for (int i=0; i < 12; i++)
+	{
+		pro[i].prise = pro[i].prise*0.8;
+	}
+	choice();
 }
 
 //vip选择登陆or注册

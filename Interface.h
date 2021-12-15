@@ -18,6 +18,7 @@ public:
 	~Interface();
 	void pay_show(int a);//支付 
 	void show_product();//显示商品
+	void show_product2();//登录vip后的显示商品界面
 	string getNo();
 	string getName();
 	int getPrise();
