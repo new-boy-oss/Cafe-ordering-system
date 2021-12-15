@@ -22,7 +22,6 @@ int Orderin::calculation()
 //打印堂食订单到屏幕
 void Orderin::print()
 {
-	
 	string line;//按行读取
 	//输出订单信息
 	for (vector<Orderin>::iterator it = vOrderInInfo.begin(); it != vOrderInInfo.end(); it++)
@@ -35,14 +34,13 @@ void Orderin::print()
 		cout << "大杯或小杯:" << it->size << " ";
 		cout << "是否加冰:" << it->ice << " ";
 		cout << "是否加料" << it->adda << " ";
-
 	}
-	
 }
 
 //打印堂食每日订单并存入到一个当天的外卖文件里面
 void Orderin::printtxt()
 {   
+	//文件名你
 	int year, month, day;
 	time_t timer;
 	time(&timer);
@@ -68,12 +66,12 @@ void Orderin::printtxt()
 	ss3 >> str3;
 	string str = str1 + str2 + str3;
 	str = str + "堂食订单" + "txt";
+
 	nameid = str;
 	if (!ofs.is_open())
 	{
 		ofstream ofs(nameid);
 		//cout << "新文件创建！" << endl;
-
 	}
 	ofs.close();
 	ofs.open(nameid, ios::app);
@@ -108,13 +106,16 @@ void Orderin::AddOutInfo()
 	oi.totalprice =totalprice;
 	//菜品折扣
 	vOrderInInfo.clear();
-	outfiles.open("test.txt", std::ios::app);
+	outfiles.open("order.txt", std::ios::app);
 	if (!outfiles.is_open())
 	{
 		cout << "文件夹打开失败" << endl;
 		return;
 	}
-	outfiles << "菜品编号为:"  << No << "\t" << "菜品名称为:" << "\t"<< name << "\t" << "菜品价格为:" << "\t" << prise << "\t" << "菜品份数为:" << "\t" << number << "\t" << "总费用为:" << "\t" << totalprice << "\t" << "大杯或小杯:" << size << " "<< "是否加冰:" << ice << " "<< "是否加料" << adda << " " << std::endl;
+	outfiles << "菜品编号为:"  << No << "\t" << "菜品名称为:" << "\t"<< name << "\t"
+		<< "菜品价格为:" << "\t" << prise << "\t" << "菜品份数为:" << "\t" 
+		<< number << "\t" << "总费用为:" << "\t" << totalprice << "\t"
+		<< "大杯或小杯:" << size << " "<< "是否加冰:" << ice << " "<< "是否加料" << adda << " " << std::endl;
 	outfiles.close();
 	vOrderInInfo.push_back(oi);
 }

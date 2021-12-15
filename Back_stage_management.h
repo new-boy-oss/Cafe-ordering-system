@@ -21,7 +21,7 @@ public:
 	void vip_information_maintenance();//会员信息维护
 	int get_row_number_menu();//获取商品文件行数
 
-	void DeleteoneOrder();//删除一个订单
+	
 	void UpdateOrder();//更新订单
 	void displayOrder();//显示订单
 	void SeekOrder();//查找订单
@@ -41,6 +41,7 @@ public:
 	Back_stage_management();
 	~Back_stage_management();
 	//void delete_product();//删除商品
+	//void DeleteoneOrder();//删除一个订单
 private:
 	string manage_account;//管理员账号
 	string manage_key;//管理员密码

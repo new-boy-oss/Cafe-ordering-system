@@ -232,40 +232,6 @@ flag2:
 
 }
 
-//删除商品
-/*
- 
- void Back_stage_management::delete_product()
-{
-	string delete_No;
-
-	cout << "删除商品" << endl;
-	cout << "请输入要删除的商品编号" << endl;
-	cin >> delete_No;
-	for (vector<Commodity>::iterator it = vCommodity.begin(); it != vCommodity.end(); it++)
-	{
-		if (it->No == delete_No)
-		{
-			vCommodity.erase(it);//删除向量中迭代器指向元素
-			break;
-		}
-	}
-	cout << "成功" <<endl;
-
-	//写入
-	ofstream ofs;
-	ofs.open("menu.txt", ios::trunc);
-
-	for (vector<Commodity>::iterator it = vCommodity.begin(); it != vCommodity.end(); it++)
-	{
-		ofs << it->No << " " << it->name << " " << it->prise << endl;
-	}
-	ofs.close();
-
-	cout << "删除成功" << endl;
-}
-
-*/
 
 //会员信息维护
 void Back_stage_management::vip_information_maintenance()
@@ -304,7 +270,7 @@ void Back_stage_management::login_choice()
 	cout << "---------6.查询订单----------------" << endl;
 	cout << "---------7.更新订单----------------" << endl;
 	cout << "---------8.删除全部订单------------" << endl;
-	cout << "---------9.删除一个订单------------" << endl;
+	//cout << "---------9.删除一个订单------------" << endl;
 	cout << "---------0.退出程序----------------" << endl;
 	cout << "-----------------------------------" << endl;
 	int choice;
@@ -353,15 +319,19 @@ flag3:
 			goto flag3;
 			break;
 			//删除全部订单
+		
 		case 8:
 			DeleteAllOrder();
 			goto flag3;
 			break;
+
 			//删除一个订单
+		/*
 		case 9:
 			DeleteoneOrder();
 			goto flag3;
 			break;
+		*/
 			//退出程序
 		case 0:
 			exit(0);
@@ -397,84 +367,87 @@ void  Back_stage_management::SeekOrder()
 	UpdateOrder();
 	cout << "欢迎您使用查找订单功能！注意:只可查找当日订单" << endl;
 	cout << "请输入您要查找的方式！1、按照订单编号查找  2.退出" << endl;
-	int op;
+	int op = 0;
 	string seekid;//输入查找的订单号
 	string seeknumber;
-	cin >> temp;
-	if (temp == "1" || temp == "2")
-	{
-		op = int(temp[0] - '0');
-	}
-	else
-	{
-		cout << "输入错误！" << endl;
-		return;
-	}
+	cin >> op;//temp;
 	//使用外卖单号查找
-	if (op == 1)
-	{
-		cout << "请输入您要查找的订单编号！" << endl;
-		cin >> seekid;
-		if (seekid[4] == 'o' || seekid[4] == 'i')
+	if (op == 1) {
+		while (1)
 		{
-			if (seekid[4] == 'o')
+			cout << "请输入您要查找的订单编号！" << endl;
+			cin >> seekid;
+			if (seekid.length() > 4)
 			{
-				cout << "此订单是外卖订单,具体信息如下" << endl;
-				for (map<string, vector<OrderOut>>::iterator it = mOO.begin(); it != mOO.end(); it++)
+				if (seekid[4] == 'o' || seekid[4] == 'i')//5位订单号，否则报错
 				{
-					//cout << it->first << "it->firstin"; int count = 0;
-					string y = it->first;
-					if (y == seekid)
+					if (seekid[4] == 'o')
 					{
-						cout << "订单编号：" << it->first << endl;
-						int count = 0;
-
-						for (vector<OrderOut>::iterator mit = it->second.begin(); mit != it->second.end(); mit++)
+						cout << "此订单是外卖订单,具体信息如下" << endl;
+						for (map<string, vector<OrderOut>>::iterator it = mOO.begin(); it != mOO.end(); it++)
 						{
-							count++;
-							cout << "菜品名称为：" << mit->name << " 菜品价格：" << mit->prise << " 菜品份数：" << mit->number << " 总费用：" << mit->totalprice << mit->adda << endl;
-						}
-						return;
-					}
+							string y = it->first;
+							if (y == seekid)
+							{
+								cout << "订单编号：" << it->first << endl;
+								int count = 0;
 
+								for (vector<OrderOut>::iterator mit = it->second.begin(); mit != it->second.end(); mit++)
+								{
+									count++;
+									cout << "菜品名称为：" << mit->name << " 菜品价格：" << mit->prise << " 菜品份数："
+										<< mit->number << " 总费用：" << mit->totalprice << mit->adda << endl;
+								}
+								return;
+							}
+
+						}
+					}
+					else
+					{
+						cout << "此订单是堂食订单,具体信息如下" << endl;
+						for (map<string, vector<Orderin>>::iterator it = mOI.begin(); it != mOI.end(); it++)
+						{
+							string y = it->first;
+							if (y == seekid)
+							{
+								cout << "订单编号：" << it->first << endl;
+								int count = 0;
+
+								for (vector<Orderin>::iterator mit = it->second.begin(); mit != it->second.end(); mit++)
+								{
+									count++;
+									cout << "菜品名称为：" << mit->name << " 菜品价格：" << mit->prise << " 菜品份数：" << mit->number << "总费用：" << mit->totalprice << mit->adda << endl;
+								}
+								return;
+							}
+
+						}
+					}
 				}
+				else
+				{
+					cout << "编号输入错误！" << endl;
+					return;
+				}
+				break;
 			}
 			else
 			{
-				cout << "此订单是堂食订单,具体信息如下" << endl;
-				for (map<string, vector<Orderin>>::iterator it = mOI.begin(); it != mOI.end(); it++)
-				{
-					//cout << it->first << "it->firstin";int count = 0;
-					string y = it->first;
-					if (y == seekid)
-					{
-						cout << "订单编号：" << it->first << endl;
-						int count = 0;
-
-						for (vector<Orderin>::iterator mit = it->second.begin(); mit != it->second.end(); mit++)
-						{
-							count++;
-							cout << "菜品名称为：" << mit->name << " 菜品价格：" << mit->prise << " 菜品份数：" << mit->number << "总费用：" << mit->totalprice << mit->adda << endl;
-						}
-						return;
-					}
-
-				}
+				cout << "编号为5位，请重新输入！" << endl;
+				
 			}
 		}
-		else
-		{
-			cout << "输入错误！" << endl;
-			return;
-		}
-	}
-}
 
+	}
+
+}
+		
 //更新订单
 void Back_stage_management::UpdateOrder()
 {
-	Orderin oi;
-	OrderOut oo;
+	Orderin oi;//堂食
+	OrderOut oo;//外卖
 	ifstream ifs;
 
 	//存储堂食订单的信息
@@ -486,6 +459,7 @@ void Back_stage_management::UpdateOrder()
 	vOO.clear();
 
 	//存储临时的从文件中读入的信息
+
 	vinfo.clear();
 
 	ifs.open("order.txt", ios::in);
@@ -495,9 +469,11 @@ void Back_stage_management::UpdateOrder()
 		cout << "文件打开失败！" << endl;
 		return;
 	}
-	//cout << "----------------------------------------------------" << endl;
+
 	//打开成功
-	string line;//按行读取
+
+	//按行读取
+	string line;
 	if (ifs)
 	{
 		while (getline(ifs, line))
@@ -505,11 +481,12 @@ void Back_stage_management::UpdateOrder()
 			vinfo.push_back(line);
 		}
 	}
-	//cout << "----------------------------------------------------" << endl;
+
 	//找到每一个订单的起始行
+
 	int temp[100];
-	int count = 0;
-	int c = 1;
+	int count = 0;//行数
+	int c = 1;//判断容器大小
 	for (vector<string>::iterator it = vinfo.begin(); it != vinfo.end(); it++)
 	{
 		line = *it;
@@ -518,14 +495,14 @@ void Back_stage_management::UpdateOrder()
 		{
 			if (line.at(15) == 'o' || line.at(15) == 'i')
 			{
-
 				temp[c] = count;
 				c++;
 			}
 		}
 
 	}
-	//cout << "----------------------------------------------------" << endl;
+
+
 	temp[c] = vinfo.size() + 1;
 	
 	string orderid, foodname, adda;//外卖订单编号
@@ -538,8 +515,7 @@ void Back_stage_management::UpdateOrder()
 	for (vector<string>::iterator it = vinfo.begin(); it != vinfo.end(); it++)
 	{
 		line = *it;
-		//cout << line;
-		//cout << "smdd" << endl;
+
 		if (line.at(15) == 'o' || line.at(15) == 'i')
 		{
 			if (line.at(15) == 'o')
@@ -724,7 +700,7 @@ void Back_stage_management::DeleteAllOrder()
 	Sleep(3000);
 	try
 	{
-		fstream fout("test.txt", ios::out | ios::trunc);
+		fstream fout("order.txt", ios::out | ios::trunc);
 
 		fout.close();
 
@@ -736,7 +712,43 @@ void Back_stage_management::DeleteAllOrder()
 	cout << "-----------已完成------------" << endl;
 }
 
+//删除商品
+/*
+
+ void Back_stage_management::delete_product()
+{
+	string delete_No;
+
+	cout << "删除商品" << endl;
+	cout << "请输入要删除的商品编号" << endl;
+	cin >> delete_No;
+	for (vector<Commodity>::iterator it = vCommodity.begin(); it != vCommodity.end(); it++)
+	{
+		if (it->No == delete_No)
+		{
+			vCommodity.erase(it);//删除向量中迭代器指向元素
+			break;
+		}
+	}
+	cout << "成功" <<endl;
+
+	//写入
+	ofstream ofs;
+	ofs.open("menu.txt", ios::trunc);
+
+	for (vector<Commodity>::iterator it = vCommodity.begin(); it != vCommodity.end(); it++)
+	{
+		ofs << it->No << " " << it->name << " " << it->prise << endl;
+	}
+	ofs.close();
+
+	cout << "删除成功" << endl;
+}
+
+*/
+
 //删除一个订单
+/*
 void Back_stage_management::DeleteoneOrder()
 {
 	cout << "-----------删除订单--------------" << endl;
@@ -746,21 +758,34 @@ void Back_stage_management::DeleteoneOrder()
 	//删除的订单编号
 	string deleteid;
 
-	cout << "请输入您要删除的订单编号！" << endl;
-	cin >> deleteid;
+	while (1)
+	{
+		cout << "请输入您要删除的订单编号！" << endl;
+		cin >> deleteid;
 
-	if (deleteid[4] == 'i')
-	{
-		mOI.erase(deleteid);
+		if (deleteid[4] == 'i')
+		{
+			mOI.erase(deleteid);
+			cout << "删除成功!" << endl;
+			break;
+		}
+		else if (deleteid[4] == 'o')
+		{
+			mOO.erase(deleteid);
+			cout << "删除成功!" << endl;
+			break;
+		}
+		else
+		{
+			cout << "输入错误" << endl;
+			break;
+		}
 	}
-	else if (deleteid[4] == 'o')
-	{
-		mOO.erase(deleteid);
-	}
+	
 
 	//写入文件
 	ofstream ofs;
-	ofs.open("test.txt", ios::trunc);
+	ofs.open("order.txt", ios::trunc);
 
 	//打开文件失败，创建文件
 	if (!ofs.is_open())
@@ -813,5 +838,6 @@ void Back_stage_management::DeleteoneOrder()
 		}
 
 	}
-	cout << "删除成功!" << endl;
+
 }
+*/

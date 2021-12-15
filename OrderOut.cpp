@@ -106,7 +106,7 @@ void OrderOut::AddOutInfo()
 	oo.number = number;
 	oo.totalprice = totalprice;
 	//菜品折扣
-	outfiles.open("test.txt", std::ios::app);
+	outfiles.open("order.txt", std::ios::app);
 	if (!outfiles.is_open())
 	{
 		cout << "文件夹打开失败" << endl;
