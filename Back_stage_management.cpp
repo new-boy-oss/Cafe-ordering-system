@@ -47,9 +47,9 @@ void Back_stage_management::manage_login()
 	string m_manage_key;
 	while (1)
 	{
-		cout << "ÇëÊäÈë¹ÜÀíÔ±ÕËºÅ" << endl;
+		cout << "----------------ÇëÊäÈë¹ÜÀíÔ±ÕËºÅ---------------" << endl;
 		cin >> m_manage_account;
-		cout << "ÇëÊäÈëÄúµÄÃÜÂë" << endl;
+		cout << "----------------ÇëÊäÈëÄúµÄÃÜÂë-----------------" << endl;
 		cin >> m_manage_key;
 		if (m_manage_account == manage_account && m_manage_key == manage_key)
 		{
