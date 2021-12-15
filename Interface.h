@@ -35,7 +35,7 @@ public:
 	void WeChat_pay();//微信支付
 	void Alipay_pay();//支付宝支付
 	void order_show();//订单界面
-	void gbiao(int x, int y);//绘制光标
+	//void gbiao(int x, int y);//绘制光标
 	//void chance(int temp);
 
 private:

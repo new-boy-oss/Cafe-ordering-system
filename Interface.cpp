@@ -14,9 +14,11 @@ Interface::~Interface()
 {
 }
 
-void Interface::gbiao(int x, int y)
-{
-	while (!_kbhit())//判断是否有键盘事键，若无，光标闪烁
+//判断是否有键盘事键，若无，光标闪烁
+/*
+	void Interface::gbiao(int x, int y)
+	{
+	while (!_kbhit())
 	{
 		setlinecolor(RGB(0, 0, 0));
 		setlinestyle(PS_SOLID | PS_ENDCAP_SQUARE, 1);
@@ -28,8 +30,7 @@ void Interface::gbiao(int x, int y)
 		Sleep(400);
 	}
 }
-
-
+*/
 
 //主界面
 void Interface::inferface()
