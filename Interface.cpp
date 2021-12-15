@@ -265,6 +265,8 @@ int Interface::getPrise()
 	}
 }
 
+
+
 //选择跳转界面
 void Interface::choice()
 {
@@ -353,7 +355,6 @@ void Interface::specifications(int a)
 	fillroundrect(420, 280, 470, 305, 10, 10);
 	fillroundrect(340, 330, 390, 355, 10, 10);
 	fillroundrect(420, 330, 470, 355, 10, 10);
-	fillroundrect(500, 330, 550, 355, 10, 10);
 	fillroundrect(340, 380, 390, 405, 10, 10);
 	fillroundrect(420, 380, 470, 405, 10, 10);
 	fillroundrect(340, 430, 390, 455, 10, 10);
@@ -378,9 +379,8 @@ void Interface::specifications(int a)
 	outtextxy(340, 410, "配送方式");
 	outtextxy(345, 283, "大杯");
 	outtextxy(425, 283, "小杯");
-	outtextxy(345, 333, "常温");
+	outtextxy(345, 333, "热");
 	outtextxy(425, 333, "加冰");
-	outtextxy(515, 333, "热");
 	outtextxy(345, 383, "加糖");
 	outtextxy(425, 383, "无糖");
 	outtextxy(345, 433, "外卖");
@@ -418,7 +418,7 @@ void Interface::specifications(int a)
 				settextstyle(25, 0, "楷体");
 				setbkmode(TRANSPARENT);// 去掉文字背景
 				settextcolor(RGB(0, 0, 15));
-				char weight[20] = { "大杯" };
+				char weight[20] =  "大杯" ;
 				outtextxy(680, 285, weight);
 
 			}
@@ -443,7 +443,7 @@ void Interface::specifications(int a)
 				settextstyle(25, 0, "楷体");
 				setbkmode(TRANSPARENT);// 去掉文字背景
 				settextcolor(RGB(0, 0, 15));
-				char temperature[20] = "常温";
+				char temperature[20] = "热";
 				outtextxy(680, 315, temperature);
 			}
 		}
@@ -457,19 +457,6 @@ void Interface::specifications(int a)
 				settextcolor(RGB(0, 0, 15));
 				char temperature[20] = "加冰";
 				outtextxy(680, 315, temperature);
-			}
-		}
-		else if (m.x >= 500 && m.x <= 550 && m.y >= 330 && m.y <= 355) //检测鼠标的位置 是否满足条件
-		{
-			if (m.message == WM_LBUTTONDOWN)
-			{
-				clearrectangle(675, 315, 730, 345);
-				settextstyle(25, 0, "楷体");
-				setbkmode(TRANSPARENT);// 去掉文字背景
-				settextcolor(RGB(0, 0, 15));
-				char temperature[20] = "热";
-				outtextxy(680, 315, temperature);
-
 			}
 		}
 		else if (m.x >= 340 && m.x <= 390 && m.y >= 380 && m.y <= 405) //检测鼠标的位置 是否满足条件
@@ -1442,7 +1429,7 @@ void Interface::WeChat_pay()
 			if (m.message == WM_LBUTTONDOWN)
 			{
 				clearrectangle(201, 151, 979, 579);
-				order_show();
+				order_show(getNo(),getName(),getPrise(),getweight(),gettemperature(), getsuger(),getdelivery());
 				break;
 			}
 		}
@@ -1489,7 +1476,7 @@ void Interface::Alipay_pay()
 			if (m.message == WM_LBUTTONDOWN)
 			{
 				clearrectangle(201, 151, 979, 579);
-				order_show();
+				order_show(getNo(), getName(), getPrise(), getweight(), gettemperature(), getsuger(), getdelivery());
 				break;
 			}
 		}
@@ -1506,7 +1493,7 @@ void Interface::Alipay_pay()
 }
 
 //订单界面
-void Interface::order_show()
+void Interface::order_show(string a,string b,int c,string d,string e,string f,string g)//把商品的编号、名字、价格、分量、温度、糖度、配送方法传入
 {
 	ExMessage m;//鼠标
 	setlinecolor(BLACK);
@@ -1516,12 +1503,15 @@ void Interface::order_show()
 	fillroundrect(690, 490, 790, 535, 15, 15);
 	setlinecolor(BLACK);
 	line(330, 240, 830, 240);
+	line(330, 450, 830, 450);
 	settextstyle(35, 0, "楷体");
 	setbkmode(TRANSPARENT);// 去掉文字背景
 	settextcolor(RGB(0, 0, 15));
 	outtextxy(490, 205, "订单界面");
 	outtextxy(365, 493, "返回");
 	outtextxy(705, 493, "收取");
+	settextstyle(25, 0, "楷体");
+	outtextxy(250, 220, "您的订单为：");
 	while (1)
 	{
 		m = getmessage();//获取鼠标操作
