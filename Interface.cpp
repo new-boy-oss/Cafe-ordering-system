@@ -265,6 +265,55 @@ int Interface::getPrise()
 	}
 }
 
+string Interface::getspecifications()
+{
+	if (temp1 == 1 && temp2 == 1 && temp3 == 1)
+	{
+		return spe[0].specifications;
+
+	}
+	else if (temp1 == 1 && temp2 == 1 && temp3 == 2)
+	{
+		return spe[2].specifications;
+	}
+	else if (temp1 == 1 && temp2 == 2 && temp3 == 1)
+	{
+		return spe[4].specifications;
+	}
+	else if (temp1 == 1 && temp2 == 2 && temp3 == 2)
+	{
+		return spe[6].specifications;
+	}
+	else if (temp1 == 2 && temp2 == 1 && temp3 == 1)
+	{
+		return spe[8].specifications;
+	}
+	else if (temp1 == 2 && temp2 == 1 && temp3 == 2)
+	{
+		return spe[10].specifications;
+	}
+	else if (temp1 == 2 && temp2 == 2 && temp3 == 1)
+	{
+		return spe[12].specifications;
+	}
+	else if (temp1 == 2 && temp2 == 2 && temp3 == 2)
+	{
+		return spe[14].specifications;
+	}
+}
+
+string Interface::getdelivery()
+{
+	if (temp4 == 1)
+	{
+		return spe[0].delivery;
+
+	}
+	else if (temp4 == 2)
+	{
+		return spe[1].delivery;
+	}
+}
 
 
 //选择跳转界面
@@ -420,6 +469,7 @@ void Interface::specifications(int a)
 				settextcolor(RGB(0, 0, 15));
 				char weight[20] =  "大杯" ;
 				outtextxy(680, 285, weight);
+				temp1 = 1;
 
 			}
 		}
@@ -433,6 +483,7 @@ void Interface::specifications(int a)
 				settextcolor(RGB(0, 0, 15));
 				char weight[20] = "小杯";
 				outtextxy(680, 285, weight);
+				temp1 = 2;
 			}
 		}
 		else if (m.x >= 340 && m.x <= 390 && m.y >= 330 && m.y <= 355) //检测鼠标的位置 是否满足条件
@@ -445,6 +496,7 @@ void Interface::specifications(int a)
 				settextcolor(RGB(0, 0, 15));
 				char temperature[20] = "热";
 				outtextxy(680, 315, temperature);
+				temp2 = 1;
 			}
 		}
 		else if (m.x >= 420 && m.x <= 470 && m.y >= 330 && m.y <= 355) //检测鼠标的位置 是否满足条件
@@ -457,6 +509,7 @@ void Interface::specifications(int a)
 				settextcolor(RGB(0, 0, 15));
 				char temperature[20] = "加冰";
 				outtextxy(680, 315, temperature);
+				temp2 = 2;
 			}
 		}
 		else if (m.x >= 340 && m.x <= 390 && m.y >= 380 && m.y <= 405) //检测鼠标的位置 是否满足条件
@@ -469,6 +522,7 @@ void Interface::specifications(int a)
 				settextcolor(RGB(0, 0, 15));
 				char suger[20] = "加糖";
 				outtextxy(680, 345, suger);
+				temp3 = 1;
 			}
 
 		}
@@ -482,6 +536,7 @@ void Interface::specifications(int a)
 				settextcolor(RGB(0, 0, 15));
 				char suger[20] = "无糖";
 				outtextxy(680, 345, suger);
+				temp3 = 2;
 			}
 		}
 		else if (m.x >= 340 && m.x <= 390 && m.y >= 430 && m.y <= 455) //检测鼠标的位置 是否满足条件
@@ -494,6 +549,7 @@ void Interface::specifications(int a)
 				settextcolor(RGB(0, 0, 15));
 				char delivery[20] = "外卖";
 				outtextxy(740, 375, delivery);
+				temp4 = 1;
 			}
 		}
 		else if (m.x >= 420 && m.x <= 470 && m.y >= 430 && m.y <= 455) //检测鼠标的位置 是否满足条件
@@ -506,6 +562,7 @@ void Interface::specifications(int a)
 				settextcolor(RGB(0, 0, 15));
 				char delivery[20] = "自提";
 				outtextxy(740, 375, delivery);
+				temp4 = 2;
 			}
 		}
 		settextstyle(30, 0, "楷体");
@@ -1246,7 +1303,7 @@ void Interface::cake_show()
 			{
 				clearrectangle(201, 151, 979, 579);
 				temp = 10;
-				pay_show(getPrise());//跳转到支付界面
+				specifications(getPrise());
 				break;
 			}
 		}
@@ -1257,7 +1314,7 @@ void Interface::cake_show()
 			{
 				clearrectangle(201, 151, 979, 579);
 				temp = 11;
-				pay_show(getPrise());//跳转到支付界面
+				specifications(getPrise());
 				break;
 			}
 		}
@@ -1268,7 +1325,7 @@ void Interface::cake_show()
 			{
 				clearrectangle(201, 151, 979, 579);
 				temp = 12;
-				pay_show(getPrise());//跳转到支付界面
+				specifications(getPrise());
 				break;
 			}
 
@@ -1429,7 +1486,7 @@ void Interface::WeChat_pay()
 			if (m.message == WM_LBUTTONDOWN)
 			{
 				clearrectangle(201, 151, 979, 579);
-				order_show(getNo(),getName(),getPrise(),getweight(),gettemperature(), getsuger(),getdelivery());
+				order_show(getNo(), getName(), getPrise(), getspecifications(), getdelivery());
 				break;
 			}
 		}
@@ -1476,7 +1533,7 @@ void Interface::Alipay_pay()
 			if (m.message == WM_LBUTTONDOWN)
 			{
 				clearrectangle(201, 151, 979, 579);
-				order_show(getNo(), getName(), getPrise(), getweight(), gettemperature(), getsuger(), getdelivery());
+				order_show(getNo(), getName(), getPrise(), getspecifications(), getdelivery());
 				break;
 			}
 		}
@@ -1493,7 +1550,7 @@ void Interface::Alipay_pay()
 }
 
 //订单界面
-void Interface::order_show(string a,string b,int c,string d,string e,string f,string g)//把商品的编号、名字、价格、分量、温度、糖度、配送方法传入
+void Interface::order_show(string a,string b,int c,string d,string e)//把商品的编号、名字、价格、分量、温度、糖度、配送方法传入
 {
 	ExMessage m;//鼠标
 	setlinecolor(BLACK);
@@ -1503,7 +1560,7 @@ void Interface::order_show(string a,string b,int c,string d,string e,string f,st
 	fillroundrect(690, 490, 790, 535, 15, 15);
 	setlinecolor(BLACK);
 	line(330, 240, 830, 240);
-	line(330, 450, 830, 450);
+	line(330, 440, 830, 440);
 	settextstyle(35, 0, "楷体");
 	setbkmode(TRANSPARENT);// 去掉文字背景
 	settextcolor(RGB(0, 0, 15));
@@ -1511,7 +1568,24 @@ void Interface::order_show(string a,string b,int c,string d,string e,string f,st
 	outtextxy(365, 493, "返回");
 	outtextxy(705, 493, "收取");
 	settextstyle(25, 0, "楷体");
-	outtextxy(250, 220, "您的订单为：");
+	outtextxy(350, 250, "您的订单为：");
+	settextstyle(25, 0, "楷体");
+	outtextxy(360, 285, a.c_str());
+	outtextxy(430, 285, b.c_str());
+	settextstyle(20, 0, "楷体");
+	outtextxy(540, 285, d.c_str());
+	outtextxy(540, 315, "配送方式为：");
+	outtextxy(670, 315, e.c_str());
+	settextstyle(45, 0, "楷体");
+	char c3[20];
+	sprintf_s(c3, " % d", c);
+	outtextxy(670, 390, c3);
+	outtextxy(770, 390, "元");
+	settextstyle(25, 0, "楷体");
+	outtextxy(360, 390, "您的订单正在制作中...");
+	Sleep(4000);
+	clearrectangle(350, 390, 660, 430);
+	outtextxy(360, 390, "您的订单已完成，请收取！");
 	while (1)
 	{
 		m = getmessage();//获取鼠标操作
@@ -1520,13 +1594,15 @@ void Interface::order_show(string a,string b,int c,string d,string e,string f,st
 
 			if (m.message == WM_LBUTTONDOWN)
 			{
-				clearrectangle(350, 250, 800, 480);
-				clearrectangle(690, 490, 790, 535);
+				clearrectangle(320, 190, 835, 545);
+				setlinecolor(BLACK);
+				setfillcolor(WHITE);
+				fillroundrect(330, 200, 830, 540, 30, 30);
 				settextstyle(50, 0, "楷体");
 				setbkmode(TRANSPARENT);// 去掉文字背景
 				settextcolor(RGB(0, 0, 15));
 				outtextxy(350, 280, "祝您用餐愉快！");
-				Sleep(500);
+				Sleep(1000);
 				inferface();
 				break;
 			}
