@@ -14,24 +14,6 @@ Interface::~Interface()
 {
 }
 
-//判断是否有键盘事键，若无，光标闪烁
-/*
-	void Interface::gbiao(int x, int y)
-	{
-	while (!_kbhit())
-	{
-		setlinecolor(RGB(0, 0, 0));
-		setlinestyle(PS_SOLID | PS_ENDCAP_SQUARE, 1);
-		//setrop2(R2_XORPEN); //设置异或绘图方式
-		line(x, y, x, y + 20);
-		Sleep(400);
-		setlinecolor(WHITE);
-		line(x, y, x, y + 20);
-		Sleep(400);
-	}
-}
-*/
-
 //主界面
 void Interface::inferface()
 {
@@ -359,86 +341,6 @@ void Interface::choice()
 		}
 	}
 }
-
-/*
-void Interface::chance(int temp1)
-{
-	if (temp1 == 1)
-	{
-		no = pro[0].No;
-		name = pro[0].Name;
-		Prise = pro[0].prise;
-
-	}
-	else if (temp1 == 2)
-	{
-		no = pro[1].No;
-		name = pro[1].Name;
-		Prise = pro[1].prise;
-	}
-	else if (temp1 == 3)
-	{
-		no = pro[2].No;
-		name = pro[2].Name;
-		Prise = pro[2].prise;
-	}
-	else if (temp1 == 4)
-	{
-		no = pro[3].No;
-		name = pro[3].Name;
-		Prise = pro[3].prise;
-	}
-	else if (temp1 == 5)
-	{
-		no = pro[4].No;
-		name = pro[4].Name;
-		Prise = pro[4].prise;
-	}
-	else if (temp1 == 6)
-	{
-		no = pro[5].No;
-		name = pro[5].Name;
-		Prise = pro[5].prise;
-	}
-	else if (temp1 == 7)
-	{
-		no = pro[6].No;
-		name = pro[6].Name;
-		Prise = pro[6].prise;
-	}
-	else if (temp1 == 8)
-	{
-		no = pro[7].No;
-		name = pro[7].Name;
-		Prise = pro[7].prise;
-	}
-	else if (temp1 == 9)
-	{
-		no = pro[8].No;
-		name = pro[8].Name;
-		Prise = pro[8].prise;;
-	}
-	else if (temp1 == 10)
-	{
-		no = pro[9].No;
-		name = pro[9].Name;
-		Prise = pro[9].prise;
-
-	}
-	else if (temp1 == 11)
-	{
-		no = pro[10].No;
-		name = pro[10].Name;
-		Prise = pro[10].prise;
-	}
-	else if (temp1 == 12)
-	{
-		no = pro[11].No;
-		name = pro[11].Name;
-		Prise = pro[11].prise;
-	}
-}
-*/
 
 //选择规格界面
 void Interface::specifications()
