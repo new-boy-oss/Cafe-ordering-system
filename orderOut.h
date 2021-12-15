@@ -16,15 +16,6 @@ public:
 		ExtraTips = 3;//配送费3块
 		calculation();
 	}
-	void add()
-	{
-		cout << "请输入您送餐地点" << endl;
-		cin >> m_OrderPlace;
-		cout << "请输入您送餐时间" << endl;
-		cin >> m_Ordertime;
-		cout << "请输入您的手机号" << endl;
-		cin >> m_CustomerPhone;
-	}
 	void AddOutInfo();//添加订单
 	virtual void print();//打印订单在屏幕上
 	void printtxt();//打印订单在txt

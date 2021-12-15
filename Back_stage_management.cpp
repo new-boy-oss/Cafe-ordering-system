@@ -232,7 +232,6 @@ flag2:
 
 }
 
-
 //会员信息维护
 void Back_stage_management::vip_information_maintenance()
 {

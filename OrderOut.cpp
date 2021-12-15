@@ -50,7 +50,7 @@ void OrderOut::printtxt()
 
 	string str = str1 + str2;
 		   str = str + str3;
-	       str=str +"外卖订单"+"txt";
+	       str=str +"外卖订单"+".txt";
 	nameid =str ;
 	if (!ofs.is_open())
 	{

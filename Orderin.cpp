@@ -65,7 +65,7 @@ void Orderin::printtxt()
 	ss3 << day;
 	ss3 >> str3;
 	string str = str1 + str2 + str3;
-	str = str + "堂食订单" + "txt";
+	str = str + "堂食订单" + ".txt";
 
 	nameid = str;
 	if (!ofs.is_open())

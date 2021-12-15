@@ -13,13 +13,13 @@ using std::setw;//תint
 using namespace std;
 int main()
 {
-	Back_stage_management a;
+	//Back_stage_management a;
 	
 	//a.DeleteAllOrder();
 	//a.DeleteoneOrder();
-	a.displayOrder();
-	a.UpdateOrder();
-	a.SeekOrder();
+	//a.displayOrder();
+	//a.UpdateOrder();
+	//a.SeekOrder();
 	//a.manage_login();
 	//a.add_product();
 	//a.change();
@@ -34,9 +34,9 @@ int main()
 	//Orderin a;
 	//a.printtxt();
 	
-		//Interface c1;
-		//c1.inferface();
-		//return 0;
+		Interface c1;
+		c1.inferface();
+		return 0;
 	
 
 	

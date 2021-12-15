@@ -1,6 +1,7 @@
 #pragma once
 #include"Interface.h"
 #include"Back_stage_management.h"
+#include "VIP.h"
 using namespace std;
 
 Interface::Interface()
@@ -400,7 +401,7 @@ void Interface::specifications(int temp = 0)
 	}
 }
 
-//vip注册界面
+//vip注册界面   //改动
 void Interface::VIP_register()
 {
 	ExMessage m;//鼠标
@@ -408,31 +409,43 @@ void Interface::VIP_register()
 	setfillcolor(WHITE);
 	fillroundrect(400, 240, 850, 500, 30, 30);
 	fillrectangle(500, 340, 800, 380);
-	fillrectangle(500, 400, 800, 440);
+	//fillrectangle(500, 400, 800, 440);
 	fillroundrect(780, 510, 940, 560, 30, 30);
 	setlinecolor(BLACK);
-	line(400, 290, 850, 290);
+	//line(400, 290, 850, 290);
 	settextstyle(35, 0, "楷体");
 	setbkmode(TRANSPARENT);// 去掉文字背景
 	settextcolor(RGB(0, 0, 15));
 	outtextxy(540, 250, "会员注册");
-	outtextxy(410, 345, "账号");
-	outtextxy(410, 405, "密码");
+	//outtextxy(410, 345, "账号");
+	//outtextxy(410, 405, "密码");
 	outtextxy(820, 520, "返回");
-
+	outtextxy(500, 345, "开始");
 	while (1)
 	{
 		m = getmessage();//获取鼠标操作
 		if (m.x >= 780 && m.x <= 940 && m.y >= 510 && m.y <= 560) //检测鼠标的位置 是否满足条件
 		{
-
+			 if (m.message == WM_LBUTTONDOWN)
+			{
+				clearrectangle(201, 151, 979, 579);//清空矩形区域
+				VIP_show();//返回上一界面
+				break;
+			}
+		}
+		if (m.x >= 500 && m.x <= 800 && m.y >= 340 && m.y <= 380) //检测鼠标的位置 是否满足条件
+		{
 			if (m.message == WM_LBUTTONDOWN)
 			{
-				clearrectangle(201, 151, 979, 579);
-				VIP_show();//返回上一界面
+				cleardevice();
+				VIP a;
+				a.vip_register();
+				inferface_product();
+				break;
 			}
 		}
 	}
+	
 
 }
 
@@ -440,6 +453,50 @@ void Interface::VIP_register()
 void Interface::VIP_login()
 {
 	ExMessage m;//鼠标
+	setlinecolor(BLACK);
+	setfillcolor(WHITE);
+	fillroundrect(400, 240, 850, 500, 30, 30);
+	fillrectangle(500, 340, 800, 380);
+	//fillrectangle(500, 400, 800, 440);
+	fillroundrect(780, 510, 940, 560, 30, 30);
+	setlinecolor(BLACK);
+	//line(400, 290, 850, 290);
+	settextstyle(35, 0, "楷体");
+	setbkmode(TRANSPARENT);// 去掉文字背景
+	settextcolor(RGB(0, 0, 15));
+	outtextxy(540, 250, "会员注册");
+	//outtextxy(410, 345, "账号");
+	//outtextxy(410, 405, "密码");
+	outtextxy(820, 520, "返回");
+	outtextxy(500, 345, "开始");
+	while (1)
+	{
+		m = getmessage();//获取鼠标操作
+		if (m.x >= 780 && m.x <= 940 && m.y >= 510 && m.y <= 560) //检测鼠标的位置 是否满足条件
+		{
+			if (m.message == WM_LBUTTONDOWN)
+			{
+				clearrectangle(201, 151, 979, 579);//清空矩形区域
+				VIP_show();//返回上一界面
+				break;
+			}
+		}
+		if (m.x >= 500 && m.x <= 800 && m.y >= 340 && m.y <= 380) //检测鼠标的位置 是否满足条件
+		{
+			if (m.message == WM_LBUTTONDOWN)
+			{
+				cleardevice();
+				VIP a;
+				a.vip_login();
+				inferface_product();
+				break;
+			}
+		}
+	}
+
+	//原始
+	/*
+		ExMessage m;//鼠标
 	setlinecolor(BLACK);
 	setfillcolor(WHITE);
 	fillroundrect(400, 240, 850, 500, 30, 30);
@@ -468,6 +525,8 @@ void Interface::VIP_login()
 			}
 		}
 	}
+	*/
+
 }
 
 //商品展示
@@ -540,28 +599,6 @@ void Interface::VIP_show()
 			}
 		}
 
-		//果汁
-		/*
-		else if (m.x >= 20 && m.x <= 200 && m.y >= 360 && m.y <= 430)//检测鼠标的位置 是否满足条件
-		{
-
-			if (m.message == WM_LBUTTONDOWN)
-			{
-				clearrectangle(201, 151, 979, 579);
-				fruittea_show();//响应功能
-			}
-		}
-		
-		else if (m.x >= 20 && m.x <= 200 && m.y >= 360 && m.y <= 430)//检测鼠标的位置 是否满足条件
-		{
-
-			if (m.message == WM_LBUTTONDOWN)
-			{
-				clearrectangle(201, 151, 979, 579);
-				fruitjuice_show();//响应功能
-			}
-		}
-		*/
 		else if (m.x >= 20 && m.x <= 200 && m.y >= 430 && m.y <= 500)//检测鼠标的位置 是否满足条件
 		{
 
@@ -600,33 +637,7 @@ void Interface::coffee_show()
 	putimage(201, 151, &img2);
 	putimage(201, 251, &img3);
 	putimage(201, 351, &img4);
-	//for (int i = 1; i < 4; i++)//输入咖啡的信息
-	//{
-		//cout << "请输入第" << i << "个咖啡的编号、名称、价格、数量：" << endl;
-		//cin >> No[i] >> name[i] >> prise[i] >> number[i];
-		//cout << "第" << i << "个咖啡的信息是：" << endl;
-		//cout << "编号：" << No[i] << " " << "名称" << name[i] << " " << "价格" << prise[i] << " " << "数量" << number[i] << endl;
 
-	//};
-	//outtextxy(330, 200, No[1]);
-	//outtextxy(330, 300, No[2]);
-	//outtextxy(330, 400, No[3]);
-	//outtextxy(350, 200, name[1]);
-	//outtextxy(350, 300, name[2]);
-	//outtextxy(350, 400, name[3]);
-	//char c1[20],c2[20],c3[20],c4[20],c5[20],c6[20];
-	//sprintf_s(c1, " % d", prise[1]);
-	//sprintf_s(c2, " % d", prise[2]);
-	//sprintf_s(c3, " % d", prise[3]);
-	//outtextxy(350, 230, prise[1]);
-	//outtextxy(350, 330, prise[2]);
-	//outtextxy(350, 430, prise[3]);
-	//sprintf_s(c4, " % d", number[1]);
-	//sprintf_s(c5, " % d", number[2]);
-	//sprintf_s(c6, " % d", number[3]);
-	//outtextxy(330, 230, number[1]);
-	//outtextxy(330, 330, number[2]);
-	//outtextxy(330, 430, number[3]);
 	settextstyle(25, 0, "楷体");
 	setbkmode(TRANSPARENT);// 去掉文字背景
 	settextcolor(RGB(0, 0, 15));
