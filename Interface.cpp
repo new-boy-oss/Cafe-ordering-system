@@ -4,7 +4,7 @@
 #include"VIP.h"
 using namespace std;
 
-
+//
 Interface::Interface()
 {
 	//
