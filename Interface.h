@@ -1,6 +1,7 @@
 //界面
 //查看订单，购买，会员登陆，后台管理员登陆
 #pragma once
+#include"Commodity.h"
 #include <graphics.h>
 #include<iostream>
 #include<stdio.h>
@@ -11,7 +12,7 @@
 using namespace std;
 
 
-class Interface
+class Interface :public Commodity 
 {
 public:
 	Interface();
@@ -44,25 +45,6 @@ private:
 	string name;
 	int Prise;
 	int temp, temp1, temp2, temp3, temp4;
-	struct product
-	{
-		string No;//编号
-		string Name;//名字
-		int prise;//价格
-		int number;//数量
-	}pro[12] = {
-		{"No 1","美式咖啡",10,30},
-		{"No 2","拿铁咖啡",13,30},
-		{"No 3","抹茶拿铁",15,30} ,
-		{"No 4","生椰桂花酿",17,40},
-		{"No 5","芋泥波波奶茶",20,40},
-		{"No 6","珍珠奶茶",15,40},
-		{"No 7","快乐水果桶",25,45},
-		{"No 8","草莓清茶",19,45},
-		{"No 9","鲜百香果茶",19,45},
-		{"No 10","榴莲千层蛋糕",10,30},
-		{"No 11","草莓蛋糕",30,30},
-		{"No 12","提拉米苏",16,30} };
 	struct specifications
 	{
 		string specifications;//配料
@@ -84,5 +66,4 @@ private:
 		{"小杯+加冰+加糖","自提"},
 		{"小杯+加冰+无糖","外卖"},
 		{"小杯+加冰+无糖","自提"} };
-
 };

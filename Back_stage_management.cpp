@@ -1,4 +1,5 @@
 //后台管理
+#include"Interface.h"
 #include "OrderOut.h"
 #include"Back_stage_management.h"
 #include"Commodity.h"
@@ -85,12 +86,14 @@ void Back_stage_management::show()
 //添加产品
 void Back_stage_management::add_product()
 {
-	cout << "增加产品" << endl;
-	string m_name,m_No,m_number;
-	string m_prise;
+	cout << "-------------增加产品------------" << endl;
+	string m_name, m_No;
+	int m_prise, m_number;
+
 	int add_number=0;
 	cout << "请输入增加的产品数量" << endl;
 	cin >> add_number;
+
 	for (int i = 0; i < add_number; i++)
 	{
 		cout << "请输入产品编号" << endl;
@@ -102,23 +105,23 @@ void Back_stage_management::add_product()
 		cout << "请输入产品数量" << endl;
 		cin >> m_number;
 
-		Commodity c;
-		c.No = m_No;
-		c.name = m_name;
-		c.prise = m_prise;
-		c.number = m_number;
+		//Commodity c;
+		pro[11 + i].No = m_No;
+		pro[11 + i].Name = m_name;
+		pro[11 + i].prise = m_prise;
+		pro[11 + i].number = m_number;
 
-		vCommodity.push_back(c);
+		//vCommodity.push_back(c);
 		//写入产品
 		ofstream ofs;
-		ofs.open("menu.txt", ios::trunc);//ios::trunc 如果文件存在，把文件长度设为0 app:从文件末尾写
+		ofs.open("menu.txt", ios::app);//ios::trunc 如果文件存在，把文件长度设为0 app:从文件末尾写
 
-		for (vector<Commodity>::iterator it = vCommodity.begin(); it != vCommodity.end(); it++)
-		{
-			ofs << "产品编号： " << endl << it->No << endl << "产品名称： " << endl << it->name 
-				<< endl << "产品价格： " << endl << it->prise 
-				<< endl << "产品数量： " << endl << it->number << endl << "---------------" << endl;
-		}
+		//for (vector<Commodity>::iterator it = vCommodity.begin(); it != vCommodity.end(); it++)
+		//{
+			ofs <<"产品编号： " << endl << pro[11 + i].No << endl << "产品名称： " << endl << pro[11 + i].Name
+				<< endl << "产品价格： " << endl << pro[11 + i].prise
+				<< endl << "产品数量： " << endl << pro[11 + i].number << endl << "---------------" << endl;
+		//}
 		ofs.close();
 
 		cout << "添加成功" << endl;
@@ -269,11 +272,12 @@ void Back_stage_management::login_choice()
 	cout << "---------6.查询订单----------------" << endl;
 	cout << "---------7.更新订单----------------" << endl;
 	cout << "---------8.删除全部订单------------" << endl;
+	cout << "---------9.回到主页面--------------" << endl;
 	//cout << "---------9.删除一个订单------------" << endl;
 	cout << "---------0.退出程序----------------" << endl;
 	cout << "-----------------------------------" << endl;
 	int choice;
-
+	Interface aa;
 flag3:
 	cout << "请选择接下来的操作" << endl;
 	cin >> choice;
@@ -322,6 +326,11 @@ flag3:
 		case 8:
 			DeleteAllOrder();
 			goto flag3;
+			break;
+			//回到主页面
+		case 9:
+			
+			aa.inferface();
 			break;
 
 			//删除一个订单

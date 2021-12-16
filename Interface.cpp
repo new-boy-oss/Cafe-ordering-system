@@ -315,7 +315,6 @@ string Interface::getdelivery()
 	}
 }
 
-
 //Ñ¡ÔñÌø×ª½çÃæ
 void Interface::choice()
 {
@@ -467,7 +466,7 @@ void Interface::specifications(int a)
 				settextstyle(25, 0, "¿¬Ìå");
 				setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
 				settextcolor(RGB(0, 0, 15));
-				char weight[20] =  "´ó±­" ;
+				char weight[20] = "´ó±­";
 				outtextxy(680, 285, weight);
 				temp1 = 1;
 
@@ -577,7 +576,7 @@ void Interface::specifications(int a)
 	}
 }
 
-//vip×¢²á½çÃæ   //¸Ä¶¯
+//vip×¢²á½çÃæ   
 void Interface::VIP_register()
 {
 	ExMessage m;//Êó±ê
@@ -613,7 +612,7 @@ void Interface::VIP_register()
 		{
 			if (m.message == WM_LBUTTONDOWN)
 			{
-				
+
 				VIP a;
 				a.vip_register();
 				show_product();
@@ -625,7 +624,7 @@ void Interface::VIP_register()
 
 }
 
-//vipµÇÂ¼½çÃæ   //¸Ä¶¯
+//vipµÇÂ¼½çÃæ   
 void Interface::VIP_login()
 {
 	ExMessage m;//Êó±ê
@@ -679,16 +678,16 @@ void Interface::show_product()
 }
 
 void Interface::show_product2()
-{	
+{
 	inferface2();
 	settextstyle(15, 0, "¿¬Ìå");
 	setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
 	settextcolor(RGB(0, 0, 15));
 	outtextxy(800, 80, "»¶Ó­×ð¹óµÄ»áÔ±");
 	outtextxy(800, 120, "Äú½«ÏíÊÜÈ«³¡°ËÕÛµÄÓÅ»Ý£¡");
-	for (int i=0; i < 12; i++)
+	for (int i = 0; i < 12; i++)
 	{
-		pro[i].prise = pro[i].prise*0.8;
+		pro[i].prise = pro[i].prise * 0.8;
 	}
 	choice();
 }
@@ -1246,7 +1245,7 @@ void Interface::fruittea_show()
 }
 
 //µ°¸â
-void Interface::cake_show() 
+void Interface::cake_show()
 {
 	ExMessage m;//Êó±ê
 	IMAGE img2, img3, img4;
@@ -1422,6 +1421,10 @@ void Interface::pay_show(int a)
 	char c1[20];
 	sprintf_s(c1, " % d", a);
 	outtextxy(520, 300, c1);
+	if (temp4 == 1)
+	{
+		outtextxy(610, 300, "+3ÔªÅäËÍ·Ñ");
+	}
 	while (1)
 	{
 		m = getmessage();//»ñÈ¡Êó±ê²Ù×÷
@@ -1550,7 +1553,7 @@ void Interface::Alipay_pay()
 }
 
 //¶©µ¥½çÃæ
-void Interface::order_show(string a,string b,int c,string d,string e)//°ÑÉÌÆ·µÄ±àºÅ¡¢Ãû×Ö¡¢¼Û¸ñ¡¢·ÖÁ¿¡¢ÎÂ¶È¡¢ÌÇ¶È¡¢ÅäËÍ·½·¨´«Èë
+void Interface::order_show(string a, string b, int c, string d, string e)//°ÑÉÌÆ·µÄ±àºÅ¡¢Ãû×Ö¡¢¼Û¸ñ¡¢·ÖÁ¿¡¢ÎÂ¶È¡¢ÌÇ¶È¡¢ÅäËÍ·½·¨´«Èë
 {
 	ExMessage m;//Êó±ê
 	setlinecolor(BLACK);
@@ -1576,15 +1579,30 @@ void Interface::order_show(string a,string b,int c,string d,string e)//°ÑÉÌÆ·µÄ±
 	outtextxy(540, 285, d.c_str());
 	outtextxy(540, 315, "ÅäËÍ·½Ê½Îª£º");
 	outtextxy(670, 315, e.c_str());
-	settextstyle(45, 0, "¿¬Ìå");
-	char c3[20];
-	sprintf_s(c3, " % d", c);
-	outtextxy(670, 390, c3);
-	outtextxy(770, 390, "Ôª");
+	if (temp4 == 2)
+	{
+		settextstyle(40, 0, "¿¬Ìå");
+		char c3[20];
+		sprintf_s(c3, " % d", c);
+		outtextxy(660, 390, c3);
+		outtextxy(740, 390, "Ôª");
+	}
+	else if (temp4 == 1)
+	{
+		int aa;
+		settextstyle(40, 0, "¿¬Ìå");
+		char c3[20];
+		aa = c + 3;
+		sprintf_s(c3, " % d", aa);
+		outtextxy(660, 390, c3);
+		outtextxy(740, 390, "Ôª");
+		settextstyle(20, 0, "¿¬Ìå");
+		outtextxy(540, 345, "+3ÔªÅäËÍ·Ñ");
+	}
 	settextstyle(25, 0, "¿¬Ìå");
 	outtextxy(360, 390, "ÄúµÄ¶©µ¥ÕýÔÚÖÆ×÷ÖÐ...");
 	Sleep(4000);
-	clearrectangle(350, 390, 660, 430);
+	clearrectangle(350, 390, 650, 430);
 	outtextxy(360, 390, "ÄúµÄ¶©µ¥ÒÑÍê³É£¬ÇëÊÕÈ¡£¡");
 	while (1)
 	{
@@ -1618,6 +1636,7 @@ void Interface::order_show(string a,string b,int c,string d,string e)//°ÑÉÌÆ·µÄ±
 		}
 	}
 }
+
 
 
 

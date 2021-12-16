@@ -15,6 +15,7 @@ int main()
 {
 	//Back_stage_management a;
 	
+
 	//a.DeleteAllOrder();
 	//a.DeleteoneOrder();
 	//a.displayOrder();
@@ -36,7 +37,7 @@ int main()
 	
 		Interface c1;
 		c1.inferface();
-		return 0;
+		//return 0;
 	
 
 	
