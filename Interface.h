@@ -20,11 +20,11 @@ public:
 	void pay_show(int a);//支付 
 	void show_product();//显示商品
 	void show_product2();//登录vip后的显示商品界面
-	string getNo();
-	string getName();
-	int getPrise();
-	string getspecifications();
-	string getdelivery();
+	string getNo();//返回编号
+	string getName();//返回名称
+	int getPrise();//返回价格
+	string getspecifications();//返回规格
+	string getdelivery();//返回配送方式
 	void inferface();//主界面
 	void inferface2();//商品栏界面
 	void VIP_show();//vip选择登陆or注册界面
@@ -35,10 +35,11 @@ public:
 	void choice();//选择跳转页面
 	void VIP_register();//vip注册界面
 	void VIP_login();//vip登录界面
-	void specifications(int a);//选择规格
+	void specifications(int a);//选择规格	
 	void WeChat_pay();//微信支付
 	void Alipay_pay();//支付宝支付
 	void order_show(string a, string b, int c, string d, string e);//订单界面
+
 
 private:
 	string no;

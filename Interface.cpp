@@ -103,6 +103,7 @@ void Interface::inferface2()
 
 }
 
+//·µ»Ø±àºÅ
 string Interface::getNo()
 {
 	if (temp == 1)
@@ -157,6 +158,7 @@ string Interface::getNo()
 	}
 }
 
+//·µ»ØÃû×Ö
 string Interface::getName()
 {
 	if (temp == 1)
@@ -211,6 +213,7 @@ string Interface::getName()
 	}
 }
 
+//·µ»Ø¼Û¸ñ
 int Interface::getPrise()
 {
 	if (temp == 1)
@@ -265,6 +268,7 @@ int Interface::getPrise()
 	}
 }
 
+//·µ»Ø¹æ¸ñ
 string Interface::getspecifications()
 {
 	if (temp1 == 1 && temp2 == 1 && temp3 == 1)
@@ -300,8 +304,13 @@ string Interface::getspecifications()
 	{
 		return spe[14].specifications;
 	}
+	else
+	{
+		return spe[16].specifications;
+	}
 }
 
+//·µ»ØÅäËÍ·½Ê½
 string Interface::getdelivery()
 {
 	if (temp4 == 1)
@@ -392,188 +401,276 @@ void Interface::choice()
 	}
 }
 
+
 //Ñ¡Ôñ¹æ¸ñ½çÃæ
 void Interface::specifications(int a)
 {
 	ExMessage m;//Êó±ê
-	setlinecolor(BLACK);
-	setfillcolor(WHITE);
-	fillroundrect(330, 200, 830, 540, 30, 30);
-	fillroundrect(340, 280, 390, 305, 10, 10);
-	fillroundrect(420, 280, 470, 305, 10, 10);
-	fillroundrect(340, 330, 390, 355, 10, 10);
-	fillroundrect(420, 330, 470, 355, 10, 10);
-	fillroundrect(340, 380, 390, 405, 10, 10);
-	fillroundrect(420, 380, 470, 405, 10, 10);
-	fillroundrect(340, 430, 390, 455, 10, 10);
-	fillroundrect(420, 430, 470, 455, 10, 10);
-	fillroundrect(350, 490, 450, 535, 15, 15);
-	fillroundrect(650, 490, 820, 535, 15, 15);
-	setlinecolor(BLACK);
-	line(330, 240, 830, 240);
-	line(330, 470, 830, 470);
-	line(600, 240, 600, 470);
-	line(600, 270, 830, 270);
-	settextstyle(35, 0, "¿¬Ìå");
-	setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
-	settextcolor(RGB(0, 0, 15));
-	outtextxy(490, 205, "Ñ¡Ôñ¹æ¸ñ");
-	settextstyle(30, 0, "¿¬Ìå");
-	outtextxy(650, 240, "ÒÑÑ¡¹æ¸ñ");
-	settextstyle(20, 0, "¿¬Ìå");
-	outtextxy(340, 260, "·ÝÁ¿");
-	outtextxy(340, 310, "ÎÂ¶È");
-	outtextxy(340, 360, "ÌÇ¶È");
-	outtextxy(340, 410, "ÅäËÍ·½Ê½");
-	outtextxy(345, 283, "´ó±­");
-	outtextxy(425, 283, "Ð¡±­");
-	outtextxy(345, 333, "ÈÈ");
-	outtextxy(425, 333, "¼Ó±ù");
-	outtextxy(345, 383, "¼ÓÌÇ");
-	outtextxy(425, 383, "ÎÞÌÇ");
-	outtextxy(345, 433, "ÍâÂô");
-	outtextxy(425, 433, "×ÔÌá");
-	settextstyle(40, 0, "¿¬Ìå");
-	outtextxy(360, 493, "·µ»Ø");
-	outtextxy(655, 493, "È·ÈÏÖ§¸¶");
-	while (1)
+	//µ±Ñ¡Ôñ¿§·È¡¢ÄÌ²è¡¢¹û²èÊ±²ÅÓÐ¹æ¸ñÑ¡Ôñ
+	if (temp == 1 || temp == 2 || temp == 3 || temp == 4 || temp == 5 || temp == 6 || temp == 7 || temp == 8 || temp == 9)
 	{
-		m = getmessage();//»ñÈ¡Êó±ê²Ù×÷
-		if (m.x >= 350 && m.x <= 450 && m.y >= 490 && m.y <= 535) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
-		{
 
-			if (m.message == WM_LBUTTONDOWN)
-			{
-				clearrectangle(201, 151, 979, 579);
-				coffee_show();
-				break;
-			}
-		}
-		else if (m.x >= 650 && m.x <= 850 && m.y >= 490 && m.y <= 540) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
-		{
-			if (m.message == WM_LBUTTONDOWN)
-			{
-				clearrectangle(201, 151, 979, 579);
-				pay_show(a);
-				break;
-			}
-		}
-		else if (m.x >= 340 && m.x <= 390 && m.y >= 280 && m.y <= 305) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
-		{
-			if (m.message == WM_LBUTTONDOWN)
-			{
-				clearrectangle(675, 285, 730, 315);
-				settextstyle(25, 0, "¿¬Ìå");
-				setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
-				settextcolor(RGB(0, 0, 15));
-				char weight[20] = "´ó±­";
-				outtextxy(680, 285, weight);
-				temp1 = 1;
-
-			}
-		}
-		else if (m.x >= 420 && m.x <= 470 && m.y >= 280 && m.y <= 305) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
-		{
-			if (m.message == WM_LBUTTONDOWN)
-			{
-				clearrectangle(675, 285, 730, 315);
-				settextstyle(25, 0, "¿¬Ìå");
-				setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
-				settextcolor(RGB(0, 0, 15));
-				char weight[20] = "Ð¡±­";
-				outtextxy(680, 285, weight);
-				temp1 = 2;
-			}
-		}
-		else if (m.x >= 340 && m.x <= 390 && m.y >= 330 && m.y <= 355) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
-		{
-			if (m.message == WM_LBUTTONDOWN)
-			{
-				clearrectangle(675, 315, 730, 345);
-				settextstyle(25, 0, "¿¬Ìå");
-				setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
-				settextcolor(RGB(0, 0, 15));
-				char temperature[20] = "ÈÈ";
-				outtextxy(680, 315, temperature);
-				temp2 = 1;
-			}
-		}
-		else if (m.x >= 420 && m.x <= 470 && m.y >= 330 && m.y <= 355) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
-		{
-			if (m.message == WM_LBUTTONDOWN)
-			{
-				clearrectangle(675, 315, 730, 345);
-				settextstyle(25, 0, "¿¬Ìå");
-				setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
-				settextcolor(RGB(0, 0, 15));
-				char temperature[20] = "¼Ó±ù";
-				outtextxy(680, 315, temperature);
-				temp2 = 2;
-			}
-		}
-		else if (m.x >= 340 && m.x <= 390 && m.y >= 380 && m.y <= 405) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
-		{
-			if (m.message == WM_LBUTTONDOWN)
-			{
-				clearrectangle(675, 345, 730, 375);
-				settextstyle(25, 0, "¿¬Ìå");
-				setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
-				settextcolor(RGB(0, 0, 15));
-				char suger[20] = "¼ÓÌÇ";
-				outtextxy(680, 345, suger);
-				temp3 = 1;
-			}
-
-		}
-		else if (m.x >= 420 && m.x <= 470 && m.y >= 380 && m.y <= 405) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
-		{
-			if (m.message == WM_LBUTTONDOWN)
-			{
-				clearrectangle(675, 345, 730, 375);
-				settextstyle(25, 0, "¿¬Ìå");
-				setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
-				settextcolor(RGB(0, 0, 15));
-				char suger[20] = "ÎÞÌÇ";
-				outtextxy(680, 345, suger);
-				temp3 = 2;
-			}
-		}
-		else if (m.x >= 340 && m.x <= 390 && m.y >= 430 && m.y <= 455) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
-		{
-			if (m.message == WM_LBUTTONDOWN)
-			{
-				clearrectangle(735, 375, 800, 405);
-				settextstyle(25, 0, "¿¬Ìå");
-				setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
-				settextcolor(RGB(0, 0, 15));
-				char delivery[20] = "ÍâÂô";
-				outtextxy(740, 375, delivery);
-				temp4 = 1;
-			}
-		}
-		else if (m.x >= 420 && m.x <= 470 && m.y >= 430 && m.y <= 455) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
-		{
-			if (m.message == WM_LBUTTONDOWN)
-			{
-				clearrectangle(735, 375, 800, 405);
-				settextstyle(25, 0, "¿¬Ìå");
-				setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
-				settextcolor(RGB(0, 0, 15));
-				char delivery[20] = "×ÔÌá";
-				outtextxy(740, 375, delivery);
-				temp4 = 2;
-			}
-		}
-		settextstyle(30, 0, "¿¬Ìå");
+		setlinecolor(BLACK);
+		setfillcolor(WHITE);
+		fillroundrect(330, 200, 830, 540, 30, 30);
+		fillroundrect(340, 280, 390, 305, 10, 10);
+		fillroundrect(420, 280, 470, 305, 10, 10);
+		fillroundrect(340, 330, 390, 355, 10, 10);
+		fillroundrect(420, 330, 470, 355, 10, 10);
+		fillroundrect(340, 380, 390, 405, 10, 10);
+		fillroundrect(420, 380, 470, 405, 10, 10);
+		fillroundrect(340, 430, 390, 455, 10, 10);
+		fillroundrect(420, 430, 470, 455, 10, 10);
+		fillroundrect(350, 490, 450, 535, 15, 15);
+		fillroundrect(650, 490, 820, 535, 15, 15);
+		setlinecolor(BLACK);
+		line(330, 240, 830, 240);
+		line(330, 470, 830, 470);
+		line(600, 240, 600, 470);
+		line(600, 270, 830, 270);
+		settextstyle(35, 0, "¿¬Ìå");
 		setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
 		settextcolor(RGB(0, 0, 15));
-		outtextxy(600, 280, "·ÝÁ¿£º");
-		outtextxy(600, 310, "ÎÂ¶È£º");
-		outtextxy(600, 340, "ÌÇ¶È£º");
-		outtextxy(600, 370, "ÅäËÍ·½Ê½£º");
+		outtextxy(490, 205, "Ñ¡Ôñ¹æ¸ñ");
+		settextstyle(30, 0, "¿¬Ìå");
+		outtextxy(650, 240, "ÒÑÑ¡¹æ¸ñ");
+		settextstyle(20, 0, "¿¬Ìå");
+		outtextxy(340, 260, "·ÝÁ¿");
+		outtextxy(340, 310, "ÎÂ¶È");
+		outtextxy(340, 360, "ÌÇ¶È");
+		outtextxy(340, 410, "ÅäËÍ·½Ê½");
+		outtextxy(345, 283, "´ó±­");
+		outtextxy(425, 283, "Ð¡±­");
+		outtextxy(345, 333, "ÈÈ");
+		outtextxy(425, 333, "¼Ó±ù");
+		outtextxy(345, 383, "¼ÓÌÇ");
+		outtextxy(425, 383, "ÎÞÌÇ");
+		outtextxy(345, 433, "ÍâÂô");
+		outtextxy(425, 433, "×ÔÌá");
+		settextstyle(40, 0, "¿¬Ìå");
+		outtextxy(360, 493, "·µ»Ø");
+		outtextxy(655, 493, "È·ÈÏÖ§¸¶");
+		while (1)
+		{
+			m = getmessage();//»ñÈ¡Êó±ê²Ù×÷
+			if (m.x >= 350 && m.x <= 450 && m.y >= 490 && m.y <= 535) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
+			{
 
+				if (m.message == WM_LBUTTONDOWN)
+				{
+					clearrectangle(201, 151, 979, 579);
+					coffee_show();
+					break;
+				}
+			}
+			else if (m.x >= 650 && m.x <= 850 && m.y >= 490 && m.y <= 540) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
+			{
+				if (m.message == WM_LBUTTONDOWN)
+				{
+					clearrectangle(201, 151, 979, 579);
+					pay_show(a);
+					break;
+				}
+			}
+			else if (m.x >= 340 && m.x <= 390 && m.y >= 280 && m.y <= 305) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
+			{
+				if (m.message == WM_LBUTTONDOWN)
+				{
+					clearrectangle(675, 285, 730, 315);
+					settextstyle(25, 0, "¿¬Ìå");
+					setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
+					settextcolor(RGB(0, 0, 15));
+					char weight[20] = "´ó±­";
+					outtextxy(680, 285, weight);
+					temp1 = 1;
 
+				}
+			}
+			else if (m.x >= 420 && m.x <= 470 && m.y >= 280 && m.y <= 305) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
+			{
+				if (m.message == WM_LBUTTONDOWN)
+				{
+					clearrectangle(675, 285, 730, 315);
+					settextstyle(25, 0, "¿¬Ìå");
+					setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
+					settextcolor(RGB(0, 0, 15));
+					char weight[20] = "Ð¡±­";
+					outtextxy(680, 285, weight);
+					temp1 = 2;
+				}
+			}
+			else if (m.x >= 340 && m.x <= 390 && m.y >= 330 && m.y <= 355) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
+			{
+				if (m.message == WM_LBUTTONDOWN)
+				{
+					clearrectangle(675, 315, 730, 345);
+					settextstyle(25, 0, "¿¬Ìå");
+					setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
+					settextcolor(RGB(0, 0, 15));
+					char temperature[20] = "ÈÈ";
+					outtextxy(680, 315, temperature);
+					temp2 = 1;
+				}
+			}
+			else if (m.x >= 420 && m.x <= 470 && m.y >= 330 && m.y <= 355) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
+			{
+				if (m.message == WM_LBUTTONDOWN)
+				{
+					clearrectangle(675, 315, 730, 345);
+					settextstyle(25, 0, "¿¬Ìå");
+					setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
+					settextcolor(RGB(0, 0, 15));
+					char temperature[20] = "¼Ó±ù";
+					outtextxy(680, 315, temperature);
+					temp2 = 2;
+				}
+			}
+			else if (m.x >= 340 && m.x <= 390 && m.y >= 380 && m.y <= 405) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
+			{
+				if (m.message == WM_LBUTTONDOWN)
+				{
+					clearrectangle(675, 345, 730, 375);
+					settextstyle(25, 0, "¿¬Ìå");
+					setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
+					settextcolor(RGB(0, 0, 15));
+					char suger[20] = "¼ÓÌÇ";
+					outtextxy(680, 345, suger);
+					temp3 = 1;
+				}
+
+			}
+			else if (m.x >= 420 && m.x <= 470 && m.y >= 380 && m.y <= 405) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
+			{
+				if (m.message == WM_LBUTTONDOWN)
+				{
+					clearrectangle(675, 345, 730, 375);
+					settextstyle(25, 0, "¿¬Ìå");
+					setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
+					settextcolor(RGB(0, 0, 15));
+					char suger[20] = "ÎÞÌÇ";
+					outtextxy(680, 345, suger);
+					temp3 = 2;
+				}
+			}
+			else if (m.x >= 340 && m.x <= 390 && m.y >= 430 && m.y <= 455) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
+			{
+				if (m.message == WM_LBUTTONDOWN)
+				{
+					clearrectangle(735, 375, 800, 405);
+					settextstyle(25, 0, "¿¬Ìå");
+					setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
+					settextcolor(RGB(0, 0, 15));
+					char delivery[20] = "ÍâÂô";
+					outtextxy(740, 375, delivery);
+					temp4 = 1;
+				}
+			}
+			else if (m.x >= 420 && m.x <= 470 && m.y >= 430 && m.y <= 455) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
+			{
+				if (m.message == WM_LBUTTONDOWN)
+				{
+					clearrectangle(735, 375, 800, 405);
+					settextstyle(25, 0, "¿¬Ìå");
+					setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
+					settextcolor(RGB(0, 0, 15));
+					char delivery[20] = "×ÔÌá";
+					outtextxy(740, 375, delivery);
+					temp4 = 2;
+				}
+			}
+			settextstyle(30, 0, "¿¬Ìå");
+			setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
+			settextcolor(RGB(0, 0, 15));
+			outtextxy(600, 280, "·ÝÁ¿£º");
+			outtextxy(600, 310, "ÎÂ¶È£º");
+			outtextxy(600, 340, "ÌÇ¶È£º");
+			outtextxy(600, 370, "ÅäËÍ·½Ê½£º");
+		}
 	}
+	//µ±Ñ¡Ôñµ°¸âµÄÊ±ºòÃ»ÓÐ¹æ¸ñ
+	else if (temp == 10 || temp == 11 || temp == 12)
+	{
+		setlinecolor(BLACK);
+		setfillcolor(WHITE);
+		fillroundrect(330, 200, 830, 540, 30, 30);
+		fillroundrect(340, 430, 390, 455, 10, 10);
+		fillroundrect(420, 430, 470, 455, 10, 10);
+		fillroundrect(350, 490, 450, 535, 15, 15);
+		fillroundrect(650, 490, 820, 535, 15, 15);
+		setlinecolor(BLACK);
+		line(330, 240, 830, 240);
+		line(330, 470, 830, 470);
+		line(600, 240, 600, 470);
+		line(600, 270, 830, 270);
+		settextstyle(35, 0, "¿¬Ìå");
+		setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
+		settextcolor(RGB(0, 0, 15));
+		outtextxy(490, 205, "Ñ¡Ôñ¹æ¸ñ");
+		settextstyle(30, 0, "¿¬Ìå");
+		outtextxy(650, 240, "ÒÑÑ¡¹æ¸ñ");
+		settextstyle(20, 0, "¿¬Ìå");
+		outtextxy(340, 410, "ÅäËÍ·½Ê½");
+		outtextxy(345, 433, "ÍâÂô");
+		outtextxy(425, 433, "×ÔÌá");
+		settextstyle(40, 0, "¿¬Ìå");
+		outtextxy(360, 493, "·µ»Ø");
+		outtextxy(655, 493, "È·ÈÏÖ§¸¶");
+		while (1)
+		{
+			m = getmessage();//»ñÈ¡Êó±ê²Ù×÷
+			if (m.x >= 350 && m.x <= 450 && m.y >= 490 && m.y <= 535) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
+			{
+
+				if (m.message == WM_LBUTTONDOWN)
+				{
+					clearrectangle(201, 151, 979, 579);
+					coffee_show();
+					break;
+				}
+			}
+			else if (m.x >= 650 && m.x <= 850 && m.y >= 490 && m.y <= 540) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
+			{
+				if (m.message == WM_LBUTTONDOWN)
+				{
+					clearrectangle(201, 151, 979, 579);
+					pay_show(a);
+					break;
+				}
+			}
+			else if (m.x >= 340 && m.x <= 390 && m.y >= 430 && m.y <= 455) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
+			{
+				if (m.message == WM_LBUTTONDOWN)
+				{
+					clearrectangle(735, 375, 800, 405);
+					settextstyle(25, 0, "¿¬Ìå");
+					setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
+					settextcolor(RGB(0, 0, 15));
+					char delivery[20] = "ÍâÂô";
+					outtextxy(740, 375, delivery);
+					temp4 = 1;
+				}
+			}
+			else if (m.x >= 420 && m.x <= 470 && m.y >= 430 && m.y <= 455) //¼ì²âÊó±êµÄÎ»ÖÃ ÊÇ·ñÂú×ãÌõ¼þ
+			{
+				if (m.message == WM_LBUTTONDOWN)
+				{
+					clearrectangle(735, 375, 800, 405);
+					settextstyle(25, 0, "¿¬Ìå");
+					setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
+					settextcolor(RGB(0, 0, 15));
+					char delivery[20] = "×ÔÌá";
+					outtextxy(740, 375, delivery);
+					temp4 = 2;
+				}
+			}
+			settextstyle(30, 0, "¿¬Ìå");
+			setbkmode(TRANSPARENT);// È¥µôÎÄ×Ö±³¾°
+			settextcolor(RGB(0, 0, 15));
+			outtextxy(600, 370, "ÅäËÍ·½Ê½£º");
+		}
+	}
+	system("pause");
+
 }
 
 //vip×¢²á½çÃæ   
@@ -677,6 +774,7 @@ void Interface::show_product()
 	system("pause");
 }
 
+//»áÔ±ÉÌÆ·´ò°ËÕÛ
 void Interface::show_product2()
 {
 	inferface2();
@@ -685,7 +783,7 @@ void Interface::show_product2()
 	settextcolor(RGB(0, 0, 15));
 	outtextxy(800, 80, "»¶Ó­×ð¹óµÄ»áÔ±");
 	outtextxy(800, 120, "Äú½«ÏíÊÜÈ«³¡°ËÕÛµÄÓÅ»Ý£¡");
-	for (int i = 0; i < 12; i++)
+	for (int i = 0; i < 12; i++)//½á¹¹ÌåÀï¼Û¸ñ*0.8
 	{
 		pro[i].prise = pro[i].prise * 0.8;
 	}
@@ -714,7 +812,7 @@ void Interface::VIP_show()
 			if (m.message == WM_LBUTTONDOWN)
 			{
 				clearrectangle(201, 151, 979, 579);
-				VIP_register();
+				VIP_register();//vip×¢²á
 				break;
 			}
 		}
@@ -724,7 +822,7 @@ void Interface::VIP_show()
 			if (m.message == WM_LBUTTONDOWN)
 			{
 				clearrectangle(201, 151, 979, 579);
-				VIP_login();
+				VIP_login();//vipµÇÂ¼
 				break;
 			}
 		}
@@ -1418,7 +1516,7 @@ void Interface::pay_show(int a)
 	settextstyle(25, 0, "¿¬Ìå");
 	outtextxy(400, 300, "ÄúÐèÒªÖ§¸¶£º");
 	outtextxy(580, 300, "Ôª");
-	char c1[20];
+	char c1[20];//aÊÇ´«¹ýÀ´µÄÉÌÆ·¼Û¸ñ
 	sprintf_s(c1, " % d", a);
 	outtextxy(520, 300, c1);
 	if (temp4 == 1)
@@ -1489,7 +1587,7 @@ void Interface::WeChat_pay()
 			if (m.message == WM_LBUTTONDOWN)
 			{
 				clearrectangle(201, 151, 979, 579);
-				order_show(getNo(), getName(), getPrise(), getspecifications(), getdelivery());
+				order_show(getNo(), getName(), getPrise(), getspecifications(), getdelivery());//¶©µ¥½çÃæ
 				break;
 			}
 		}
@@ -1499,7 +1597,7 @@ void Interface::WeChat_pay()
 			if (m.message == WM_LBUTTONDOWN)
 			{
 				clearrectangle(201, 151, 979, 579);
-				pay_show(getPrise());
+				pay_show(getPrise());//Ö§¸¶½çÃæ
 				break;
 			}
 		}
@@ -1553,7 +1651,7 @@ void Interface::Alipay_pay()
 }
 
 //¶©µ¥½çÃæ
-void Interface::order_show(string a, string b, int c, string d, string e)//°ÑÉÌÆ·µÄ±àºÅ¡¢Ãû×Ö¡¢¼Û¸ñ¡¢·ÖÁ¿¡¢ÎÂ¶È¡¢ÌÇ¶È¡¢ÅäËÍ·½·¨´«Èë
+void Interface::order_show(string a, string b, int c, string d, string e)//°ÑÉÌÆ·µÄ±àºÅ¡¢Ãû×Ö¡¢¼Û¸ñ¡¢ÅäÁÏ¡¢ÅäËÍ·½·¨´«Èë
 {
 	ExMessage m;//Êó±ê
 	setlinecolor(BLACK);
@@ -1573,17 +1671,17 @@ void Interface::order_show(string a, string b, int c, string d, string e)//°ÑÉÌÆ
 	settextstyle(25, 0, "¿¬Ìå");
 	outtextxy(350, 250, "ÄúµÄ¶©µ¥Îª£º");
 	settextstyle(25, 0, "¿¬Ìå");
-	outtextxy(360, 285, a.c_str());
-	outtextxy(430, 285, b.c_str());
+	outtextxy(360, 285, a.c_str());//aÊÇÉÌÆ·±àºÅ
+	outtextxy(430, 285, b.c_str());//bÊÇÉÌÆ·Ãû×Ö
 	settextstyle(20, 0, "¿¬Ìå");
-	outtextxy(540, 285, d.c_str());
-	outtextxy(540, 315, "ÅäËÍ·½Ê½Îª£º");
-	outtextxy(670, 315, e.c_str());
+	outtextxy(600, 285, d.c_str());//dÊÇÅäÁÏ
+	outtextxy(600, 315, "ÅäËÍ·½Ê½Îª£º");
+	outtextxy(730, 315, e.c_str());//eÊÇÅäËÍ·½·¨
 	if (temp4 == 2)
 	{
 		settextstyle(40, 0, "¿¬Ìå");
 		char c3[20];
-		sprintf_s(c3, " % d", c);
+		sprintf_s(c3, " % d", c);//cÊÇ¼Û¸ñ
 		outtextxy(660, 390, c3);
 		outtextxy(740, 390, "Ôª");
 	}
@@ -1593,11 +1691,11 @@ void Interface::order_show(string a, string b, int c, string d, string e)//°ÑÉÌÆ
 		settextstyle(40, 0, "¿¬Ìå");
 		char c3[20];
 		aa = c + 3;
-		sprintf_s(c3, " % d", aa);
+		sprintf_s(c3, " % d", aa);//aaÊÇ¼ÓÍêÅäËÍ·ÑµÄ¼Û¸ñ
 		outtextxy(660, 390, c3);
 		outtextxy(740, 390, "Ôª");
 		settextstyle(20, 0, "¿¬Ìå");
-		outtextxy(540, 345, "+3ÔªÅäËÍ·Ñ");
+		outtextxy(600, 345, "+3ÔªÅäËÍ·Ñ");
 	}
 	settextstyle(25, 0, "¿¬Ìå");
 	outtextxy(360, 390, "ÄúµÄ¶©µ¥ÕýÔÚÖÆ×÷ÖÐ...");

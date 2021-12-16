@@ -106,6 +106,7 @@ void Back_stage_management::add_product()
 		cin >> m_number;
 
 		//Commodity c;
+		//起始有12个商品在售
 		pro[11 + i].No = m_No;
 		pro[11 + i].Name = m_name;
 		pro[11 + i].prise = m_prise;
@@ -120,7 +121,7 @@ void Back_stage_management::add_product()
 		//{
 			ofs <<"产品编号： " << endl << pro[11 + i].No << endl << "产品名称： " << endl << pro[11 + i].Name
 				<< endl << "产品价格： " << endl << pro[11 + i].prise
-				<< endl << "产品数量： " << endl << pro[11 + i].number << endl << "---------------" << endl;
+				<< endl << "产品数量： " << endl << pro[11 + i].number << endl;
 		//}
 		ofs.close();
 
@@ -136,15 +137,17 @@ void Back_stage_management::change()
 {
 	cout << "修改商品" << endl;
 	string m_prise, m_name, m_No, m_number;//用于查找
-	string M_name, M_prise,M_number;//用于修改
+	string M_name; int M_prise, M_number;//用于修改
 
 	string str;
 	
-	int menu_number = 0;
+	int menu_number = 0;// nemu_munber默认等于0；如果等于一，则存在
 
 	//输出所有商品
 	cout << "所有产品如下: " << endl;
 	show();//调用展示所有商品函数
+
+	//临时数组
 	string* product= new string[1000];
 	ifstream ifs("menu.txt");
 
@@ -154,7 +157,10 @@ void Back_stage_management::change()
 		getline(ifs, str);//获取文件行数
 		product[i] = str;//将行的文件存入数组
 	}
+
+
 flag2:
+	//按编号查找商品
 	cout << "请输入产品编号" << endl;
 	cin >> m_No;
 	for (int j = 0; j < get_row_number_menu(); j++)
@@ -166,7 +172,7 @@ flag2:
 		}
 	}
 
-	//nemu_munber默认等于0；如果等于一，则账户存在
+	//判断商品是否存在 nemu_munber默认等于0；如果等于一，则存在
 	if (menu_number == 0)
 	{
 		cout << "产品不存在，请重新选择" << endl;
@@ -224,13 +230,29 @@ flag2:
 	int x = get_row_number_menu();
 	ofstream ofs;
 	ofs.open("menu.txt", ios::trunc);
-	for (int i = 0; i<x; i++)
+
+	for (int i = 0; i < x; i++)
 	{
-		ofs << product[i] << endl ;
+		ofs << product[i] << endl;
 	}
+
+	//写入结构体
+	int ssss = 0;
+	for (int sss = 0; sss <= (x / 8); sss++)
+	{	
+		pro[sss].No = product[ssss + 1];
+		pro[sss].Name = product[ssss + 3];
+		string s = product[ssss + 5];//string转int
+		string ss = product[ssss + 7];
+		pro[sss].prise = atoi(s.c_str());
+		pro[sss].number = atoi(ss.c_str());
+	}
+
+
 	delete[] product;
 	ofs.close();
-	
+
+
 	cout << "修改成功" << endl;
 
 }
