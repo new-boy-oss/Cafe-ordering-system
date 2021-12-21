@@ -3,6 +3,19 @@
 #include<iostream>
 #include<string>
 using namespace std;
+
+struct product
+{
+	//string No[20];//编号
+	//string Name[20];//名字
+	//int prise[20];//价格
+	//int number[20];//数量
+	string 	No[20] = { "No 1","No 2","No 3","No 4","No 5","No 6","No 7","No 8","No 9","No 10","No 11","No 12" };
+	string Name[20] = { "美式咖啡","抹茶拿铁","拿铁咖啡","生椰桂花酿","芋泥波波奶茶","珍珠奶茶","快乐水果桶","草莓清茶","鲜百香果茶","榴莲千层蛋糕","草莓蛋糕","提拉米苏" };
+	int prise[20] = { 10,13,15,17,20,15,25,19,19,10,30,16 };
+	int number[20] = { 30,30,30,40,40,40,45,45,45,30,30,30 };
+};
+
 class Commodity
 {
 public:
@@ -13,30 +26,7 @@ public:
 	//string prise;//价格
 	//string number;//数量
 	int raw_coffee, suger, ice, milk, cup;//原材料的数量
-	struct product
-	{
-		string No;//编号
-		string Name;//名字
-		int prise;//价格
-		int number;//数量
-	}pro[20] = {
-		{"No 1","美式咖啡",10,30},
-		{"No 2","拿铁咖啡",13,30},
-		{"No 3","抹茶拿铁",15,30} ,
-		{"No 4","生椰桂花酿",17,40},
-		{"No 5","芋泥波波奶茶",20,40},
-		{"No 6","珍珠奶茶",15,40},
-		{"No 7","快乐水果桶",25,45},
-		{"No 8","草莓清茶",19,45},
-		{"No 9","鲜百香果茶",19,45},
-		{"No 10","榴莲千层蛋糕",10,30},
-		{"No 11","草莓蛋糕",30,30},
-		{"No 12","提拉米苏",16,30}
-	};
-
-
-	
-	
-private:	
+	product s;
+private:
 };
 

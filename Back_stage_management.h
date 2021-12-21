@@ -6,7 +6,7 @@
 #include<vector>
 #include<map>
 #pragma once
-class Back_stage_management:public Commodity
+class Back_stage_management:virtual public Commodity, virtual public Order
 {
 public:
 	vector<Order> vOrder;
@@ -26,7 +26,7 @@ public:
 	void displayOrder();//显示订单
 	void SeekOrder();//查找订单
 	void DeleteAllOrder();//删除全部订单
-
+	void DeleteoneOrder();//删一个
 	//存储堂食订单的信息
 	map<string, vector<Orderin>> mOI;
 	vector<Orderin> vOI;

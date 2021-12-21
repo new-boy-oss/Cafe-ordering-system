@@ -5,17 +5,17 @@ class Order
 {
 public:
 	Order() {};
-	Order(string a, string b, double c, int d,string e,string f,string g) 
-		:No(a), name(b), prise(c), number(d),size(e), ice(f), adda(g) { totalprice = 0; }
-	virtual void print() = 0;
-	virtual int calculation() = 0;
+	Order(string b, int c, int d, string e)
+		: name(b), prise(c), number(d), sizeiceadda(e) {
+		No = " 1"; totalprice = 0;
+	}
+	virtual void print() {};
+	virtual int calculation() { return 0; };
 	~Order() {};
 	string No;//编号
 	string name;//咖啡的名字，比如：拿铁，美式等
-	double prise;//价格
-	double number;//数量
-	double totalprice;//一共多少钱
-	string size;//大杯小杯
-	string ice;//冰
-	string adda;//加料
+	int prise;//价格
+	int number;//数量
+	int totalprice;//一共多少钱
+	string sizeiceadda;//性质
 };

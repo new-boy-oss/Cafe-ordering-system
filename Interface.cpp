@@ -108,53 +108,53 @@ string Interface::getNo()
 {
 	if (temp == 1)
 	{
-		return pro[0].No;
+		return s.No[0];
 
 	}
 	else if (temp == 2)
 	{
-		return pro[1].No;
+		return s.No[1];
 	}
 	else if (temp == 3)
 	{
-		return pro[2].No;
+		return s.No[2];
 	}
 	else if (temp == 4)
 	{
-		return pro[3].No;
+		return s.No[3];
 	}
 	else if (temp == 5)
 	{
-		return pro[4].No;
+		return s.No[4];
 	}
 	else if (temp == 6)
 	{
-		return pro[5].No;
+		return s.No[5];
 	}
 	else if (temp == 7)
 	{
-		return pro[6].No;
+		return s.No[6];
 	}
 	else if (temp == 8)
 	{
-		return pro[7].No;
+		return s.No[7];
 	}
 	else if (temp == 9)
 	{
-		return pro[8].No;
+		return s.No[8];
 	}
 	else if (temp == 10)
 	{
-		return pro[9].No;
+		return s.No[9];
 
 	}
 	else if (temp == 11)
 	{
-		return pro[10].No;
+		return s.No[10];
 	}
 	else if (temp == 12)
 	{
-		return pro[11].No;
+		return s.No[11];
 	}
 }
 
@@ -163,53 +163,53 @@ string Interface::getName()
 {
 	if (temp == 1)
 	{
-		return pro[0].Name;
+		return s.Name[0];
 
 	}
 	else if (temp == 2)
 	{
-		return pro[1].Name;
+		return s.Name[1];
 	}
 	else if (temp == 3)
 	{
-		return pro[2].Name;
+		return s.Name[2];
 	}
 	else if (temp == 4)
 	{
-		return pro[3].Name;
+		return s.Name[3];
 	}
 	else if (temp == 5)
 	{
-		return pro[4].Name;
+		return s.Name[4];
 	}
 	else if (temp == 6)
 	{
-		return pro[5].Name;
+		return s.Name[5];
 	}
 	else if (temp == 7)
 	{
-		return pro[6].Name;
+		return s.Name[6];
 	}
 	else if (temp == 8)
 	{
-		return pro[7].Name;
+		return s.Name[7];
 	}
 	else if (temp == 9)
 	{
-		return pro[8].Name;
+		return s.Name[8];
 	}
 	else if (temp == 10)
 	{
-		return pro[9].Name;
+		return s.Name[9];
 
 	}
 	else if (temp == 11)
 	{
-		return pro[10].Name;
+		return s.Name[10];
 	}
 	else if (temp == 12)
 	{
-		return pro[11].Name;
+		return s.Name[11];
 	}
 }
 
@@ -218,53 +218,53 @@ int Interface::getPrise()
 {
 	if (temp == 1)
 	{
-		return pro[0].prise;
+		return s.prise[0];
 
 	}
 	else if (temp == 2)
 	{
-		return pro[1].prise;
+		return s.prise[1];
 	}
 	else if (temp == 3)
 	{
-		return pro[2].prise;
+		return s.prise[2];
 	}
 	else if (temp == 4)
 	{
-		return pro[3].prise;
+		return s.prise[3];
 	}
 	else if (temp == 5)
 	{
-		return pro[4].prise;
+		return s.prise[4];
 	}
 	else if (temp == 6)
 	{
-		return pro[5].prise;
+		return s.prise[5];
 	}
 	else if (temp == 7)
 	{
-		return pro[6].prise;
+		return s.prise[6];
 	}
 	else if (temp == 8)
 	{
-		return pro[7].prise;
+		return s.prise[7];
 	}
 	else if (temp == 9)
 	{
-		return pro[8].prise;
+		return s.prise[8];
 	}
 	else if (temp == 10)
 	{
-		return pro[9].prise;
+		return s.prise[9];
 
 	}
 	else if (temp == 11)
 	{
-		return pro[10].prise;
+		return s.prise[10];
 	}
 	else if (temp == 12)
 	{
-		return pro[11].prise;
+		return s.prise[11];
 	}
 }
 
@@ -400,7 +400,6 @@ void Interface::choice()
 		}
 	}
 }
-
 
 //选择规格界面
 void Interface::specifications(int a)
@@ -785,7 +784,7 @@ void Interface::show_product2()
 	outtextxy(800, 120, "您将享受全场八折的优惠！");
 	for (int i = 0; i < 12; i++)//结构体里价格*0.8
 	{
-		pro[i].prise = pro[i].prise * 0.8;
+		s.prise[i] = s.prise[i] * 0.8;
 	}
 	choice();
 }
@@ -910,22 +909,22 @@ void Interface::coffee_show()
 	settextstyle(25, 0, "楷体");
 	setbkmode(TRANSPARENT);// 去掉文字背景
 	settextcolor(RGB(0, 0, 15));
-	outtextxy(330, 170, pro[0].No.c_str());
-	outtextxy(330, 270, pro[1].No.c_str());
-	outtextxy(330, 370, pro[2].No.c_str());
-	outtextxy(390, 170, pro[0].Name.c_str());
-	outtextxy(390, 270, pro[1].Name.c_str());
-	outtextxy(390, 370, pro[2].Name.c_str());
+	outtextxy(330, 170, s.No[0].c_str());
+	outtextxy(330, 270, s.No[1].c_str());
+	outtextxy(330, 370, s.No[2].c_str());
+	outtextxy(390, 170, s.Name[0].c_str());
+	outtextxy(390, 270, s.Name[1].c_str());
+	outtextxy(390, 370, s.Name[2].c_str());
 	setbkmode(TRANSPARENT);// 去掉文字背景
 	settextcolor(RGB(0, 0, 15));
 	settextstyle(15, 0, "楷体");
 	char c1[20], c2[20], c3[20], c4[20], c5[20], c6[20];
-	sprintf_s(c1, " % d", pro[0].number);
-	sprintf_s(c2, " % d", pro[1].number);
-	sprintf_s(c3, " % d", pro[2].number);
-	sprintf_s(c4, " % d", pro[0].prise);
-	sprintf_s(c5, " % d", pro[1].prise);
-	sprintf_s(c6, " % d", pro[2].prise);
+	sprintf_s(c1, " % d", s.number[0]);
+	sprintf_s(c2, " % d", s.number[1]);
+	sprintf_s(c3, " % d", s.number[2]);
+	sprintf_s(c4, " % d", s.prise[0]);
+	sprintf_s(c5, " % d", s.prise[1]);
+	sprintf_s(c6, " % d", s.prise[2]);
 	outtextxy(320, 220, "货存： ");
 	outtextxy(320, 320, "货存： ");
 	outtextxy(320, 420, "货存： ");
@@ -1061,22 +1060,22 @@ void Interface::milktea_show()
 	settextstyle(25, 0, "楷体");
 	setbkmode(TRANSPARENT);// 去掉文字背景
 	settextcolor(RGB(0, 0, 15));
-	outtextxy(330, 170, pro[3].No.c_str());
-	outtextxy(330, 270, pro[4].No.c_str());
-	outtextxy(330, 370, pro[5].No.c_str());
-	outtextxy(390, 170, pro[3].Name.c_str());
-	outtextxy(390, 270, pro[4].Name.c_str());
-	outtextxy(390, 370, pro[5].Name.c_str());
+	outtextxy(330, 170, s.No[3].c_str());
+	outtextxy(330, 270, s.No[4].c_str());
+	outtextxy(330, 370, s.No[5].c_str());
+	outtextxy(390, 170, s.Name[3].c_str());
+	outtextxy(390, 270, s.Name[4].c_str());
+	outtextxy(390, 370, s.Name[5].c_str());
 	setbkmode(TRANSPARENT);// 去掉文字背景
 	settextcolor(RGB(0, 0, 15));
 	settextstyle(15, 0, "楷体");
 	char c1[20], c2[20], c3[20], c4[20], c5[20], c6[20];
-	sprintf_s(c1, " % d", pro[3].number);
-	sprintf_s(c2, " % d", pro[4].number);
-	sprintf_s(c3, " % d", pro[5].number);
-	sprintf_s(c4, " % d", pro[3].prise);
-	sprintf_s(c5, " % d", pro[4].prise);
-	sprintf_s(c6, " % d", pro[5].prise);
+	sprintf_s(c1, " % d", s.number[3]);
+	sprintf_s(c2, " % d", s.number[4]);
+	sprintf_s(c3, " % d", s.number[5]);
+	sprintf_s(c4, " % d", s.prise[3]);
+	sprintf_s(c5, " % d", s.prise[4]);
+	sprintf_s(c6, " % d", s.prise[5]);
 	outtextxy(320, 220, "货存： ");
 	outtextxy(320, 320, "货存： ");
 	outtextxy(320, 420, "货存： ");
@@ -1211,22 +1210,22 @@ void Interface::fruittea_show()
 	settextstyle(25, 0, "楷体");
 	setbkmode(TRANSPARENT);// 去掉文字背景
 	settextcolor(RGB(0, 0, 15));
-	outtextxy(330, 170, pro[6].No.c_str());
-	outtextxy(330, 270, pro[7].No.c_str());
-	outtextxy(330, 370, pro[8].No.c_str());
-	outtextxy(390, 170, pro[6].Name.c_str());
-	outtextxy(390, 270, pro[7].Name.c_str());
-	outtextxy(390, 370, pro[8].Name.c_str());
+	outtextxy(330, 170, s.No[6].c_str());
+	outtextxy(330, 270, s.No[7].c_str());
+	outtextxy(330, 370, s.No[8].c_str());
+	outtextxy(390, 170, s.Name[6].c_str());
+	outtextxy(390, 270, s.Name[7].c_str());
+	outtextxy(390, 370, s.Name[8].c_str());
 	setbkmode(TRANSPARENT);// 去掉文字背景
 	settextcolor(RGB(0, 0, 15));
 	settextstyle(15, 0, "楷体");
 	char c1[20], c2[20], c3[20], c4[20], c5[20], c6[20];
-	sprintf_s(c1, " % d", pro[6].number);
-	sprintf_s(c2, " % d", pro[7].number);
-	sprintf_s(c3, " % d", pro[8].number);
-	sprintf_s(c4, " % d", pro[6].prise);
-	sprintf_s(c5, " % d", pro[7].prise);
-	sprintf_s(c6, " % d", pro[8].prise);
+	sprintf_s(c1, " % d", s.number[6]);
+	sprintf_s(c2, " % d", s.number[7]);
+	sprintf_s(c3, " % d", s.number[8]);
+	sprintf_s(c4, " % d", s.prise[6]);
+	sprintf_s(c5, " % d", s.prise[7]);
+	sprintf_s(c6, " % d", s.prise[8]);
 	outtextxy(320, 220, "货存： ");
 	outtextxy(320, 320, "货存： ");
 	outtextxy(320, 420, "货存： ");
@@ -1361,22 +1360,22 @@ void Interface::cake_show()
 	settextstyle(25, 0, "楷体");
 	setbkmode(TRANSPARENT);// 去掉文字背景
 	settextcolor(RGB(0, 0, 15));
-	outtextxy(330, 170, pro[9].No.c_str());
-	outtextxy(330, 270, pro[10].No.c_str());
-	outtextxy(330, 370, pro[11].No.c_str());
-	outtextxy(400, 170, pro[9].Name.c_str());
-	outtextxy(400, 270, pro[10].Name.c_str());
-	outtextxy(400, 370, pro[11].Name.c_str());
+	outtextxy(330, 170, s.No[9].c_str());
+	outtextxy(330, 270, s.No[10].c_str());
+	outtextxy(330, 370, s.No[11].c_str());
+	outtextxy(390, 170, s.Name[9].c_str());
+	outtextxy(390, 270, s.Name[10].c_str());
+	outtextxy(390, 370, s.Name[11].c_str());
 	setbkmode(TRANSPARENT);// 去掉文字背景
 	settextcolor(RGB(0, 0, 15));
 	settextstyle(15, 0, "楷体");
 	char c1[20], c2[20], c3[20], c4[20], c5[20], c6[20];
-	sprintf_s(c1, " % d", pro[9].number);
-	sprintf_s(c2, " % d", pro[10].number);
-	sprintf_s(c3, " % d", pro[11].number);
-	sprintf_s(c4, " % d", pro[9].prise);
-	sprintf_s(c5, " % d", pro[10].prise);
-	sprintf_s(c6, " % d", pro[11].prise);
+	sprintf_s(c1, " % d", s.number[9]);
+	sprintf_s(c2, " % d", s.number[10]);
+	sprintf_s(c3, " % d", s.number[11]);
+	sprintf_s(c4, " % d", s.prise[9]);
+	sprintf_s(c5, " % d", s.prise[10]);
+	sprintf_s(c6, " % d", s.prise[11]);
 	outtextxy(320, 220, "货存： ");
 	outtextxy(320, 320, "货存： ");
 	outtextxy(320, 420, "货存： ");

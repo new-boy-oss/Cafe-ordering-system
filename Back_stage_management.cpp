@@ -1,24 +1,28 @@
 //后台管理
-#include"Interface.h"
+#include "Orderin.h"
 #include "OrderOut.h"
 #include"Back_stage_management.h"
+#include"Interface.h"
 #include"Commodity.h"
 #include<string>
 #include<fstream>
 #include <vector> 
 #include<map>
 #include <windows.h>
+#include<iostream>
 #pragma warning(disable:4996)
+#pragma warning(disable:4244)//从“double”转换到“const unsigned __int64”，可能丢失数据
+
 using namespace std;
 
 Back_stage_management::Back_stage_management()
 {
-	
+
 	ifstream ifs;
 	manage_account = "000000";
 	manage_key = "111111";
 
-	
+
 	//打开文件----菜单文件
 	ifs.open("menu.txt", ios::in);
 	if (!ifs.is_open())
@@ -75,12 +79,12 @@ void Back_stage_management::show()
 		cout << str << endl;
 	}
 	cout << "---------------------------------------------" << endl;
-		cout << "原材料数量如下： " << endl;
-		cout << "咖啡豆 ： " << raw_coffee << endl;
-		cout << "糖 ： " << suger << endl;
-		cout << "杯子 ： " << cup << endl;
-		cout << "牛奶：" << milk << endl;
-		cout << "冰：" << ice << endl;
+	cout << "原材料数量如下： " << endl;
+	cout << "咖啡豆 ： " << raw_coffee << endl;
+	cout << "糖 ： " << suger << endl;
+	cout << "杯子 ： " << cup << endl;
+	cout << "牛奶：" << milk << endl;
+	cout << "冰：" << ice << endl;
 }
 
 //添加产品
@@ -90,7 +94,7 @@ void Back_stage_management::add_product()
 	string m_name, m_No;
 	int m_prise, m_number;
 
-	int add_number=0;
+	int add_number = 0;
 	cout << "请输入增加的产品数量" << endl;
 	cin >> add_number;
 
@@ -107,10 +111,10 @@ void Back_stage_management::add_product()
 
 		//Commodity c;
 		//起始有12个商品在售
-		pro[11 + i].No = m_No;
-		pro[11 + i].Name = m_name;
-		pro[11 + i].prise = m_prise;
-		pro[11 + i].number = m_number;
+		s.No[11 + i] = m_No;
+		s.Name[11 + i] = m_name;
+		s.prise[11 + i] = m_prise;
+		s.number[11 + i] = m_number;
 
 		//vCommodity.push_back(c);
 		//写入产品
@@ -119,17 +123,17 @@ void Back_stage_management::add_product()
 
 		//for (vector<Commodity>::iterator it = vCommodity.begin(); it != vCommodity.end(); it++)
 		//{
-			ofs <<"产品编号： " << endl << pro[11 + i].No << endl << "产品名称： " << endl << pro[11 + i].Name
-				<< endl << "产品价格： " << endl << pro[11 + i].prise
-				<< endl << "产品数量： " << endl << pro[11 + i].number << endl;
+		ofs << "产品编号： " << endl << s.No[11 + i] << endl << "产品名称： " << endl <<s.Name[11 + i]
+			<< endl << "产品价格： " << endl << s.prise[11 + i]
+			<< endl << "产品数量： " << endl << s.number[11 + i]<< endl;
 		//}
 		ofs.close();
 
 		cout << "添加成功" << endl;
 
 	}
-	
-	
+
+
 }
 
 //修改商品名称，数量和价格
@@ -137,10 +141,10 @@ void Back_stage_management::change()
 {
 	cout << "修改商品" << endl;
 	string m_prise, m_name, m_No, m_number;//用于查找
-	string M_name; int M_prise, M_number;//用于修改
+	string M_name, M_prise, M_number;//用于修改
 
 	string str;
-	
+
 	int menu_number = 0;// nemu_munber默认等于0；如果等于一，则存在
 
 	//输出所有商品
@@ -148,7 +152,7 @@ void Back_stage_management::change()
 	show();//调用展示所有商品函数
 
 	//临时数组
-	string* product= new string[1000];
+	string* product = new string[1000];
 	ifstream ifs("menu.txt");
 
 	//将文件写入临时的数组
@@ -182,7 +186,7 @@ flag2:
 	{
 		cout << "产品存在" << endl;
 	}
-	
+
 	//修改名称
 	cout << "请输入原始产品名称" << endl;
 	cin >> m_name;
@@ -239,13 +243,13 @@ flag2:
 	//写入结构体
 	int ssss = 0;
 	for (int sss = 0; sss <= (x / 8); sss++)
-	{	
-		pro[sss].No = product[ssss + 1];
-		pro[sss].Name = product[ssss + 3];
-		string s = product[ssss + 5];//string转int
-		string ss = product[ssss + 7];
-		pro[sss].prise = atoi(s.c_str());
-		pro[sss].number = atoi(ss.c_str());
+	{
+		s.No[sss] = product[ssss + 1];
+		s.Name[sss] = product[ssss + 3];
+		string sa = product[ssss + 5];//string转int
+		string ssa = product[ssss + 7];
+		s.prise[sss] = atoi(sa.c_str());
+		s.number[sss] = atoi(ssa.c_str());
 	}
 
 
@@ -294,93 +298,89 @@ void Back_stage_management::login_choice()
 	cout << "---------6.查询订单----------------" << endl;
 	cout << "---------7.更新订单----------------" << endl;
 	cout << "---------8.删除全部订单------------" << endl;
-	cout << "---------9.回到主页面--------------" << endl;
-	//cout << "---------9.删除一个订单------------" << endl;
-	cout << "---------0.退出程序----------------" << endl;
+	cout << "---------9.删除一个订单------------" << endl;
+	cout << "---------0.返回界面----------------" << endl;
 	cout << "-----------------------------------" << endl;
 	int choice;
-	Interface aa;
+	Interface a;
 flag3:
 	cout << "请选择接下来的操作" << endl;
 	cin >> choice;
 	
-		switch (choice)
-		{
-			//展示所有原料
-		case 1:
-			show();
-			goto flag3;
-			break;
+	switch (choice)
+	{
+		//展示所有原料
+	case 1:
+		show();
+		goto flag3;
+		break;
 
-			//添加产品
-		case 2:
-			add_product();
-			goto flag3;
-			break;
+		//添加产品
+	case 2:
+		add_product();
+		goto flag3;
+		break;
 
-			//修改商品名称，数量和价格
-		case 3:
-			change();
-			goto flag3;
-			break;
-			//会员信息维护
-		case 4:
-			vip_information_maintenance();
-			goto flag3;
-			break;
-			//显示当天的所有订单
-		case 5:
-			displayOrder();
-			goto flag3;
-			break;
-			//查询订单
-		case 6:
-			SeekOrder();
-			goto flag3;
-			break;
-			//更新订单
-		case 7:
-			UpdateOrder();
-			goto flag3;
-			break;
-			//删除全部订单
-		
-		case 8:
-			DeleteAllOrder();
-			goto flag3;
-			break;
-			//回到主页面
-		case 9:
-			
-			aa.inferface();
-			break;
+		//修改商品名称，数量和价格
+	case 3:
+		change();
+		goto flag3;
+		break;
+		//会员信息维护
+	case 4:
+		vip_information_maintenance();
+		goto flag3;
+		break;
+		//显示当天的所有订单
+	case 5:
+		displayOrder();
+		goto flag3;
+		break;
+		//查询订单
+	case 6:
+		SeekOrder();
+		goto flag3;
+		break;
+		//更新订单
+	case 7:
+		UpdateOrder();
+		goto flag3;
+		break;
+		//删除全部订单
 
-			//删除一个订单
-		/*
-		case 9:
-			DeleteoneOrder();
-			goto flag3;
-			break;
-		*/
-			//退出程序
-		case 0:
-			exit(0);
-			break;
-		default:
-			cout << "输入错误，请重新输入" << endl;
-			goto flag3;
-			break;
-		}	
+	case 8:
+		DeleteAllOrder();
+		goto flag3;
+		break;
+
+		//删除一个订单
+	case 9:
+		DeleteoneOrder();
+		goto flag3;
+		break;
+	
+	//退出程序
+	case 0:
+		a.inferface();
+		break;
+	default:
+		cout << "输入错误，请重新输入" << endl;
+		goto flag3;
+		break;
+	}
 }
 
 //显示当天的所有订单
 void Back_stage_management::displayOrder()
 {
+
 	ifstream ifs;
+
 	ifs.open("order.txt", ios::in);
 	if (!ifs.is_open())
 	{
 		cout << "文件夹打开失败" << endl;
+
 	}
 	string str;
 	while (getline(ifs, str))//一行一行的读取信息
@@ -392,7 +392,7 @@ void Back_stage_management::displayOrder()
 //查询订单
 void  Back_stage_management::SeekOrder()
 {
-
+	int count = 0;
 	string temp = "0";
 	UpdateOrder();
 	cout << "欢迎您使用查找订单功能！注意:只可查找当日订单" << endl;
@@ -400,79 +400,90 @@ void  Back_stage_management::SeekOrder()
 	int op = 0;
 	string seekid;//输入查找的订单号
 	string seeknumber;
-	cin >> op;//temp;
 	//使用外卖单号查找
-	if (op == 1) {
-		while (1)
-		{
-			cout << "请输入您要查找的订单编号！" << endl;
-			cin >> seekid;
-			if (seekid.length() > 4)
+	while (1)
+	{
+		cin >> op;//输入编号
+		if (op == 1) {
+			while (1)
 			{
-				if (seekid[4] == 'o' || seekid[4] == 'i')//5位订单号，否则报错
+				cout << "请输入您要查找的订单编号！" << endl;
+				cin >> seekid;
+				if (seekid.length() > 4 && seekid.length() < 6)
 				{
-					if (seekid[4] == 'o')
+					if (seekid[4] == 'o' || seekid[4] == 'i')//5位订单号，否则报错
 					{
-						cout << "此订单是外卖订单,具体信息如下" << endl;
-						for (map<string, vector<OrderOut>>::iterator it = mOO.begin(); it != mOO.end(); it++)
+						if (seekid[4] == 'o')
 						{
-							string y = it->first;
-							if (y == seekid)
+							cout << "此订单是外卖订单,具体信息如下" << endl;
+							for (map<string, vector<OrderOut>>::iterator it = mOO.begin(); it != mOO.end(); it++)
 							{
-								cout << "订单编号：" << it->first << endl;
-								int count = 0;
-
-								for (vector<OrderOut>::iterator mit = it->second.begin(); mit != it->second.end(); mit++)
+								string y = it->first;
+								if (y == seekid)
 								{
-									count++;
-									cout << "菜品名称为：" << mit->name << " 菜品价格：" << mit->prise << " 菜品份数："
-										<< mit->number << " 总费用：" << mit->totalprice << mit->adda << endl;
-								}
-								return;
-							}
+									cout << "订单编号：" << it->first << endl;
+									int count = 0;
 
+									for (vector<OrderOut>::iterator mit = it->second.begin(); mit != it->second.end(); mit++)
+									{
+										count++;
+										cout << "菜品名称为：" << mit->name << " 菜品价格：" << mit->prise << " 菜品份数：" << mit->number << " 总费用：" << "\t" << mit->totalprice << "规格配料" << "\t" << mit->sizeiceadda << endl;
+									}
+									return;
+								}
+
+							}
+						}
+						else
+						{
+							cout << "此订单是堂食订单,具体信息如下" << endl;
+							for (map<string, vector<Orderin>>::iterator it = mOI.begin(); it != mOI.end(); it++)
+							{
+								string y = it->first;
+								if (y == seekid)
+								{
+									cout << "订单编号：" << it->first << endl;
+									int count = 0;
+
+									for (vector<Orderin>::iterator mit = it->second.begin(); mit != it->second.end(); mit++)
+									{
+										count++;
+										cout << "菜品名称为：" << mit->name << " 菜品价格：" << mit->prise << " 菜品份数：" << mit->number << "总费用：" << "\t" << mit->totalprice << "规格配料" << "\t" << mit->sizeiceadda << endl;
+									}
+									return;
+								}
+
+							}
 						}
 					}
 					else
 					{
-						cout << "此订单是堂食订单,具体信息如下" << endl;
-						for (map<string, vector<Orderin>>::iterator it = mOI.begin(); it != mOI.end(); it++)
-						{
-							string y = it->first;
-							if (y == seekid)
-							{
-								cout << "订单编号：" << it->first << endl;
-								int count = 0;
-
-								for (vector<Orderin>::iterator mit = it->second.begin(); mit != it->second.end(); mit++)
-								{
-									count++;
-									cout << "菜品名称为：" << mit->name << " 菜品价格：" << mit->prise << " 菜品份数：" << mit->number << "总费用：" << mit->totalprice << mit->adda << endl;
-								}
-								return;
-							}
-
-						}
+						cout << "没有这个编号！请重新输入" << endl;
+						count++;
 					}
+					if(count==3)
+					{
+						break;
+					}
+
 				}
 				else
 				{
-					cout << "编号输入错误！" << endl;
-					return;
+					cout << "编号为5位，请重新输入！" << endl;
+					count++;
 				}
-				break;
 			}
-			else
-			{
-				cout << "编号为5位，请重新输入！" << endl;
-				
-			}
+			break;
 		}
+		else if (op == 0)
+		{
+			break;
 
+		}
+		else { cout << "输入错误！请重新输入" << endl; }
 	}
-
 }
-		
+
 //更新订单
 void Back_stage_management::UpdateOrder()
 {
@@ -534,7 +545,7 @@ void Back_stage_management::UpdateOrder()
 
 
 	temp[c] = vinfo.size() + 1;
-	
+
 	string orderid, foodname, adda;//外卖订单编号
 	int foodprice, foodnum, totalprice;//菜品价格、菜品数量
 	int pos1, pos2;
@@ -545,182 +556,180 @@ void Back_stage_management::UpdateOrder()
 	for (vector<string>::iterator it = vinfo.begin(); it != vinfo.end(); it++)
 	{
 		line = *it;
-
-		if (line.at(15) == 'o' || line.at(15) == 'i')
+		if (line.at(15) == 'o')
 		{
-			if (line.at(15) == 'o')
+			vOO.clear();
+			i++;
+			for (int k = temp[i]; k < temp[i + 1]; k++)
 			{
-				vOO.clear();
-				i++;
-				for (int k = temp[i]; k < temp[i + 1]; k++)
+				//读入数据，存储到vector容器
+				//cout << vinfo[k-1] << endl;
+				//存储在外卖vector容qi
+				if (k == temp[i])//订单编号
 				{
-					//读入数据，存储到vector容器
-					//cout << vinfo[k-1] << endl;
-					//存储在外卖vector容qi
-					if (k == temp[i])//订单编号
+					count = 6;
+					while (count--)
 					{
-						count = 6;
-						while (count--)
+						if (count == 5)
 						{
-							if (count == 5)
-							{
-								pos1 = vinfo[k - 1].find(":") + 1;
-								orderid = vinfo[k - 1].substr(pos1, 5);
-								//cout << orderid << "编号" ;
-							}
-							if (count == 4)
-							{
-								pos1 = vinfo[k - 1].find("称");
-								pos2 = pos1 + 5;
-								foodname = vinfo[k - 1].substr(pos2, 6);
-								//cout << foodname << "mingz ";
-								oo.name = foodname;
-							}
-							else if (count == 3)
-							{
-								pos1 = vinfo[k - 1].find("格");
-								pos2 = pos1 + 5;
-								foodprice = atoi(vinfo[k - 1].substr(pos2, 4).c_str());
-								//cout << foodprice << " foodprice";
-								oo.prise = foodprice;
-							}
-							else if (count == 2)
-							{
-								pos1 = vinfo[k - 1].find("数");
-								pos2 = pos1 + 5;
-
-								foodnum = atoi(vinfo[k - 1].substr(pos2, 2).c_str());
-
-								//cout << foodnum << " num";
-
-								oo.number = foodnum;
-							}
-							else if (count == 1)
-							{
-								pos1 = vinfo[k - 1].find("用");
-								pos2 = pos1 + 5;
-
-								totalprice = atoi(vinfo[k - 1].substr(pos2, 4).c_str());
-
-								//cout << totalprice << "totalprice";
-								oo.totalprice = totalprice;
-							}
-							else if (count == 0)
-							{
-								pos1 = vinfo[k - 1].find("用");
-								pos2 = pos1 + 9;
-								adda = vinfo[k - 1].substr(pos2);
-								oo.adda = adda;
-							}
-						}vOO.push_back(oo);
-					}
-
-				}
-				//插入到vector容器
-				for (vector<OrderOut>::iterator it = vOO.begin(); it != vOO.end(); it++)
-				{
-					it->No = orderid;
-				}
-				//插入到map容器中
-				mOO.insert(make_pair(orderid, vOO));
-
-			}
-			else if (line.at(15) == 'i')
-			{
-				//cout << "堂食订单！" << endl;
-				vOI.clear();
-				i++;
-
-				for (int k = temp[i]; k < temp[i + 1]; k++)
-				{
-					//读入数据，存储到vector容器
-					//cout << vinfo[k-1] << endl;
-					//存储在外卖vector容qi
-					if (k == temp[i])//订单编号
-					{
-						count = 6;
-						while (count--)
-						{
-							if (count == 5)
-							{
-								pos1 = vinfo[k - 1].find(":") + 1;
-								orderid = vinfo[k - 1].substr(pos1, 5);
-
-								//cout << orderid << "编号" ;
-							}
-							if (count == 4)
-							{
-								pos1 = vinfo[k - 1].find("称");
-								pos2 = pos1 + 5;
-
-								foodname = vinfo[k - 1].substr(pos2, 6);
-								//cout << foodname << "mingz ";
-
-								oi.name = foodname;
-							}
-							else if (count == 3)
-							{
-								pos1 = vinfo[k - 1].find("格");
-								pos2 = pos1 + 5;
-								foodprice = atoi(vinfo[k - 1].substr(pos2, 4).c_str());
-
-								//cout << foodprice << " foodprice";
-								oi.prise = foodprice;
-							}
-							else if (count == 2)
-							{
-								pos1 = vinfo[k - 1].find("数");
-								pos2 = pos1 + 5;
-
-								foodnum = atoi(vinfo[k - 1].substr(pos2, 2).c_str());
-
-								//cout << foodnum << " num";
-
-								oi.number = foodnum;
-							}
-							else if (count == 1)
-							{
-								pos1 = vinfo[k - 1].find("用");
-								pos2 = pos1 + 5;
-
-								totalprice = atoi(vinfo[k - 1].substr(pos2, 4).c_str());
-
-								//cout << totalprice << "totalprice";
-								oi.totalprice = totalprice;
-							}
-							else if (count == 0)
-							{
-								pos1 = vinfo[k - 1].find("用");
-								pos2 = pos1 + 9;
-								adda = vinfo[k - 1].substr(pos2);
-								oi.adda = adda;
-							}
-
+							pos1 = vinfo[k - 1].find(":") + 1;
+							orderid = vinfo[k - 1].substr(pos1, 5);
+							//cout << orderid << "编号" ;
 						}
-						vOI.push_back(oi);
-					}
+						if (count == 4)
+						{
+							pos1 = vinfo[k - 1].find("称");
+							pos2 = pos1 + 5;
+							foodname = vinfo[k - 1].substr(pos2, 12);
+							//cout << foodname << "mingz ";
+							oo.name = foodname;
+						}
+						else if (count == 3)
+						{
+							pos1 = vinfo[k - 1].find("格");
+							pos2 = pos1 + 5;
+							foodprice = atoi(vinfo[k - 1].substr(pos2, 4).c_str());
+							//cout << foodprice << " foodprice";
+							oo.prise = foodprice;
+						}
+						else if (count == 2)
+						{
+							pos1 = vinfo[k - 1].find("数");
+							pos2 = pos1 + 5;
+
+							foodnum = atoi(vinfo[k - 1].substr(pos2, 2).c_str());
+
+							//cout << foodnum << " num";
+
+							oo.number = foodnum;
+						}
+						else if (count == 1)
+						{
+							pos1 = vinfo[k - 1].find("用");
+							pos2 = pos1 + 5;
+
+							totalprice = atoi(vinfo[k - 1].substr(pos2, 4).c_str());
+
+							//cout << totalprice << "totalprice";
+							oo.totalprice = totalprice;
+						}
+						else if (count == 0)
+						{
+							pos1 = vinfo[k - 1].find("用");
+							pos2 = pos1 + 9;
+							adda = vinfo[k - 1].substr(pos2);
+							oo.sizeiceadda = adda;
+						}
+					}vOO.push_back(oo);
 				}
-
-
-				//cout << "----------------------" << endl;
-				//插入到vector容器
-				for (vector<Orderin>::iterator it = vOI.begin(); it != vOI.end(); it++)
-				{
-
-					it->No = orderid;
-					//cout << "tableid=" << tableid << " " << "boxprice=" << boxprice << endl;
-				}
-
-				//插入到map容器中
-
-				mOI.insert(make_pair(orderid, vOI));
-
 
 			}
+			//插入到vector容器
+			for (vector<OrderOut>::iterator it = vOO.begin(); it != vOO.end(); it++)
+			{
+				it->No = orderid;
+			}
+			//插入到map容器中
+			mOO.insert(make_pair(orderid, vOO));
 
 		}
+		else if (line.at(15) == 'i')
+		{
+			//cout << "堂食订单！" << endl;
+			vOI.clear();
+			i++;
+
+			for (int k = temp[i]; k < temp[i + 1]; k++)
+			{
+				//读入数据，存储到vector容器
+				//cout << vinfo[k-1] << endl;
+				//存储在外卖vector容qi
+				if (k == temp[i])//订单编号
+				{
+					count = 6;
+					while (count--)
+					{
+						if (count == 5)
+						{
+							pos1 = vinfo[k - 1].find(":") + 1;
+							orderid = vinfo[k - 1].substr(pos1, 5);
+
+							//cout << orderid << "编号" ;
+						}
+						if (count == 4)
+						{
+							pos1 = vinfo[k - 1].find("称");
+							pos2 = pos1 + 5;
+
+							foodname = vinfo[k - 1].substr(pos2, 12);
+							//cout << foodname << "mingz ";
+
+							oi.name = foodname;
+						}
+						else if (count == 3)
+						{
+							pos1 = vinfo[k - 1].find("格");
+							pos2 = pos1 + 5;
+							foodprice = atoi(vinfo[k - 1].substr(pos2, 4).c_str());
+
+							//cout << foodprice << " foodprice";
+							oi.prise = foodprice;
+						}
+						else if (count == 2)
+						{
+							pos1 = vinfo[k - 1].find("数");
+							pos2 = pos1 + 5;
+
+							foodnum = atoi(vinfo[k - 1].substr(pos2, 2).c_str());
+
+							//cout << foodnum << " num";
+
+							oi.number = foodnum;
+						}
+						else if (count == 1)
+						{
+							pos1 = vinfo[k - 1].find("用");
+							pos2 = pos1 + 5;
+
+							totalprice = atoi(vinfo[k - 1].substr(pos2, 4).c_str());
+
+							//cout << totalprice << "totalprice";
+							oi.totalprice = totalprice;
+						}
+						else if (count == 0)
+						{
+							pos1 = vinfo[k - 1].find("用");
+							pos2 = pos1 + 9;
+							adda = vinfo[k - 1].substr(pos2);
+							oi.sizeiceadda = adda;
+						}
+
+					}
+					vOI.push_back(oi);
+				}
+			}
+
+
+			//cout << "----------------------" << endl;
+			//插入到vector容器
+			for (vector<Orderin>::iterator it = vOI.begin(); it != vOI.end(); it++)
+			{
+
+				it->No = orderid;
+				//cout << "tableid=" << tableid << " " << "boxprice=" << boxprice << endl;
+			}
+
+			//插入到map容器中
+
+			mOI.insert(make_pair(orderid, vOI));
+
+
+		}
+
+
 	}
 }
+
 
 //删除全部订单
 void Back_stage_management::DeleteAllOrder()
@@ -778,11 +787,11 @@ void Back_stage_management::DeleteAllOrder()
 */
 
 //删除一个订单
-/*
+
 void Back_stage_management::DeleteoneOrder()
 {
 	cout << "-----------删除订单--------------" << endl;
-
+	int count = 0;
 	string temp = "0";
 
 	//删除的订单编号
@@ -792,26 +801,38 @@ void Back_stage_management::DeleteoneOrder()
 	{
 		cout << "请输入您要删除的订单编号！" << endl;
 		cin >> deleteid;
+		if (deleteid.length() > 4 && deleteid.length() < 6)
+		{
+			if (deleteid[4] == 'i')
+			{
+				mOI.erase(deleteid);
+				cout << "删除成功!" << endl;
+				break;
+			}
+			else if (deleteid[4] == 'o')
+			{
+				mOO.erase(deleteid);
+				cout << "删除成功!" << endl;
+				break;
+			}
+			else
+			{
+				cout << "输入错误,请重新输入 " << endl;
+				count++;
 
-		if (deleteid[4] == 'i')
-		{
-			mOI.erase(deleteid);
-			cout << "删除成功!" << endl;
-			break;
-		}
-		else if (deleteid[4] == 'o')
-		{
-			mOO.erase(deleteid);
-			cout << "删除成功!" << endl;
-			break;
+			}
+			if (count == 3)
+			{
+				break;
+			}
 		}
 		else
 		{
-			cout << "输入错误" << endl;
-			break;
+			cout << "输入错误，请重新输入" << endl;
+			
 		}
 	}
-	
+
 
 	//写入文件
 	ofstream ofs;
@@ -847,7 +868,7 @@ void Back_stage_management::DeleteoneOrder()
 				for (vector<Orderin>::iterator mit = it->second.begin(); mit != it->second.end(); mit++)
 				{
 					count++;
-					ofs << "订单编号:" << it->first << "菜品名称为:" << mit->name << " 菜品价格:" << mit->prise << " 菜品份数:" << mit->number << " 菜品折扣:" << mit->totalprice << mit->adda << endl;
+					ofs << "订单编号:" << it->first << "\t" << "菜品名称为:" << mit->name << "\t" << " 菜品价格:" << mit->prise << "\t" << " 菜品份数:" << mit->number << "\t" << "总费用:" << mit->totalprice << "\t" << "规格配料" << mit->sizeiceadda << endl;
 				}
 
 			}
@@ -861,13 +882,12 @@ void Back_stage_management::DeleteoneOrder()
 				for (vector<OrderOut>::iterator mit = it->second.begin(); mit != it->second.end(); mit++)
 				{
 					count++;
-					ofs << "订单编号:" << it->first << "菜品名称为:" << mit->name << " 菜品价格:" << mit->prise << " 菜品份数:" << mit->number << " 菜品折扣:" << mit->totalprice << mit->adda << endl;
+					ofs << "订单编号:" << it->first << "\t" << "菜品名称为:" << mit->name << "\t" << " 菜品价格:" << mit->prise << "\t" << " 菜品份数:" << mit->number << "\t" << "总费用:" << mit->totalprice << "\t" << "规格配料" << mit->sizeiceadda << endl;
 
 				}
 			}
 		}
 
 	}
-
 }
-*/
+
