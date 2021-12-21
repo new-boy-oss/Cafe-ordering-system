@@ -141,7 +141,7 @@ void Back_stage_management::change()
 {
 	cout << "修改商品" << endl;
 	string m_prise, m_name, m_No, m_number;//用于查找
-	string M_name, M_prise, M_number;//用于修改
+	string M_name; int M_prise, M_number;//用于修改
 
 	string str;
 
@@ -197,6 +197,14 @@ flag2:
 			cout << "请输入修改后的名称" << endl;
 			cin >> M_name;
 			product[j] = M_name;
+			if (j == 3)
+			{
+				s.Name[0] = M_name;
+			}
+			else
+			{
+				s.Name[(j + 4) / 8 - 1] = M_name;
+			}
 			break;
 		}
 	}
@@ -211,6 +219,14 @@ flag2:
 			cout << "请输入修改后的价格" << endl;
 			cin >> M_prise;
 			product[j] = M_prise;
+			if (j == 5)
+			{
+				s.prise[0] = M_prise;
+			}
+			else
+			{
+				s.Name[(j + 2) / 8 - 1] = M_name;
+			}
 			break;
 		}
 	}
@@ -225,6 +241,14 @@ flag2:
 			cout << "请输入修改后的数量" << endl;
 			cin >> M_number;
 			product[j] = M_number;
+			if (j == 7)
+			{
+				s.number[0] = M_number;
+			}
+			else
+			{
+				s.number[j / 8 - 1] = M_number;
+			}
 			break;
 		}
 	}
@@ -240,25 +264,18 @@ flag2:
 		ofs << product[i] << endl;
 	}
 
-	//写入结构体
+	/*/写入结构体
 	int ssss = 0;
 	for (int sss = 0; sss <= (x / 8); sss++)
 	{
-		s.No[sss] = product[ssss + 1];
-		s.Name[sss] = product[ssss + 3];
+		s.No[sss]= product[ssss + 1];
+		s.Name[sss]= product[ssss + 3];
 		string sa = product[ssss + 5];//string转int
 		string ssa = product[ssss + 7];
-		s.prise[sss] = atoi(sa.c_str());
-		s.number[sss] = atoi(ssa.c_str());
+		s.prise[sss]= atoi(sa.c_str());
+		s.number[sss]= atoi(ssa.c_str());
 	}
-
-
-	delete[] product;
-	ofs.close();
-
-
-	cout << "修改成功" << endl;
-
+	*/
 }
 
 //会员信息维护
@@ -302,7 +319,7 @@ void Back_stage_management::login_choice()
 	cout << "---------0.返回界面----------------" << endl;
 	cout << "-----------------------------------" << endl;
 	int choice;
-	Interface a;
+	//Interface a;
 flag3:
 	cout << "请选择接下来的操作" << endl;
 	cin >> choice;
@@ -361,7 +378,7 @@ flag3:
 	
 	//退出程序
 	case 0:
-		a.inferface();
+		inferface();
 		break;
 	default:
 		cout << "输入错误，请重新输入" << endl;

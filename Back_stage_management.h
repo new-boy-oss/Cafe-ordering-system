@@ -1,12 +1,13 @@
 //后台管理
 #include"Commodity.h"
+#include"Interface.h"
 #include "Orderin.h"
 #include "OrderOut.h"
 #include<fstream>
 #include<vector>
 #include<map>
 #pragma once
-class Back_stage_management:virtual public Commodity, virtual public Order
+class Back_stage_management: virtual public Order, public Interface
 {
 public:
 	vector<Order> vOrder;
