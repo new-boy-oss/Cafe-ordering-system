@@ -801,7 +801,7 @@ void Interface::show_product2()
 	outtextxy(800, 120, "您将享受全场八折的优惠！");
 	for (int i = 0; i < 12; i++)//结构体里价格*0.8
 	{
-		s.prise[i] = s.prise[i] * static_cast<int>(0.8);
+		s.prise[i] = s.prise[i] * 0.8;
 	}
 	choice();
 }
