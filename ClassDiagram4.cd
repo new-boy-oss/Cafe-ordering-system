@@ -23,8 +23,11 @@
   </Class>
   <Class Name="Interface">
     <Position X="0.5" Y="7.25" Width="3" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
     <NestedTypes>
-      <Struct Name="Interface::specifications" Collapsed="true">
+      <Struct Name="Interface::specifications">
         <TypeIdentifier>
           <NewMemberFileName>Interface.h</NewMemberFileName>
         </TypeIdentifier>

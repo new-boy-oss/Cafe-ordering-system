@@ -10,11 +10,6 @@ Interface::Interface()
 	no = '0';
 	name = '0';
 	Prise = 0;
-	temp = 0;
-	temp1 = 0;
-	temp2 = 0;
-	temp3 = 0;
-	temp4 = 0;
 }
 
 Interface::~Interface()

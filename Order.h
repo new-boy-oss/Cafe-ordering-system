@@ -15,7 +15,7 @@ public:
 	};
 	Order(string b, int c, int d, string e)
 		: name(b), prise(c), number(d), sizeiceadda(e) {
-		No = " 1"; totalprice = '0'; prise = 0; number = 0;
+		No = " 1"; totalprice = 0; 
 	}
 	virtual void print() {};
 	virtual int calculation() { return 0; };
