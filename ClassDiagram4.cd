@@ -22,7 +22,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Interface">
-    <Position X="0.5" Y="7.25" Width="3" />
+    <Position X="17.5" Y="0.75" Width="3" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
@@ -60,7 +60,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="VIP">
-    <Position X="5" Y="11" Width="2.5" />
+    <Position X="10.75" Y="8.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>gAAAAAAAAAAQBAABAAAAAAAAAAgAAAACAAAKAAAAAgE=</HashCode>
       <FileName>VIP.h</FileName>
