@@ -7,7 +7,14 @@ using namespace std;
 //
 Interface::Interface()
 {
-	//
+	no = '0';
+	name = '0';
+	Prise = 0;
+	temp = 0;
+	temp1 = 0;
+	temp2 = 0;
+	temp3 = 0;
+	temp4 = 0;
 }
 
 Interface::~Interface()
@@ -156,6 +163,8 @@ string Interface::getNo()
 	{
 		return s.No[11];
 	}
+	else
+		return "0";
 }
 
 //返回名字
@@ -211,6 +220,8 @@ string Interface::getName()
 	{
 		return s.Name[11];
 	}
+	else
+		return "0";
 }
 
 //返回价格
@@ -266,6 +277,8 @@ int Interface::getPrise()
 	{
 		return s.prise[11];
 	}
+	else
+	return 0;
 }
 
 //返回规格
@@ -304,10 +317,12 @@ string Interface::getspecifications()
 	{
 		return spe[14].specifications;
 	}
-	else
+	else if (temp == 10 || temp == 11 || temp == 12)
 	{
 		return spe[16].specifications;
 	}
+	else
+		return "0";
 }
 
 //返回配送方式
@@ -322,6 +337,8 @@ string Interface::getdelivery()
 	{
 		return spe[1].delivery;
 	}
+	else
+		return "0";
 }
 
 //选择跳转界面
@@ -784,7 +801,7 @@ void Interface::show_product2()
 	outtextxy(800, 120, "您将享受全场八折的优惠！");
 	for (int i = 0; i < 12; i++)//结构体里价格*0.8
 	{
-		s.prise[i] = s.prise[i] * 0.8;
+		s.prise[i] = s.prise[i] * static_cast<int>(0.8);
 	}
 	choice();
 }

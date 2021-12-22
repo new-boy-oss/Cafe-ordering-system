@@ -62,7 +62,7 @@
     <ClInclude Include="Orderin.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="orderOut.h">
+    <ClInclude Include="OrderOut.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

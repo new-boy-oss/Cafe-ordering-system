@@ -12,7 +12,9 @@
 #include<iostream>
 #pragma warning(disable:4996)
 #pragma warning(disable:4244)//从“double”转换到“const unsigned __int64”，可能丢失数据
-
+#define _CRT_SECURE_NO_WARNINGS//size_t转到int可能丢失数据
+#pragma warning(disable:6385)
+#pragma warning(disable:6386)//可写大小为80，但可能写入了-4
 using namespace std;
 
 Back_stage_management::Back_stage_management()
@@ -589,32 +591,32 @@ void Back_stage_management::UpdateOrder()
 					{
 						if (count == 5)
 						{
-							pos1 = vinfo[k - 1].find(":") + 1;
-							orderid = vinfo[k - 1].substr(pos1, 5);
+							pos1 = vinfo[(double)k - 1].find(":") + 1;
+							orderid = vinfo[(double)k - 1].substr(pos1, 5);
 							//cout << orderid << "编号" ;
 						}
 						if (count == 4)
 						{
-							pos1 = vinfo[k - 1].find("称");
+							pos1 = vinfo[(double)k - 1].find("称");
 							pos2 = pos1 + 5;
-							foodname = vinfo[k - 1].substr(pos2, 12);
+							foodname = vinfo[(double)k - 1].substr(pos2, 12);
 							//cout << foodname << "mingz ";
 							oo.name = foodname;
 						}
 						else if (count == 3)
 						{
-							pos1 = vinfo[k - 1].find("格");
+							pos1 = vinfo[(double)k - 1].find("格");
 							pos2 = pos1 + 5;
-							foodprice = atoi(vinfo[k - 1].substr(pos2, 4).c_str());
+							foodprice = atoi(vinfo[(double)k - 1].substr(pos2, 4).c_str());
 							//cout << foodprice << " foodprice";
 							oo.prise = foodprice;
 						}
 						else if (count == 2)
 						{
-							pos1 = vinfo[k - 1].find("数");
+							pos1 = vinfo[(double)k - 1].find("数");
 							pos2 = pos1 + 5;
 
-							foodnum = atoi(vinfo[k - 1].substr(pos2, 2).c_str());
+							foodnum = atoi(vinfo[(double)k - 1].substr(pos2, 2).c_str());
 
 							//cout << foodnum << " num";
 
@@ -622,19 +624,19 @@ void Back_stage_management::UpdateOrder()
 						}
 						else if (count == 1)
 						{
-							pos1 = vinfo[k - 1].find("用");
+							pos1 = vinfo[(double)k - 1].find("用");
 							pos2 = pos1 + 5;
 
-							totalprice = atoi(vinfo[k - 1].substr(pos2, 4).c_str());
+							totalprice = atoi(vinfo[(double)k - 1].substr(pos2, 4).c_str());
 
 							//cout << totalprice << "totalprice";
 							oo.totalprice = totalprice;
 						}
 						else if (count == 0)
 						{
-							pos1 = vinfo[k - 1].find("用");
+							pos1 = vinfo[(double)k - 1].find("用");
 							pos2 = pos1 + 9;
-							adda = vinfo[k - 1].substr(pos2);
+							adda = vinfo[(double)k - 1].substr(pos2);
 							oo.sizeiceadda = adda;
 						}
 					}vOO.push_back(oo);
@@ -668,36 +670,36 @@ void Back_stage_management::UpdateOrder()
 					{
 						if (count == 5)
 						{
-							pos1 = vinfo[k - 1].find(":") + 1;
-							orderid = vinfo[k - 1].substr(pos1, 5);
+							pos1 = vinfo[(double)k - 1].find(":") + 1;
+							orderid = vinfo[(double)k - 1].substr(pos1, 5);
 
 							//cout << orderid << "编号" ;
 						}
 						if (count == 4)
 						{
-							pos1 = vinfo[k - 1].find("称");
+							pos1 = vinfo[(double)k - 1].find("称");
 							pos2 = pos1 + 5;
 
-							foodname = vinfo[k - 1].substr(pos2, 12);
+							foodname = vinfo[(double)k - 1].substr(pos2, 12);
 							//cout << foodname << "mingz ";
 
 							oi.name = foodname;
 						}
 						else if (count == 3)
 						{
-							pos1 = vinfo[k - 1].find("格");
+							pos1 = vinfo[(double)k - 1].find("格");
 							pos2 = pos1 + 5;
-							foodprice = atoi(vinfo[k - 1].substr(pos2, 4).c_str());
+							foodprice = atoi(vinfo[(double)k - 1].substr(pos2, 4).c_str());
 
 							//cout << foodprice << " foodprice";
 							oi.prise = foodprice;
 						}
 						else if (count == 2)
 						{
-							pos1 = vinfo[k - 1].find("数");
+							pos1 = vinfo[(double)k - 1].find("数");
 							pos2 = pos1 + 5;
 
-							foodnum = atoi(vinfo[k - 1].substr(pos2, 2).c_str());
+							foodnum = atoi(vinfo[(double)k - 1].substr(pos2, 2).c_str());
 
 							//cout << foodnum << " num";
 
@@ -705,19 +707,19 @@ void Back_stage_management::UpdateOrder()
 						}
 						else if (count == 1)
 						{
-							pos1 = vinfo[k - 1].find("用");
+							pos1 = vinfo[(double)k - 1].find("用");
 							pos2 = pos1 + 5;
 
-							totalprice = atoi(vinfo[k - 1].substr(pos2, 4).c_str());
+							totalprice = atoi(vinfo[(double)k - 1].substr(pos2, 4).c_str());
 
 							//cout << totalprice << "totalprice";
 							oi.totalprice = totalprice;
 						}
 						else if (count == 0)
 						{
-							pos1 = vinfo[k - 1].find("用");
+							pos1 = vinfo[(double)k - 1].find("用");
 							pos2 = pos1 + 9;
-							adda = vinfo[k - 1].substr(pos2);
+							adda = vinfo[(double)k - 1].substr(pos2);
 							oi.sizeiceadda = adda;
 						}
 

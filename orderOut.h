@@ -9,7 +9,10 @@ class OrderOut :virtual public Order
 public:
 	vector<OrderOut> vOrderOutInfo;
 	vector <string> vinfo;
-	OrderOut() {};
+	OrderOut() 
+	{
+		ExtraTips = 0;
+	};
 	OrderOut(string b, int c, int d, string e) :Order(b, c, d, e)
 	{
 		srand((int)(time(NULL)));
