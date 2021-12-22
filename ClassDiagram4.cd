@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Back_stage_management">
+    <Position X="4.75" Y="4.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AQgADWAACEAECAAQAAAAAAQAAACAgIIABAAAEAAAACA=</HashCode>
+      <FileName>Back_stage_management.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Commodity">
+    <Position X="1" Y="2.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AABAgAgOAAAAAAAAAAABAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Commodity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Date">
+    <Position X="14" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAkAAAAAAEAAAAAAAAAAAAAAAQAAAABAAAAAAAgAQA=</HashCode>
+      <FileName>Date.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Interface">
+    <Position X="0.5" Y="7.25" Width="3" />
+    <NestedTypes>
+      <Struct Name="Interface::specifications" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Interface.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gIAAAAAAAAABAAKBCABwIAAYRAAXAgCCMABEgCAUAgg=</HashCode>
+      <FileName>Interface.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Order">
+    <Position X="7" Y="0.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAUAAAEAAAAAQAAAAAAAQABEACAEAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Order.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Orderin">
+    <Position X="13" Y="4.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAQIAAAAAAAAAEAAAAACQAAAAAAAAAAAAAAAAAAAAAw=</HashCode>
+      <FileName>Orderin.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrderOut">
+    <Position X="9" Y="4.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AIQAAAAAAAAAAEAABAACQAQAAAAAAAAAAACAEAAABAA=</HashCode>
+      <FileName>OrderOut.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VIP">
+    <Position X="5" Y="11" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAQBAABAAAAAAAAAAgAAAACAAAKAAAAAgE=</HashCode>
+      <FileName>VIP.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="product">
+    <Position X="11" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAQAAAAAAAAAQAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commodity.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
