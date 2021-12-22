@@ -1194,6 +1194,7 @@ void Interface::milktea_show()
 //果茶
 void Interface::fruittea_show()
 {
+
 	ExMessage m;//鼠标
 	IMAGE img2, img3, img4;
 	setlinecolor(BLACK);
@@ -1652,6 +1653,16 @@ void Interface::Alipay_pay()
 //订单界面
 void Interface::order_show(string a, string b, int c, string d, string e)//把商品的编号、名字、价格、配料、配送方法传入
 {
+	if (strcmp(e.c_str(), "外卖") == 0)
+	{
+		OrderOut j(b, c, 1, d);
+		j.AddOutInfo();
+	}
+	else
+	{
+		Orderin o(b, c, 1, d);
+		o.AddOutInfo();
+	}
 	ExMessage m;//鼠标
 	setlinecolor(BLACK);
 	setfillcolor(WHITE);

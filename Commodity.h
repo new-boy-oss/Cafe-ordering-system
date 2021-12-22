@@ -16,6 +16,7 @@ struct product
 	int number[20] = { 30,30,30,40,40,40,45,45,45,30,30,30 };
 };
 
+
 class Commodity
 {
 public:
