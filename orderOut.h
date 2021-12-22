@@ -2,6 +2,7 @@
 #include "Order.h"
 #include <vector>
 #include <string>
+#include <time.h>
 using namespace std;
 //ÍâÂô
 class OrderOut :virtual public Order
