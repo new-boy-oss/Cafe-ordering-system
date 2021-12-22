@@ -314,7 +314,7 @@ string Interface::getspecifications()
 	}
 	else if (temp == 10 || temp == 11 || temp == 12)
 	{
-		return spe[16].specifications;
+		return spe[17].specifications;
 	}
 	else
 		return "0";
