@@ -205,7 +205,7 @@ flag2:
 			}
 			else
 			{
-				s.Name[(j + 4) / 8 - 1] = M_name;
+				s.Name[(j + 5) / 8 - 1] = M_name;
 			}
 			break;
 		}
@@ -227,7 +227,7 @@ flag2:
 			}
 			else
 			{
-				s.Name[(j + 2) / 8 - 1] = M_name;
+				s.prise[(j + 3) / 8 - 1] = M_prise;
 			}
 			break;
 		}
@@ -249,7 +249,7 @@ flag2:
 			}
 			else
 			{
-				s.number[j / 8 - 1] = M_number;
+				s.number[(j+1) / 8 - 1] = M_number;
 			}
 			break;
 		}
