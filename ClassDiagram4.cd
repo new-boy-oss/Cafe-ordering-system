@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
-  <Class Name="Back_stage_management">
+  <Class Name="Back_stage_management" Collapsed="true">
     <Position X="4.75" Y="4.25" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AQgADWAACEAECAAQAAAAAAQAAACAgIIABAAAEAAAACA=</HashCode>
       <FileName>Back_stage_management.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Commodity">
-    <Position X="1" Y="2.25" Width="2.25" />
+  <Class Name="Commodity" Collapsed="true">
+    <Position X="9.25" Y="1.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AABAgAgOAAAAAAAAAAABAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
       <FileName>Commodity.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Date">
+  <Class Name="Date" Collapsed="true">
     <Position X="14" Y="0.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAkAAAAAAEAAAAAAAAAAAAAAAQAAAABAAAAAAAgAQA=</HashCode>
       <FileName>Date.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Interface">
-    <Position X="17.5" Y="0.75" Width="3" />
+  <Class Name="Interface" Collapsed="true">
+    <Position X="12.5" Y="1.75" Width="3" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
@@ -38,35 +38,35 @@
       <FileName>Interface.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Order">
+  <Class Name="Order" Collapsed="true">
     <Position X="7" Y="0.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAUAAAEAAAAAQAAAAAAAQABEACAEAAAAAAgAAAAAAAA=</HashCode>
       <FileName>Order.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Orderin">
-    <Position X="13" Y="4.25" Width="3.5" />
+  <Class Name="Orderin" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAQIAAAAAAAAAEAAAAACQAAAAAAAAAAAAAAAAAAAAAw=</HashCode>
       <FileName>Orderin.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OrderOut">
-    <Position X="9" Y="4.25" Width="3.25" />
+  <Class Name="OrderOut" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AIQAAAAAAAAAAEAABAACQAQAAAAAAAAAAACAEAAABAA=</HashCode>
       <FileName>OrderOut.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="VIP">
-    <Position X="10.75" Y="8.25" Width="2.5" />
+  <Class Name="VIP" Collapsed="true">
+    <Position X="4.25" Y="3" Width="2.5" />
     <TypeIdentifier>
       <HashCode>gAAAAAAAAAAQBAABAAAAAAAAAAgAAAACAAAKAAAAAgE=</HashCode>
       <FileName>VIP.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Struct Name="product">
+  <Struct Name="product" Collapsed="true">
     <Position X="11" Y="0.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAEAAAAAQAAAAAAAAAQAACAAAAAAAAAAAAAAAAA=</HashCode>

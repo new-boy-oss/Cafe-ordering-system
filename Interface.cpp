@@ -1756,9 +1756,3 @@ void Interface::order_show(string a, string b, int c, string d, string e)//∞—…Ã∆
 		}
 	}
 }
-
-
-
-
-
-
